@@ -28,7 +28,7 @@ Nosso trabalho tem como tema o desenvolvimento de um website referente a um supe
 
 <a name="Requisitos"/>
 
-### 1. Requisitos
+## 1. Requisitos
 O sistema deve ter 2 tipos de usuários: clientes e administradores.
 
 Os administradores são responsáveis por registrar/gerenciar administradores, clientes e produtos fornecidos. O aplicativo já vem com uma conta admin com senha admin.
@@ -53,7 +53,7 @@ O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus us
 
 <a name="Descrição-do-Projeto"/>
 
-### 2. Descrição do Projeto
+## 2. Descrição do Projeto
 [ Nome do nosso supermercado ] consiste eu um supermercado virtual, no qual sao vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5 e a linguagem de estilização CSS3.
 
 Diagrama de navegação:
@@ -65,7 +65,7 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - Mockup 2
 - Mockup 3
 
-#### Funcionalidades
+### Funcionalidades
 Funcionalidades visadas pelo nosso site:
 
 - Login com email e senha na plataforma, com opção de criar uma nova conta.
@@ -78,10 +78,10 @@ Funcionalidades visadas pelo nosso site:
 - Opção de alterar o endereço de entrega.
 - [ Funcionalide extra ]
 
-#### Servidor
+### Servidor
 Informações armazenadas no servidor:
 
-##### Contas:
+#### Contas:
 - id (identificador do cliente, valor único)
 - nome
 - email
@@ -91,7 +91,7 @@ Informações armazenadas no servidor:
 - endereço
 - número de telefone
 
-##### Produtos:
+#### Produtos:
 - id (identificador do produto, valor único)
 - título
 - categoria (número de 0 a 4)
@@ -103,34 +103,34 @@ Informações armazenadas no servidor:
 
 <a name="Comentários-sobre-o-código"/>
 
-### 3. Comentários sobre o código
+## 3. Comentários sobre o código
 <br>
 <br>
 
 <a name="Plano-de-teste"/>
 
-### 4. Plano de teste
+## 4. Plano de teste
 <br>
 <br>
 
 <a name="Resultados-dos-testes"/>
 
-### 5. Resultados dos testes
+## 5. Resultados dos testes
 <br>
 <br>
 
 <a name="Building"/>
 
-### 6. Building
+## 6. Building
 <br>
 <br>
 
 <a name="Problemas"/>
 
-### 7. Problemas
+## 7. Problemas
 <br>
 <br>
 
 <a name="Comentários"/>
 
-### 8. Comentários
+## 8. Comentários
