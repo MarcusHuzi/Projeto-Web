@@ -1,5 +1,5 @@
-[ Colocar aqui a logomarca do nosso supermercado ]
-# [ Escolher um nome ]
+![Cartaz](./src/image/Cartaz.png)
+# Nosso Mercadinho
 
 
 Projeto da disciplina Introdução ao Desenvolvimento Web - SCC0219.
