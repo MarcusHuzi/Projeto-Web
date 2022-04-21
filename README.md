@@ -65,8 +65,7 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - Mockup 2
 - Mockup 3
 
-### Funcionalidades
-Funcionalidades visadas pelo nosso site:
+### Funcionalidades visadas pelo nosso site:
 
 - Login com email e senha na plataforma, com opção de criar uma nova conta.
 - Visualização das informações do cliente, com opção de alterar cadastro.
@@ -78,8 +77,7 @@ Funcionalidades visadas pelo nosso site:
 - Opção de alterar o endereço de entrega.
 - [ Funcionalide extra ]
 
-### Servidor
-Informações armazenadas no servidor:
+###  Informações armazenadas no servidor:
 
 #### Contas:
 - id (identificador do cliente, valor único)
