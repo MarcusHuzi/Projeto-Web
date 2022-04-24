@@ -57,7 +57,7 @@ O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus us
 [ Nome do nosso supermercado ] consiste eu um supermercado virtual, no qual sao vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5 e a linguagem de estilização CSS3.
 
 Diagrama de navegação:
-[ Colocar o diagrama aqui ]
+![Diagrama de Navegação](./src/image/nav-diagram.png)
 
 Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens dos mockups do website. As imagens também podem ser acessadas através dos links abaixo:
 - [Colocar os links para as imagens dos mockups aqui]
