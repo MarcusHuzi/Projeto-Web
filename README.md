@@ -47,7 +47,7 @@ Gerenciamento de produto: os administradores podem criar/atualizar/ler/excluir n
 
 Nosso sistema, como funcionalidade extra, também terá listas de compras, as quais os usuários podem criar a partir de carrinhos de compras ja preenchidos com produtos. Essas listas ficam salvas, permitindo o usuário utiliza-las para realizar futuras compras de forma mais rápida e prática.
 
-O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus usuários.
+O sistema visa uma boa acessibilidade e usabilidade para seus usuários.
 <br>
 <br>
 
@@ -62,10 +62,16 @@ Diagrama de navegação:
 <img src="/src/image/nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
 
 Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens dos mockups do website. As imagens também podem ser acessadas através dos links abaixo:
-- [Colocar os links para as imagens dos mockups aqui]
-- Mockup 1
-- Mockup 2
-- Mockup 3
+- [Home Page](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/home.jpg)
+- [Cadastro](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/cadastro.jpg)
+- [Carrinho](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/carrinho.jpg)
+- [Detalhe de Produto](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/detalheProduto.jpg)
+- [Finalizar Compra](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/finalizarCompra.jpg)
+- [Listagem de Produtos](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/listagemProdutos.jpg)
+- [Lista de Compras](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/listasDeCompras.jpg)
+- [Login](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/login.jpg)
+- [Meu Perfil](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/meuPerfil.jpg)
+- [Área do Administrador](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/AreaDoAdmin.jpg)
 
 ### Funcionalidades visadas pelo nosso site:
 
