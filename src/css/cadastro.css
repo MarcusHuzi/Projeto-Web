@@ -1,0 +1,34 @@
+	#barra{background-color:#a40444;width:100%;height:100px;}
+	#cabecalho{border-bottom:solid 2px black;margin: 0px 200px 0px 50px;}
+	#corpo{position:absolute;left:360px;margin: 40px 0px 0px 0px;width:650px;height:1500px;}
+	#descricao{color:#000000;position:relative;top:20px;left:90px;opacity:0.7;margin:0px 0px 50px 0px;}
+	#termos{font-family:itim; position:relative;left:170px;}
+	#termos1{font-family:itim; color:blue;}
+	#img-logo{height:100px;width:175px;position:relative;left:10px;}
+	#img-pesquisa{height:50px;width:320px;position:relative;left:300px;bottom:20px;}
+	#img-atributos{height:80px;width:300px;position:relative;left:640px;bottom:7px;}
+	#fim{background-color:#a40444;width:100%;height:250px;position:absolute;top:1600px;left:0px;}
+    #sobre{width:300px;position:relative;left:25px;}
+	#sobre1{width:300px;position:relative;left:550px;bottom:185px;}
+	#sobre2{width:300px;position:relative;left:1050px;bottom:350px;}
+	.cima{color:#a40444;}
+	.caminho{font-size:0.5em;}
+	.secao{width: 60%; padding: 12px 20px; display: inline-block; border: 3px solid #000000; border-radius: 10px; box-sizing: border-box;position:relative;left:110px;}
+	.secao1{width: 20%; padding: 12px 20px; display: inline-block; border: 3px solid #000000; border-radius: 10px; box-sizing: border-box;position:relative;left:110px;}
+	.secao2{width: 40%; padding: 12px 20px; display: inline-block; border: 3px solid #000000; border-radius: 10px; box-sizing: border-box;position:relative;left:110px;}
+	.secao3{width: 60%; padding: 12px 20px; display: inline-block; border-radius: 10px; box-sizing: border-box;position:relative;left:110px; background-color:#a40444;height:60px;color:#FCCC04;font-size:1.25em;}
+	.titulo{position:relative;left:110px;}
+	.abaixo{color:#FCCC04;font-style: normal;letter-spacing: 0.1em;color: #FCCC04; position:relative;left:2px;}
+	.abaixo1{color:#FCCC04;}
+	
+	@font-face{
+		font-family:rubikOne;
+		src: url(../fonts/rubik-one-regular-webfont.woff);
+	}
+	
+	@font-face{
+		font-family:itim;
+		src: url(../fonts/itim-regular-webfont.woff);
+	}
+	
+	*{color:#000000;font-family:rubikOne;opacity:0.95;}

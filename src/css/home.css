@@ -1,0 +1,60 @@
+/* tamnanho das imagens das categorias */
+.content img{
+    max-width: 20%;
+    border-radius: 100%;
+    transition: ease 600ms;
+}
+
+/* efeito nas imagens das categorias */
+.content img:hover{
+    opacity: 0.7;
+    transform: scale(1.08);
+}
+
+/* alinhamento dos nomes das categorias */
+.content h2 {
+    text-align: center;
+}
+
+/* titulo principal da homepage */
+.content h1 {
+    text-align: center;
+    font-size: 80px;
+    padding: 10%;
+    margin-top: 30px;
+    margin-bottom: -110px;
+    color: var(--preto);
+}
+
+/* lista das imagens das categorias */
+.first-row li, .second-row li, .third-row li {
+    display: inline;
+    vertical-align: middle;
+    margin-left: 8.8em;
+}
+
+/* lista dos titulos das categorias */
+.first-row-titles li, .second-row-titles li , .third-row-titles li  {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: var(--preto);
+}
+
+/* alinhando os titulos */
+.first-row-titles li {
+    margin-left: 210px;
+    margin-right: 35px;
+}
+
+.second-row-titles li {
+    margin-left: 180px;
+    margin-right: 40px;
+}
+
+.third-row-titles li {
+    margin-left: 220px;
+    margin-right: 40px;
+}
