@@ -1,0 +1,172 @@
+.content {
+    height: 1450px;
+    width: 100%;
+    top: 150px;
+    position: absolute;
+}
+
+.titulo {
+    margin: 3% 3% 10px 3%;
+}
+
+.titulo h1 {
+    color: var(--vermelho-escuro);
+    font-size: 70px;
+    text-align: left;
+}
+
+.titulo h2 {
+    color: var(--vermelho-escuro);
+    font-size: 18px;
+    text-align: left;
+}
+
+.titulo hr {
+    color: var(--cinza);
+    size: 8px;
+}
+
+.produtos {
+    margin: 0 3% 10px 3%;
+}
+
+.produtos h2{
+    color: var(--preto);
+}
+
+.produtos li {
+    padding: 10px;
+}
+
+.product-box {
+    width: 70%;
+    height: 120px;
+    background-color: var(--cinza);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.list-inline li{
+    display: inline-block;
+    padding: 0px;
+}
+
+.prod-imagem-box {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.prod-imagem {
+    width: 80%;
+}
+
+.prod-nome {
+    position: relative;
+    line-height: 120px;
+    left: 80px;
+}
+
+.prod-quantidade {
+    position: relative;
+    line-height: 120px;
+    left: 300px;
+}
+
+.prod-valor {
+    position: relative;
+    line-height: 120px;
+    left: 320px;
+}
+
+.botoes {
+    margin: 0 3% 10px 3%;
+    height: 300px;
+    padding: 10px;
+}
+
+.botoes h1 {
+    font-size: 24px;
+    color: var(--amarelo);
+}
+
+
+
+
+.total-compra {
+    background-color: var(--vermelho-escuro);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    width: 220px;
+    height: 120px;
+    border-radius: 20px;
+    float: left;
+    text-align: center;
+}
+
+.total-compra h1 {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.total-compra h2 {
+    font-size: 22px;
+    color: var(--preto);
+    padding-top: 7px;
+}
+
+.preco-box {
+    background-color: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 160px;
+    height: 30px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.salvar-lista {
+    background-color: var(--vermelho-escuro);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    width: 300px;
+    height: 60px;
+    border-radius: 20px;
+    float: left;
+    margin-left: 20px;
+    text-align: center;
+    transition: ease 600ms;
+}
+
+.salvar-lista:hover{
+    opacity: 0.7;
+    transform: scale(1.04);
+}
+
+.salvar-lista h1 {
+    padding-top: 7px;
+}
+
+.finalizar-compra {
+    background-color: var(--vermelho-escuro);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    float: left;
+    margin-left: 20px;
+    text-align: center;
+    transition: ease 600ms;
+}
+
+.finalizar-compra:hover{
+    opacity: 0.7;
+    transform: scale(1.04);
+}
+
+.finalizar-compra h1 {
+    padding-top: 7px;
+}
+
