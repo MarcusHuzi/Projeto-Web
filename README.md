@@ -78,12 +78,13 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - Login com email e senha na plataforma, com opção de criar uma nova conta.
 - Visualização das informações do cliente, com opção de alterar cadastro.
 - Visualização da página de administrador, com opção de administrar os produtos e usuários da loja.
-- Acesso à homepage, com visualização de alguns produtos selecionados pela loja.
-- Visualização de um produto, com seu nome, descrição, preço e botão para adicionar ao carrinho.
-- Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total e -finalizar compra.
+- Acesso à homepage, com visualização das categorias de produtos presentes na loja.
+- Visualização de produtos pertencentes a uma categoria com opção de adicioná-los ao carrinho.
+- Visualização de um modal a partir do clique em um produto contendo seu nome, descrição e valor.
+- Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total, finalizar a compra e salvar a lista para compras futuras.
 - Opção de inserir informações do cartão de crédito para efetuar o pagamento.
 - Opção de alterar o endereço de entrega.
-- Criação de listas de compras que ficam salvas para facilitar futuras compras
+- Criação de listas de compras que ficam salvas para facilitar futuras compras.
 
 ###  Informações armazenadas no servidor:
 
@@ -100,10 +101,11 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 #### Produtos:
 - id (identificador do produto, valor único)
 - título
-- categoria (número de 0 a 4)
+- categoria
 - preço
 - descrição
 - identificador da imagem
+- quantidade em estoque
 - quantidade vendida do produto
 
 
