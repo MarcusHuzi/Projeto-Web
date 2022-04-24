@@ -45,7 +45,7 @@ Venda de produtos: Os produtos são selecionados, são incluídos em um carrinho
 
 Gerenciamento de produto: os administradores podem criar/atualizar/ler/excluir novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.
 
-Nosso sistema, como funcionalidade extra, também terá [ adicionar teste de personalidade aqui ].
+Nosso sistema, como funcionalidade extra, também terá listas de compras, as quais os usuários podem criar a partir de carrinhos de compras ja preenchidos com produtos. Essas listas ficam salvas, permitindo o usuário utiliza-las para realizar futuras compras de forma mais rápida e prática.
 
 O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus usuários.
 <br>
@@ -54,7 +54,7 @@ O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus us
 <a name="Descrição-do-Projeto"/>
 
 ## 2. Descrição do Projeto
-[ Nome do nosso supermercado ] consiste eu um supermercado virtual, no qual sao vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5 e a linguagem de estilização CSS3.
+Nosso Mercadinho consiste eu um supermercado virtual, no qual sao vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5 e a linguagem de estilização CSS3.
 
 Diagrama de navegação:
 <br>
@@ -77,7 +77,7 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total e -finalizar compra.
 - Opção de inserir informações do cartão de crédito para efetuar o pagamento.
 - Opção de alterar o endereço de entrega.
-- [ Funcionalide extra ]
+- Criação de listas de compras que ficam salvas para facilitar futuras compras
 
 ###  Informações armazenadas no servidor:
 
