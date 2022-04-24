@@ -146,6 +146,7 @@ p, h1, h2, h3, a, input, span{
     margin-top: 1.3em;
 }
 
+/* formato e posicionamento da div contendo o tituloPagina e o caminho da página */
 #pagina{
 	border-bottom:solid 2px black;
 	margin: 0px 200px 0px 50px;
@@ -153,9 +154,11 @@ p, h1, h2, h3, a, input, span{
 	color:var(--vermelho-escuro);
 }
 
+/* tamanho do tituloPagina e do caminho da página*/
 #tituloPagina{font-size:30px; margin-bottom: 10px;}
 #caminho{font-size:16px;}
 
+/*posicionamento da div contendo os forms*/
 #corpo{
 	position:absolute;
 	left:360px;
@@ -163,7 +166,7 @@ p, h1, h2, h3, a, input, span{
 	height:1500px;
 }
 	
-
+/* texto contendo o que pode ser feito na página */
 #descricao{
 	color:#000000;
 	position:relative;
@@ -173,11 +176,13 @@ p, h1, h2, h3, a, input, span{
 	margin:0px 0px 50px 0px;
 }
 
+/* nome de cada input*/
 .titulo{
 	position:relative;
 	left:110px;
 }
 
+/*formato dos inputs do forms*/
 .secao{
 	width: 60%; 
 	padding: 12px 20px; 
@@ -189,6 +194,7 @@ p, h1, h2, h3, a, input, span{
 	left:110px;
 }
 
+/*secao1 e secao2 definem o formato dos inputs numero e complemento*/
 .secao1{width: 20%;
 	padding: 12px 20px; 
 	display: inline-block; 
@@ -210,6 +216,7 @@ p, h1, h2, h3, a, input, span{
 	left:110px;
 }
 
+/*termos e termos1 definem o formato do paragrafo com os testo sobre os termos*/
 #termos{
 	font-family:Itim;
 	position:relative;
@@ -222,6 +229,7 @@ p, h1, h2, h3, a, input, span{
 	color:blue;
 }
 
+/*enviar é a classe que define o formato do botão para submeter*/
 .enviar{
 	width: 60%; 
 	padding: 12px 20px; 
