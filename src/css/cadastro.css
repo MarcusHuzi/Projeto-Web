@@ -1,34 +1,237 @@
-	#barra{background-color:#a40444;width:100%;height:100px;}
-	#cabecalho{border-bottom:solid 2px black;margin: 0px 200px 0px 50px;}
-	#corpo{position:absolute;left:360px;margin: 40px 0px 0px 0px;width:650px;height:1500px;}
-	#descricao{color:#000000;position:relative;top:20px;left:90px;opacity:0.7;margin:0px 0px 50px 0px;}
-	#termos{font-family:itim; position:relative;left:170px;}
-	#termos1{font-family:itim; color:blue;}
-	#img-logo{height:100px;width:175px;position:relative;left:10px;}
-	#img-pesquisa{height:50px;width:320px;position:relative;left:300px;bottom:20px;}
-	#img-atributos{height:80px;width:300px;position:relative;left:640px;bottom:7px;}
-	#fim{background-color:#a40444;width:100%;height:250px;position:absolute;top:1600px;left:0px;}
-    #sobre{width:300px;position:relative;left:25px;}
-	#sobre1{width:300px;position:relative;left:550px;bottom:185px;}
-	#sobre2{width:300px;position:relative;left:1050px;bottom:350px;}
-	.cima{color:#a40444;}
-	.caminho{font-size:0.5em;}
-	.secao{width: 60%; padding: 12px 20px; display: inline-block; border: 3px solid #000000; border-radius: 10px; box-sizing: border-box;position:relative;left:110px;}
-	.secao1{width: 20%; padding: 12px 20px; display: inline-block; border: 3px solid #000000; border-radius: 10px; box-sizing: border-box;position:relative;left:110px;}
-	.secao2{width: 40%; padding: 12px 20px; display: inline-block; border: 3px solid #000000; border-radius: 10px; box-sizing: border-box;position:relative;left:110px;}
-	.secao3{width: 60%; padding: 12px 20px; display: inline-block; border-radius: 10px; box-sizing: border-box;position:relative;left:110px; background-color:#a40444;height:60px;color:#FCCC04;font-size:1.25em;}
-	.titulo{position:relative;left:110px;}
-	.abaixo{color:#FCCC04;font-style: normal;letter-spacing: 0.1em;color: #FCCC04; position:relative;left:2px;}
-	.abaixo1{color:#FCCC04;}
+@font-face {
+    font-family: 'Rubik One';
+    src: url('../fonts/rubik-one-regular-webfont.woff') format('woff');
+}
+
+@font-face{
+	font-family:'Itim';
+	src: url('../fonts/itim-regular-webfont.woff') format('woff');
+}
+
+:root {
+    --vermelho-escuro: #A40444;
+    --amarelo: #FCCC04;
+    --cinza: #E2E2E2;
+    --preto: #5b5b5b;
+    --amarelo-claro: #FCDC56;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+/* rodapé */
+.footer {
+    flex-shrink: 0;
+    background-color: var(--vermelho-escuro);
+    height: 250px;
+    width: 100%;
+    top: 1600px;
+    position: absolute;
+    color: var(--amarelo);
+}
+
+.footer h1 {
+    color: var(--amarelo);
+    font-size: 40px;
+    padding: 3%;
+}
+
+.footer p {
+    color: var(--amarelo);
+    font-size: 16px;
+    padding: 1%;
+    line-height: 1.3;
+}
+
+p, h1, h2, h3, a, input, span{
+    font-family: 'Rubik One';
+}
+
+/* barra de navegação */
+.navbar {
+    background-color: var(--vermelho-escuro);
+    height: 150px;
+    width: 100%;
+    position: absolute;
+}
+
+/* alinhamento, animação e tamanho do logo */
+.logo {
+    max-width: 15%;
+    padding-left: 100px;
+    transition: ease 600ms;
+    background-color: var(--vermelho-escuro);
+    position: absolute;
+    margin-top: 0px;
+}
+
+.logo:hover {
+    opacity: 0.7;
+    transform: scale(1.08);
+}
+
+/* tamanho e alinhamento dos icones da barra de navegação */
+.kart, .shoplist , .profile, .login {
+    max-width: 4%;
+    transition: ease 600ms;
+    position: absolute;
+    top: 30%;
+}
+
+.login {
+    max-width: 4.5%;
+    left: 68%;
+    top: 28%
+}
+
+.kart {
+    left: 75%;
+}
+
+.shoplist {
+    left: 83%;
+}
+
+.profile {
+    left: 90%;
+}
+
+/* efeito dos icones da barra de navegação */
+.kart:hover, .shoplist:hover, .profile:hover, .login:hover {
+    opacity: 0.7;
+    transform: scale(1.08);
+}
+
+/* barra de pesquisa */
+.searchbar {
+    background-color: #FCDC56;
+    color: var(--preto);
+    margin: 50px auto;
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0.8px #575757;
+    overflow: hidden;
+
+}
+  
+/* barra de pesquisa */
+.searchbar input[type=text] {
+    background-color: var(--amarelo-claro);
+    border: none;
+    font-size: 17px;
+    width: 96%;
+    height: 10px;
+    padding: 10px;
+    color: var(--preto);
+    outline: none;
+}
+
+/* alinhando os textos do footer */
+.aboutus-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2.5em;
+    margin-right: 9em;
+    margin-top: 1.3em;
+}
+
+#pagina{
+	border-bottom:solid 2px black;
+	margin: 0px 200px 0px 50px;
+	margin: 200px 50px 50px 50px;
+	color:var(--vermelho-escuro);
+}
+
+#tituloPagina{font-size:30px; margin-bottom: 10px;}
+#caminho{font-size:16px;}
+
+#corpo{
+	position:absolute;
+	left:360px;
+	width:650px;
+	height:1500px;
+}
 	
-	@font-face{
-		font-family:rubikOne;
-		src: url(../fonts/rubik-one-regular-webfont.woff);
-	}
-	
-	@font-face{
-		font-family:itim;
-		src: url(../fonts/itim-regular-webfont.woff);
-	}
-	
-	*{color:#000000;font-family:rubikOne;opacity:0.95;}
+
+#descricao{
+	color:#000000;
+	position:relative;
+	top:20px;
+	left:90px;
+	opacity:0.7;
+	margin:0px 0px 50px 0px;
+}
+
+.titulo{
+	position:relative;
+	left:110px;
+}
+
+.secao{
+	width: 60%; 
+	padding: 12px 20px; 
+	display: inline-block; 
+	border: 3px solid #000000; 
+	border-radius: 10px; 
+	box-sizing: border-box;
+	position:relative;
+	left:110px;
+}
+
+.secao1{width: 20%;
+	padding: 12px 20px; 
+	display: inline-block; 
+	border: 3px solid #000000; 
+	border-radius: 10px; 
+	box-sizing: border-box;
+	position:relative;
+	left:110px;
+}
+
+.secao2{
+	width: 40%;	
+	padding: 12px 20px; 
+	display: inline-block; 
+	border: 3px solid #000000; 
+	border-radius: 10px; 
+	box-sizing: border-box;
+	position:relative;
+	left:110px;
+}
+
+#termos{
+	font-family:Itim;
+	position:relative;
+	left:170px;
+	margin-bottom:15px;
+}
+
+#termos1{
+	font-family:itim;
+	color:blue;
+}
+
+.enviar{
+	width: 60%; 
+	padding: 12px 20px; 
+	display: inline-block; 
+	border-radius: 10px; 
+	box-sizing: border-box;
+	position:relative;
+	left:110px;
+	background-color:#a40444;
+	height:60px;
+	color:#FCCC04;
+	font-size:1.25em;
+}
