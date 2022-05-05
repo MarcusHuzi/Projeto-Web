@@ -56,7 +56,8 @@ O sistema visa uma boa acessibilidade e usabilidade para seus usuários.
 ## 2. Descrição do Projeto
 Nosso Mercadinho consiste eu um supermercado virtual, no qual sao vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5 e a linguagem de estilização CSS3.
 
-Diagrama de navegação:
+### Diagrama de navegação:
+Considere para o diagrama que o usuário somente pode acessar a página 'Finalizar Compra' e a página 'Listas de Compras' caso esteja logado no sistema. Caso contrário, ele será redirecionado para a página de login.
 <br>
 <br>
 <img src="/src/image/nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
