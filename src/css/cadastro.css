@@ -1,10 +1,9 @@
 
 /* formato e posicionamento da div contendo o tituloPagina e o caminho da página */
 #pagina{
-	border-bottom:solid 2px black;
-	margin: 0px 200px 0px 50px;
-	margin: 200px 50px 50px 50px;
 	color:var(--vermelho-escuro);
+	margin: 100px 100px 100px 50px;
+	left: 40px;
 }
 
 /* tamanho do tituloPagina e do caminho da página*/
@@ -13,10 +12,9 @@
 
 /*posicionamento da div contendo os forms*/
 #corpo{
-	position:absolute;
-	left:360px;
 	width:700px;
 	height:1500px;
+	margin: 0px 100px 0px 450px;
 }
 	
 /* texto contendo o que pode ser feito na página */
@@ -26,14 +24,19 @@
 	top:20px;
 	left:15px;
 	opacity:0.7;
-	margin:0px 0px 50px 0px;
+	margin:0px 0px 100px 0px;
 	font-size:24px;
+}
+
+#formulario{
+	margin: 0px 0px 0px 40px;
 }
 
 /* nome de cada input*/
 .titulo{
 	position:relative;
 	left:110px;
+
 }
 
 /*formato dos inputs do forms*/
@@ -46,6 +49,7 @@
 	box-sizing: border-box;
 	position:relative;
 	left:110px;
+
 
 }
 
