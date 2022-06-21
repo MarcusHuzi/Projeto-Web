@@ -46,6 +46,7 @@
 	box-sizing: border-box;
 	position:relative;
 	left:110px;
+
 }
 
 /*secao1 e secao2 definem o formato dos inputs numero e complemento*/
@@ -96,4 +97,23 @@
 	height:60px;
 	color:#FCCC04;
 	font-size:1.25em;
+	font-family:Rubik One;
+}
+
+#v_senha{
+	color:red;
+	padding: 0px 0px 10px 0px;  
+	position:relative;
+	left:110px;
+	font-family:Itim;
+	font-size: 15px;
+}
+
+#v_email{
+	color:red;
+	padding: 0px 0px 10px 0px;  
+	position:relative;
+	left:110px;
+	font-family:Itim;
+	font-size: 15px;
 }
