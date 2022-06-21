@@ -1,8 +1,7 @@
 .content {
-    height: 1450px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    top: 150px;
-    position: absolute;
 }
 
 .titulo {
