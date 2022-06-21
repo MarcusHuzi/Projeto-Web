@@ -115,5 +115,7 @@ p, h1, h2, h3, a, input, span{
 }
 
 /* alinhando os textos do footer */
-.aboutus-item {
+.aboutus-item p{
+    min-width: 200px;
+    max-width: 400px;
 }
