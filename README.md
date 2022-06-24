@@ -54,7 +54,7 @@ O sistema visa uma boa acessibilidade e usabilidade para seus usuários.
 <a name="Descrição-do-Projeto"/>
 
 ## 2. Descrição do Projeto
-Nosso Mercadinho consiste eu um supermercado virtual, no qual sao vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5 e a linguagem de estilização CSS3.
+Nosso Mercadinho consiste eu um supermercado virtual, no qual são vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5, a linguagem de estilização CSS3 e foi utilizado Vue.js para o front-end. Por enquanto, o back-end não foi implementado e foram usados dados estáticos temporários para efeito de simulação das funcionalidades do site.
 
 ### Diagrama de navegação:
 Considere para o diagrama que o usuário somente pode acessar a página 'Finalizar Compra' e a página 'Listas de Compras' caso esteja logado no sistema. Caso contrário, ele será redirecionado para a página de login.
@@ -114,30 +114,35 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 <a name="Comentários-sobre-o-código"/>
 
 ## 3. Comentários sobre o código
+O código ainda está numa fase inicial em que não foram implementadas funcionalidades de servidor nem de banco de dados. As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js.
 <br>
 <br>
 
 <a name="Plano-de-teste"/>
 
 ## 4. Plano de teste
+Os testes estão sendo feitos no próprio navegador a medida que o projeto é desenvolvido. Por não haver muita responsividade implementada, o foco está em manter a integridade de cada página ao longo de diferentes tamanhos de tela e situações.
 <br>
 <br>
 
 <a name="Resultados-dos-testes"/>
 
 ## 5. Resultados dos testes
+Neste estado inicial, os testes mostraram-se satisfatórios.
 <br>
 <br>
 
 <a name="Building"/>
 
 ## 6. Building
+Ainda não foi feita a criação de um servidor, as páginas devem ser acessadas diretamente pelo navegador através dos arquivos .html.
 <br>
 <br>
 
 <a name="Problemas"/>
 
 ## 7. Problemas
+O maior desafio por enquanto está em aprender Vue.js e implementar as funcionalidades do servidor simultaneamente com a confecção de cada página, tarefas que demandam muito tempo.
 <br>
 <br>
 
