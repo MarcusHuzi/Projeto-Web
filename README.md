@@ -109,13 +109,12 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - identificador da imagem
 - quantidade em estoque
 - quantidade vendida do produto
-<br>
-<br>
+
 
 <a name="Comentários-sobre-o-código"/>
 
 ## 3. Comentários sobre o código
-O código ainda está numa fase inicial em que não foram implementadas funcionalidades de servidor nem de banco de dados e apenas o mínimo de interatividade possível. As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js.
+O código ainda está numa fase inicial em que não foram implementadas funcionalidades de servidor nem de banco de dados. As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js.
 <br>
 <br>
 
@@ -129,7 +128,7 @@ Os testes estão sendo feitos no próprio navegador a medida que o projeto é de
 <a name="Resultados-dos-testes"/>
 
 ## 5. Resultados dos testes
-Neste estado inicial, quando ainda não há muita responsividade implementada, os testes mostraram-se satisfatórios.
+Neste estado inicial, os testes mostraram-se satisfatórios.
 <br>
 <br>
 
