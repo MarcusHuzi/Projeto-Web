@@ -113,80 +113,18 @@
                         <div class="prod-imagem-box">
                             <img :src="product.image_src" :alt="product.img_alt" class="prod-imagem">
                         </div>
-                        <h2>{{ product.description }}</h2>
+                        <h2>{{ product.name }}</h2>
                     </div>
                     <div class="prod-quantity">
                         <input type="number" v-model="product.quantity" min="0" max="999">
-                        <h2>R$ {{ (product.quantity * product.value).toFixed(2) }}</h2>
+                        <h2>R$ {{ (product.quantity * product.price).toFixed(2) }}</h2>
                     </div>
                 </div>
             </li>
         </template>
 
         <script src="https://unpkg.com/vue@3"></script>
-
-        <script>
-            let app = Vue.createApp({
-                data() {
-                    return {
-                        price: 0
-                    }
-                },
-                methods: {
-                    updatePrice(newValue) {
-                        this.price = newValue
-                    }
-                }
-            })
-
-            app.component("prod-content",{
-                template: "#product-box-template",
-                data() {
-                    return {
-                        products: [
-                            {
-                                image_src: "../image/produtos/ype-clear.png",
-                                image_alt: "ype-clear",
-                                description: "Detergente Líquido Ypê Clear 500ml",
-                                quantity: 0,
-                                value: 2.39
-                            },
-                            {
-                                image_src: "../image/produtos/ype-maca.png",
-                                image_alt: "ype-maca",
-                                description: "Detergente Líquido Ypê Maca 500ml",
-                                quantity: 0,
-                                value: 2.39
-                            },
-                            {
-                                image_src: "../image/produtos/ype-neutro.png",
-                                image_alt: "ype-neutro",
-                                description: "Detergente Líquido Ypê Neutro 500ml",
-                                quantity: 0,
-                                value: 2.39
-                            }
-                        ]
-                    }
-                },
-                computed: {
-                    fullPrice() {
-                        let price = 0
-                        for (product of this.products){
-                            price += product.value * product.quantity
-                        }
-                        return price
-                    }
-                },
-                watch: {
-                    fullPrice(newValue) {
-                        this.$emit('emit-price', newValue)
-                    }
-                },
-                emits: ['emit-price']
-            })
-
-            app.mount('#app')
-        </script>
+        <script src="../javascript/carrinho.js"></script>
 
     </body>
 </html>

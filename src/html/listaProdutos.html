@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem Produtos</title>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/listaProdutos.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container"  id="app" v-cloak>
+        <div class="navbar">
+            <a href="">
+                <image src="../image/pngs/logo.png" class="logo"> </image>
+            </a>
+
+            <div class="searchbar">
+                <input type="text" placeholder="Busque por produtos aqui...">
+            </div>
+
+            <div class="navbar-icons">
+                <a href="">
+                    <image src="../image/pngs/login.png" class="login"> </image>
+                </a>
+                <a href="">
+                    <image src="../image/pngs/kart.png" class="kart"> </image>
+                </a>
+                <a href="">
+                    <image src="../image/pngs/shop-list.png" class="shoplist"> </image>
+                </a>
+                <a href="">
+                    <image src="../image/pngs/profile.png" class="profile"> </image>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="titulo">
+                <h1>Produtos de limpeza</h1>
+                <h2>Home > Produtos de Limpeza</h2>
+                <hr/>
+            </div>
+
+            <div class="listagem">
+                <ul>
+                    <product-content></product-content>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <ul class="aboutus-section">
+                <li class="aboutus-item">
+                    <h1>Sobre nós</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Delectus accusantium accusamus qui quidem doloremque
+                        At alias rerum, earum, non provident,
+                        amet consectetur adipisicing elit, non provident</p>
+                </li>
+
+                <li class="aboutus-item">
+                    <h1>SAC</h1>
+                    <p>Email: email@email.com<br>
+                        Telefone: (00) 99999-9999<br>
+                        Horário: seg à sex | 08h00 - 16h00<br></p>
+                </li>
+
+                <li class="aboutus-item">
+                    <h1>Links</h1>
+                    <p>Home Page<br>
+                        Carrinho<br>
+                        Perfil<br></p>
+                </li>
+            </ul>
+        </div>
+
+        <modal v-show="isModalVisible" @close="closeModal()"></modal>
+    </div>
+
+    <template id="product-template">
+        <li  v-for="(product, index) in products" class="produto">
+            <div class="prod-imagem-box" @click="this.$root.showModal(product)">
+                <img :src="product.image_src" :alt="product.img_alt" class="prod-imagem">
+                <button v-on:click.stop="addProduct(index)" v-show="product.quantity == 0" type="button" class="btn-add-product">+</button>
+                <input v-on:click.stop v-show="product.quantity >= 1" v-model="product.quantity" type="number" class="input-add-product">
+            </div>
+            <h3>R$ {{ product.price.toFixed(2) }}</h3>
+            <h4>{{ product.name }}</h4>
+        </li>
+    </template>
+
+
+    <template id="modal-template">
+        <div class="modal-backdrop" @click="close">
+            <div class="modal">
+                {{this.$root.modalProduct.description}}
+            </div>
+        </div>
+    </template>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="../javascript/listaProdutos.js"></script>
+
+</body>
+</html>
