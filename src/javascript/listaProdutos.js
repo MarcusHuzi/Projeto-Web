@@ -32,8 +32,8 @@ app.component("product-content",{
                     {
                         image_src: "../image/produtos/ype-maca.png",
                         image_alt: "ype-maca",
-                        name: "Detergente Líquido Ypê Maca 500ml",
-                        description: "Detergente Líquido Ypê Maca 500ml",
+                        name: "Detergente Líquido Ypê Maçã 500ml",
+                        description: "Detergente Líquido Ypê Maçã 500ml",
                         quantity: 0,
                         price: 2.39
                     },

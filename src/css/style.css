@@ -119,3 +119,8 @@ p, h1, h2, h3, a, input, span{
     min-width: 200px;
     max-width: 400px;
 }
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}

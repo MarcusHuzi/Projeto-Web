@@ -5,23 +5,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Carrinho </title>
+        <title>Área do Administrador</title>
 
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/carrinho.css">
-
-        <style>
-            [v-cloak] {
-                display: none;
-            }
-        </style>
+        <link rel="stylesheet" href="../css/areaAdmin.css">
 
     </head>
 
     <body>
-
-        <div class="container" id="app" v-cloak>
+        <div class="container">
             <div class="navbar">
                 <a href="home.html">
                     <image src="../image/pngs/logo.png" class="logo"> </image>
@@ -49,33 +42,12 @@
 
             <div class="content">
                 <div class="titulo">
-                    <h1>Carrinho</h1>
-                    <h2>Home > Carrinho</h2>
+                    <h1>Área do Administrador</h1>
+                    <h2>Home > Área do Administrador</h2>
                     <hr/>
                 </div>
-
-                <div class="produtos">
-                    <ul>
-                        <prod-content @emit-price="updatePrice"></prod-content>
-                    </ul>
-                </div>
-
-                <div class="botoes">
-                    <button class="salvar-lista">
-                        <h1>Salvar lista para compras futuras</h1>
-                    </button>
-                    <div class="botoes-compra">
-                        <button class="finalizar-compra">
-                            <h1>Finalizar compra</h1>
-                        </button>
-                        <div class="total-compra">
-                            <h1>Preço Total</h1>
-                            <div class="preco-box">
-                                <h2>R$ {{ price.toFixed(2) }}</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    
+    
             </div>
 
             <div class="footer">
@@ -103,28 +75,6 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-
-        <template id="product-box-template">
-            <li v-for="product in products">
-                <div class="product-box">
-                    <div class="prod-details">
-                        <div class="prod-imagem-box">
-                            <img :src="product.image_src" :alt="product.img_alt" class="prod-imagem">
-                        </div>
-                        <h2>{{ product.name }}</h2>
-                    </div>
-                    <div class="prod-quantity">
-                        <input type="number" v-model="product.quantity" min="0" max="999">
-                        <h2>R$ {{ (product.quantity * product.price).toFixed(2) }}</h2>
-                    </div>
-                </div>
-            </li>
-        </template>
-
-        <script src="https://unpkg.com/vue@3"></script>
-        <script src="../javascript/carrinho.js"></script>
-
     </body>
 </html>

@@ -1,14 +1,37 @@
+#tituloPagina {
+    margin: 3% 3% 10px 3%;
+}
+
+#tituloPagina h1 {
+    color: var(--vermelho-escuro);
+    font-size: 40px;
+    text-align: left;
+}
+
+#tituloPagina h2 {
+    color: var(--vermelho-escuro);
+    font-size: 14px;
+    text-align: left;
+}
+
+#tituloPagina hr {
+    color: var(--cinza);
+}
 
 /* formato e posicionamento da div contendo o tituloPagina e o caminho da página */
+/*
 #pagina{
 	color:var(--vermelho-escuro);
 	margin: 100px 100px 100px 50px;
 	left: 40px;
 }
+*/
 
 /* tamanho do tituloPagina e do caminho da página*/
+/*
 #tituloPagina{font-size:44px; margin-bottom: 10px;}
 #caminho{font-size:20px;}
+*/
 
 /*posicionamento da div contendo os forms*/
 #corpo{

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem Produtos</title>
+    <title>Listagem de Produtos</title>
 
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/listaProdutos.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/listaProdutos.css">
 
 
     <style>
@@ -22,7 +22,7 @@
 <body>
     <div class="container"  id="app" v-cloak>
         <div class="navbar">
-            <a href="">
+            <a href="home.html">
                 <image src="../image/pngs/logo.png" class="logo"> </image>
             </a>
 
@@ -31,16 +31,16 @@
             </div>
 
             <div class="navbar-icons">
-                <a href="">
+                <a href="login.html">
                     <image src="../image/pngs/login.png" class="login"> </image>
                 </a>
-                <a href="">
+                <a href="carrinho.html">
                     <image src="../image/pngs/kart.png" class="kart"> </image>
                 </a>
-                <a href="">
+                <a href="listaCompras.html">
                     <image src="../image/pngs/shop-list.png" class="shoplist"> </image>
                 </a>
-                <a href="">
+                <a href="perfil.html">
                     <image src="../image/pngs/profile.png" class="profile"> </image>
                 </a>
             </div>
@@ -80,9 +80,9 @@
 
                 <li class="aboutus-item">
                     <h1>Links</h1>
-                    <p>Home Page<br>
-                        Carrinho<br>
-                        Perfil<br></p>
+                    <p><a href="home.html">Home Page</a><br>
+                        <a href="carrinho.html">Carrinho</a><br>
+                        <a href="perfil.html">Perfil</a><br></p>
                 </li>
             </ul>
         </div>
@@ -93,7 +93,7 @@
     <template id="product-template">
         <li  v-for="(product, index) in products" class="produto">
             <div class="prod-imagem-box" @click="this.$root.showModal(product)">
-                <img :src="product.image_src" :alt="product.img_alt" class="prod-imagem">
+                <img :src="product.image_src" :alt="product.img_alt">
                 <button v-on:click.stop="addProduct(index)" v-show="product.quantity == 0" type="button" class="btn-add-product">+</button>
                 <input v-on:click.stop v-show="product.quantity >= 1" v-model="product.quantity" type="number" class="input-add-product">
             </div>
@@ -106,7 +106,14 @@
     <template id="modal-template">
         <div class="modal-backdrop" @click="close">
             <div class="modal">
-                {{this.$root.modalProduct.description}}
+                <div class="modal-prod-image-box">
+                    <img :src="this.$root.modalProduct.image_src" :alt="this.$root.modalProduct.image_alt">
+                </div>
+                <div class="modal-prod-description">
+                    <h1>{{this.$root.modalProduct.name}}</h1>
+                    <h2>{{this.$root.modalProduct.description}}</h2>
+                    <h3>R$ {{this.$root.modalProduct.price}}</h3>
+                </div>
             </div>
         </div>
     </template>
