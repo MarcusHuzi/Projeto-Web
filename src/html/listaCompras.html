@@ -11,10 +11,16 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/listaCompras.css">
 
+        <style>
+            [v-cloak] {
+                display: none;
+            }
+        </style>
+
     </head>
 
     <body>
-        <div class="container">
+        <div class="container" id="app" v-cloak>
             <div class="navbar">
                 <a href="home.html">
                     <image src="../image/pngs/logo.png" class="logo"> </image>
@@ -46,7 +52,10 @@
                     <h2>Home > Listas de Compras</h2>
                     <hr/>
                 </div>
-    
+                
+                <lista-compra>
+
+                </lista-compra>
     
             </div>
 
@@ -76,5 +85,37 @@
                 </ul>
             </div>
         </div>
+
+        <template id="template-lista-compra">
+            <div v-for="(lista, index) in listas" class="lista-div">
+                <div class="titulo-lista">
+                    <h1>{{lista[0].title}}</h1>
+                    <!--<button type="button">Editar</button>-->
+                    <button type="button" @click="removeListByIndex(index)" class="botao-lista">Excluir lista</button>
+                </div>
+                <ul>
+                    <li v-for="(product, pIndex) in getListItems(index)">
+                        <div class="product-box">
+                            <div class="prod-details">
+                                <div class="prod-imagem-box">
+                                    <img :src="product.image_src" :alt="product.img_alt" class="prod-imagem">
+                                </div>
+                                <h2>{{ product.name }}</h2>
+                            </div>
+                            <div class="prod-quantity">
+                                <h2>{{product.quantity}}</h2>
+                                <h2>R$ {{ (product.quantity * product.price).toFixed(2) }}</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" class="btn-add-to-cart botao-lista">Adicionar ao carrinho</button>
+            </div>
+
+        </template>
+
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="../javascript/listaCompras.js"></script>
+
     </body>
 </html>
