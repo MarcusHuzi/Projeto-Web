@@ -54,68 +54,82 @@
 			
 			
 			<div id="corpo">
-				<p id="descricao" > Realize de forma rápida e fácil o seu cadastro abaixo </p>
-				
+				<p id="descricao" > Realize de forma rápida e fácil o seu cadastro abaixo<br>
+					<span id="aviso">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						Campos marcados com * são obrigatórios </span> 
+				</p>
+			
 				<form id="formulario">
-					<span class="titulo">CPF</span>
+					<span class="titulo">*CPF</span>
 						<br>
-						<input class="secao" type="text" name="cpf" required placeholder = "___.___.___-__"> <br> 
+						<input class="secao" type="text" name="cpf" required placeholder = "___.___.___-__" v-model="cpf"> <br> 
 						<br>
+					<p id="v_cpf" class="form_erro"></p>
 				
-					<span class="titulo">Nome Completo</span>
+					<span class="titulo">*Nome Completo</span>
 						<br>
-						<input class="secao" type="text" name="nome" required ><br>
+						<input class="secao" type="text" name="nome" v-model="nome"><br>
 						<br>
+					<p id="v_nome" class="form_erro"></p>		
+
+					<span class="titulo">*Celular</span>
+						<br>
+						<input class="secao" type="tel" name="celular" placeholder="(11) 1234-5678"v-model="celular"><br>
+						<br>
+					<p id="v_celular" class="form_erro"></p>
 						
-					<span class="titulo">Celular</span>
+					<span class="titulo">*Data de Nascimento</span>
 						<br>
-						<input class="secao" type="tel" name="celular" placeholder="(11) 1234-5678" required ><br>
+						<input class="secao" type="date" name="data"v-model="nasc"><br>
 						<br>
-						
-					<span class="titulo">Data de Nascimento</span>
-						<br>
-						<input class="secao" type="date" name="data" required><br>
-						<br>
+					<p id="v_nasc" class="form_erro"></p>
 					
 					<span class="titulo">Sexo</span>
 						<br>
-						<input class="secao" name="sexo" list="lista-sexo" autocomplete="off" required>
+						<input class="secao" name="sexo" list="lista-sexo" autocomplete="off">
 						<datalist id="lista-sexo">
 							<option value="Masculino">
 							<option value="Feminino">
 							<option value="Outros">
 						</datalist>
 						<br><br>
-					<span class="titulo">CEP</span>
+
+					<span class="titulo">*CEP</span>
 						<br>
-						<input class="secao" type="text" name="cep" required placeholder = "_____-___" required> <br> 
+						<input class="secao" type="text" name="cep" placeholder = "_____-___" required v-model="cep"> <br> 
 						<br>
+					<p id="v_cep" class="form_erro"></p>
 					
-					<span class="titulo">Número + Complemento</span>
+					<span class="titulo">*Número + Complemento</span>
 						<br>
-						<input class="secao1" type="number" name="numero" required > <input class="secao2" type="number" name="comp" > <br>
+						<input class="secao1" type="number" name="numero" v-model="num" > <input class="secao2" type="number" name="comp"> <br>
 						<br>
-						
-					<span class="titulo">Email</span>
+					<p id="v_num" class="form_erro"></p>
+
+					<span class="titulo">*Email</span>
 						<br>
-						<input class="secao" type="email" name="email" autocomplete="on" placeholder="cliente@email.com" required v-model="email"><br>
+						<input class="secao" type="email" name="email" autocomplete="on" placeholder="cliente@email.com" v-model="email"><br>
 						<br>
-					
-					<span class="titulo">Confirmar o Email</span>
+					<p id="e_email" class="form_erro"></p>
+
+					<span class="titulo">*Confirmar o Email</span>
 						<br>
-						<input class="secao" type="email" name="confirmaEmail" autocomplete="off" placeholder="cliente@email.com" required v-model="conf_email"><br>
+						<input class="secao" type="email" name="confirmaEmail" autocomplete="off" placeholder="cliente@email.com" v-model="conf_email"><br>
 						<br>
-					<p id="v_email"></p>
-					<span class="titulo">Criar senha</span>
+					<p id="v_email" class="form_erro"></p>
+
+					<span class="titulo">*Criar senha (min:8 caracteres)</span>
 						<br>
-						<input class="secao" type="password" name="senha" maxlength="26" required v-model="password"><br>
+						<input class="secao" type="password" name="senha" maxlength="26" v-model="password"><br>
 						<br>
-						
-					<span class="titulo">Confirmar a Senha</span>
+					<p id="e_senha" class="form_erro"></p>
+
+					<span class="titulo">*Confirmar a Senha</span>
 						<br>
-						<input class="secao" type="password" name="confirmaSenha" maxlength="26" required v-model="conf_password"><br>
+						<input class="secao" type="password" name="confirmaSenha" maxlength="26" v-model="conf_password"><br>
 						<br>
-					<p id="v_senha"></p>
+					<p id="v_senha" class="form_erro"></p>
 						
 						<p id="termos"> Ao cadastrar-se, você aceita nossos <br> <a id="termos1" href="" target="_blank"> Termos de Uso e Política de Privacidade.</a> </p>
 					
