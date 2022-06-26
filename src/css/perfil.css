@@ -25,3 +25,37 @@
 .titulo hr {
     color: var(--cinza);
 }
+
+#foto{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    height: 400px;
+    left: 350px;
+}
+
+.p_foto{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    left: 450px;
+
+}
+
+#info{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content:safe;
+    align-items: center;
+    max-width: 1000px;
+    height: 500px;
+    border: 2px;
+    border-style:solid;
+    border-color: #A40444;
+    margin: 20px 0px 100px 0px;
+    left: 420px;
+}
