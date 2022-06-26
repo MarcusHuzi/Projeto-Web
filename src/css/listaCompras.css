@@ -67,6 +67,7 @@
     transition: ease 600ms;
     color: var(--amarelo);
     font-family: 'Rubik', sans-serif;
+}
 
 .botao-lista:hover{
     opacity: 0.7;
