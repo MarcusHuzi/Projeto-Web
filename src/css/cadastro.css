@@ -129,7 +129,7 @@
 	height:60px;
 	color:#FCCC04;
 	font-size:1.25em;
-	font-family:Rubik One;
+	font-family: 'Rubik', sans-serif;
 }
 
 .form_erro{
@@ -137,6 +137,6 @@
 	padding: 0px 0px 10px 0px;  
 	position:relative;
 	left:110px;
-	font-family:Itim;
+	font-family: 'Rubik', sans-serif;
 	font-size: 15px;
 }
