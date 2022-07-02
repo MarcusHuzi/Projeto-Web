@@ -103,19 +103,20 @@
 
     export default {
         name: 'CadastroView',
-		data:{
-			
-			email:"",
-			conf_email:"",
-			password:"",
-			conf_password:"",
-			cpf:"",
-			cep:"",
-			num: null,
-			celular:"",
-			nome:"",
-			nasc:"",
-			erro: [0,0,0,0,0,0,0,0,0,0] //vetor para marcar erros
+		data(){
+			return{
+				email:"",
+				conf_email:"",
+				password:"",
+				conf_password:"",
+				cpf:"",
+				cep:"",
+				num: null,
+				celular:"",
+				nome:"",
+				nasc:"",
+				erro: [0,0,0,0,0,0,0,0,0,0] //vetor para marcar erros
+			}
 		},
 
 		methods:{

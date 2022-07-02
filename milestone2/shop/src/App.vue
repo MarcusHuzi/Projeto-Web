@@ -2,8 +2,7 @@
   <div class="container">
     <HeaderView/>
 
-    
-    <h1> Conteudo </h1>
+    <router-view/>
 
     <FooterView/>
   </div>
