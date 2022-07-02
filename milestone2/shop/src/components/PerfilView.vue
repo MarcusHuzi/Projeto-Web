@@ -9,7 +9,7 @@
 
                 <div id="info">
 
-                    <img src="../image/icons/prof-pic.png" class="foto">
+                    <img src="@/assets/image/icons/prof-pic.png" class="foto">
 
                     <div id="campos">
 
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     
-                    <button id="edit" @click="" > Editar perfil </button>
+                    <button id="edit"> Editar perfil </button>
                     <hr/>
                 </div>
             </div>
