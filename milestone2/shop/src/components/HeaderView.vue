@@ -28,11 +28,12 @@
 </template>
 
 <script>
-export default {
-  name: 'HeaderView',
-}
+    export default {
+    name: 'HeaderView',
+    }
 </script>
 
 <style>
     @import '/src/assets/css/style.css';
+    @import '/src/assets/css/reset.css';
 </style>
