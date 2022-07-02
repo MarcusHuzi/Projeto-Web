@@ -28,13 +28,13 @@
 
 					<span class="titulo">*Celular</span>
 						<br>
-						<input class="secao" type="tel" name="celular" placeholder="(11) 1234-5678"v-model="celular"><br>
+						<input class="secao" type="tel" name="celular" placeholder="(11) 1234-5678" v-model="celular"><br>
 						<br>
 					<p id="v_celular" class="form_erro"></p>
 						
 					<span class="titulo">*Data de Nascimento</span>
 						<br>
-						<input class="secao" type="date" name="data"v-model="nasc"><br>
+						<input class="secao" type="date" name="data" v-model="nasc"><br>
 						<br>
 					<p id="v_nasc" class="form_erro"></p>
 					
@@ -42,9 +42,9 @@
 						<br>
 						<input class="secao" name="sexo" list="lista-sexo" autocomplete="off">
 						<datalist id="lista-sexo">
-							<option value="Masculino">
-							<option value="Feminino">
-							<option value="Outros">
+							<option value="Masculino"> </option>
+							<option value="Feminino"> </option>
+							<option value="Outros"> </option>
 						</datalist>
 						<br><br>
 
@@ -95,11 +95,10 @@
 
 <script>
 
-	let forms = document.getElementsByClassName("secao");
-	let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	let cpfFormat = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
-	let cepFormat = /^\d{5}\-\d{3}$/;
-	let celularFormat = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/;
+	let mailFormat = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
+	let cpfFormat = /^\d{3}\.\d{3}\.\d{3}\d{2}$/;
+	let cepFormat = /^\d{5}\d{3}$/;
+	let celularFormat = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$/;
 
     export default {
         name: 'CadastroView',
@@ -225,7 +224,7 @@
 				} else {
 					alert("Cadastro concluído");
 				}
-        	}
+        }
 		}
     }
 

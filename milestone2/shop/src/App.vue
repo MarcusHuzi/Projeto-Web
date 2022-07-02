@@ -1,12 +1,14 @@
 <template>
-  <div class="container">
-    <HeaderView/>
+  <body>
+    <div class="container">
+        <HeaderView/>
 
-    <router-view/>
+        <router-view/>
 
-    <FooterView/>
-  </div>
-
+        <FooterView/>
+        
+    </div>
+  </body>
 </template>
 
 <script>
