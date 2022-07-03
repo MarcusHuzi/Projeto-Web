@@ -1,27 +1,27 @@
 <template>
     <header>
         <div class="navbar">
-                    <a href="home.html">
+                    <router-link to="/">
                         <img src="@/assets/image/navbar-icons/logo.png" class="logo">
-                    </a>
+                    </router-link>
         
                     <div class="searchbar">
                         <input type="text" placeholder="Busque por produtos aqui...">
                     </div>
 
                     <div class="navbar-icons">
-                        <a href="login.html">
+                        <router-link to="/login">
                             <img src="@/assets/image/navbar-icons/login.png" class="login"> 
-                        </a>
-                        <a href="carrinho.html">
+                        </router-link>
+                        <router-link to="/carrinho">
                             <img src="@/assets/image/navbar-icons/kart.png" class="kart"> 
-                        </a>
-                        <a href="listaCompras.html">
+                        </router-link>
+                        <router-link to="/listacompras">
                             <img src="@/assets/image/navbar-icons/shop-list.png" class="shoplist">
-                        </a>
-                        <a href="perfil.html">
+                        </router-link>
+                        <router-link to="/perfil">
                             <img src="@/assets/image/navbar-icons/profile.png" class="profile"> 
-                        </a>
+                        </router-link>
                     </div>
                 </div>
         </header>

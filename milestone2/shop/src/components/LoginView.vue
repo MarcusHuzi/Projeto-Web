@@ -19,7 +19,7 @@
             </div>
 
             <div class="create-account-field">
-                <p id="create-account-text">Não tem um cadastro? <a id="create-account-link" href="./cadastro.html">Crie uma conta</a></p>
+                <p id="create-account-text"> Não tem um cadastro? <router-link to="/cadastro">Crie uma conta</router-link></p>
             </div>
         </div>
     </div>

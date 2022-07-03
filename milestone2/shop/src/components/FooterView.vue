@@ -19,9 +19,9 @@
 
                     <li class="aboutus-item">
                         <h1>Links</h1>
-                        <p><a href="home.html">Home Page</a><br>
-                            <a href="carrinho.html">Carrinho</a><br>
-                            <a href="perfil.html">Perfil</a><br></p>
+                        <p> <router-link to="/">Home Page</router-link><br>
+                            <router-link to="/carrinho">Carrinho</router-link><br>
+                            <router-link to="/perfil">Perfil</router-link><br></p>
                     </li>
                 </ul>
             </div>
