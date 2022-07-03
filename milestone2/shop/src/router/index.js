@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from '../components/HomeView.vue';
+import HomeView from '../views/HomeView.vue';
 
 const routes = [
     {
@@ -11,50 +11,50 @@ const routes = [
     {
         path: '/login',
         name: 'Login',
-        component: () => import('../components/LoginView.vue')
+        component: () => import('../views/LoginView.vue')
     },
 
     {
         path: '/cadastro',
         name: 'Cadastro',
-        component: () => import('../components/CadastroView.vue')
+        component: () => import('../views/CadastroView.vue')
     },
 
     {
         path: '/perfil',
         name: 'Perfil',
-        component: () => import('../components/PerfilView.vue')
+        component: () => import('../views/PerfilView.vue')
     },
 
     {
         path: '/carrinho',
         name: 'Carrinho',
-        component: () => import('../components/CarrinhoView.vue')
+        component: () => import('../views/CarrinhoView.vue')
     },
 
     {
         path: '/finalizarcompra',
         name: 'FinalizarCompra',
-        component: () => import('../components/FinalizarCompraView.vue')
+        component: () => import('../views/FinalizarCompraView.vue')
     },
 
     {
         path: '/listacompras',
         name: 'ListaCompras',
-        component: () => import('../components/ListaComprasView.vue')
+        component: () => import('../views/ListaComprasView.vue')
     },
 
     {
         path: '/listaprodutos',
         name: 'ListaProdutos',
-        component: () => import('../components/ListaProdutosView.vue')
+        component: () => import('../views/ListaProdutosView.vue')
     },
 
     {
         path: '/:catchAll(.*)',
         name: 'PaginaNaoEncontrada',
-        component: () => import('../components/NotFound.vue')
-      },
+        component: () => import('../views/NotFound.vue')
+    },
 
 
 ]
