@@ -118,7 +118,7 @@
 
 </script>
 
-<style>
+<style scoped>
     .lista-div {
         margin: 10px 3% 20px 3%;
         background-color: var(--cinza);
