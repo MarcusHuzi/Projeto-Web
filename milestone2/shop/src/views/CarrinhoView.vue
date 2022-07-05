@@ -32,8 +32,24 @@
 </template>
 
 <script>
+
+    import ProdContent from "../components/ProdContent.vue"
+
     export default {
         name: 'CarrinhoView',
+        components: {
+            ProdContent
+        },
+            data() {
+            return {
+                price: 0
+            }
+        },
+        methods: {
+            updatePrice(newValue) {
+                this.price = newValue
+            }
+        }
     }
 </script>
 
