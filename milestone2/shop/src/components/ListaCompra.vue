@@ -1,6 +1,5 @@
 <template id="template-lista-compra">
     <div class="content">
-        <button type="button" class="btn-add-lista botao-lista">Adicionar nova lista </button>
         <div v-for="(lista, index) in listas" class="lista-div" :key="lista">
             <div class="titulo-lista">
                 <h1>{{lista[0].title}}</h1>
@@ -183,13 +182,6 @@
     .btn-edit-lista {
         align-self: flex-end;
         margin: 10px;
-    }
-
-    .btn-add-lista {
-        margin: 30px 50px 40px 100px;
-        width: 180px;
-        height: 60px;
-        font-size: 20px;
     }
 
     .product-box {

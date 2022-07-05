@@ -17,9 +17,11 @@
                 <h1>Salvar lista para compras futuras</h1>
             </button>
             <div class="botoes-compra">
-                <button class="finalizar-compra">
-                    <h1>Finalizar compra</h1>
-                </button>
+                <router-link to="/finalizarcompra">
+                    <button class="finalizar-compra">
+                        <h1>Finalizar compra</h1>
+                    </button>
+                </router-link>
                 <div class="total-compra">
                     <h1>Preço Total</h1>
                     <div class="preco-box">
