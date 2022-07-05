@@ -1,4 +1,4 @@
-.content {
+.content_adm {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,22 +6,22 @@
     min-height: 800px;
 }
 
-.titulo {
+.titulo_adm {
     margin: 3% 3% 10px 3%;
 }
 
-.titulo h1 {
+.titulo_adm h1 {
     color: var(--vermelho-escuro);
     font-size: 40px;
     text-align: left;
 }
 
-.titulo h2 {
+.titulo_adm h2 {
     color: var(--vermelho-escuro);
     font-size: 14px;
     text-align: left;
 }
 
-.titulo hr {
+.titulo_adm hr {
     color: var(--cinza);
 }

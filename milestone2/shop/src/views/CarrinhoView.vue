@@ -1,6 +1,6 @@
 <template>
-     <div class="content">
-                <div class="titulo">
+     <div class="content_carrinho">
+                <div class="titulo_carrinho">
                     <h1>Carrinho</h1>
                     <h2>Home > Carrinho</h2>
                     <hr/>

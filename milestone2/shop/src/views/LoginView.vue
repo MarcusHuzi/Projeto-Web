@@ -1,6 +1,6 @@
 <template>
     
-    <div class="content">
+    <div class="content_login">
         <div class="login-form">
             <h1 id="login-form-title">LOGIN</h1>
 

@@ -1,4 +1,4 @@
-.content {
+.content_carrinho {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,23 +6,23 @@
     min-height: 800px;
 }
 
-.titulo {
+.titulo_carrinho {
     margin: 3% 3% 10px 3%;
 }
 
-.titulo h1 {
+.titulo_carrinho h1 {
     color: var(--vermelho-escuro);
     font-size: 40px;
     text-align: left;
 }
 
-.titulo h2 {
+.titulo_carrinho h2 {
     color: var(--vermelho-escuro);
     font-size: 14px;
     text-align: left;
 }
 
-.titulo hr {
+.titulo_carrinho hr {
     color: var(--cinza);
 }
 

@@ -1,4 +1,4 @@
-.content {
+.content_perfil {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,23 +6,23 @@
     min-height: 800px;
 }
 
-.titulo {
+.titulo_perfil {
     margin: 3% 3% 10px 3%;
 }
 
-.titulo h1 {
+.titulo_perfil h1 {
     color: var(--vermelho-escuro);
     font-size: 40px;
     text-align: left;
 }
 
-.titulo h2 {
+.titulo_perfil h2 {
     color: var(--vermelho-escuro);
     font-size: 14px;
     text-align: left;
 }
 
-.titulo hr {
+.titulo_perfil hr {
     color: var(--cinza);
 }
 
@@ -108,40 +108,3 @@
     opacity: 90%;
     transition: all 0.3s
 }
-
-/*
-#div_nome{
-    position: relative;
-    top: 0px;
-    left: 0px;
-}
-
-#div_sobre{
-    position: relative;
-    top: 0px;
-    left: 400px;
-}
-
-#div_cpf{
-    position: relative;
-    top: 40px;
-    right: 100px;
-}
-
-#div_email{
-    position: relative;
-    top: 40px;
-    left: 400px;
-}
-
-#div_tel{
-    position: relative;
-    top: 80px;
-    left: 0px;
-}
-
-#div_end{
-    position: relative;
-    top: 80px;
-    left: 400px;
-}*/
