@@ -1,6 +1,6 @@
 <template>
-    <div class="content">
-                <div class="titulo">
+    <div class="content_perfil">
+                <div class="titulo_perfil">
                     <h1>Perfil do Usuário</h1>  
                     <h2>Home > Meu Perfil</h2>
                     <hr/>
