@@ -87,6 +87,7 @@
     margin-top: 30px;
 }
 
+
 .content-perfil input {
     background-color: #ececec;
     width: 340px;
@@ -99,4 +100,17 @@
     padding: 10px 10px 10px 12px;
     margin-bottom: 20px;
     margin-top: 0px;
+}
+
+.dados{
+    background-color: #E2E2E2;
+    margin: 1% 5% 1% 1%;
+    width: 380px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: 20px;
 }

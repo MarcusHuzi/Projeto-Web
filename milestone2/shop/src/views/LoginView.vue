@@ -11,7 +11,7 @@
                     
             <div class="senha-field">
                 <p id="senha-label">Senha</p>
-                <input type="senha-input" name="username">
+                <input type="password" name="username">
             </div>
 
             <div class="entrar-field">

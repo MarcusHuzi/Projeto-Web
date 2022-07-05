@@ -95,9 +95,9 @@
 
 <script>
 	import clients from "../data/clients.json";
-
-
 	let ano = new Date().getFullYear();
+
+
     export default {
         name: 'CadastroView',
 		data(){
