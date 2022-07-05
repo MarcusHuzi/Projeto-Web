@@ -1,27 +1,30 @@
 <template id="template-lista-compra">
-    <div v-for="(lista, index) in listas" class="lista-div" :key="lista">
-        <div class="titulo-lista">
-            <h1>{{lista[0].title}}</h1>
-            <!--<button type="button">ar</button>-->
-            <button type="button" @click="removeListByIndex(index)" class="botao-lista">Excluir lista</button>
-        </div>
-        <ul>
-            <li v-for="product in getListItems(index)" :key="product">
-                <div class="product-box">
-                    <div class="prod-details">
-                        <div class="prod-imagem-box">
-                            <img :src="getImgUrl(product.image_src)" :alt="product.img_alt" class="prod-imagem">
+    <div class="content">
+        <div v-for="(lista, index) in listas" class="lista-div" :key="lista">
+            <div class="titulo-lista">
+                <h1>{{lista[0].title}}</h1>
+                <!--<button type="button">ar</button>-->
+                <button type="button" @click="removeListByIndex(index)" class="botao-lista">Excluir lista</button>
+            </div>
+            <ul>
+                <li v-for="product in getListItems(index)" :key="product">
+                    <div class="product-box">
+                        <div class="prod-details">
+                            <div class="prod-imagem-box">
+                                <img :src="getImgUrl(product.image_src)" :alt="product.image_alt" class="prod-imagem">
+                            </div>
+                            <h2>{{ product.name }}</h2>
                         </div>
-                        <h2>{{ product.name }}</h2>
+                        <div class="prod-quantity">
+                            <h2>{{product.quantity}}</h2>
+                            <h2>R$ {{ (product.quantity * product.price).toFixed(2) }}</h2>
+                        </div>
                     </div>
-                    <div class="prod-quantity">
-                        <h2>{{product.quantity}}</h2>
-                        <h2>R$ {{ (product.quantity * product.price).toFixed(2) }}</h2>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <button type="button" class="btn-add-to-cart botao-lista">Adicionar ao carrinho</button>
+                </li>
+            </ul>
+            <button type="button" class="btn-add-to-cart botao-lista">Adicionar ao carrinho</button>
+        </div>
+        <button type="button" class="btn-add-list">Adicionar ao lista</button>
     </div>
 
 </template>

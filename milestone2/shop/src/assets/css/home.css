@@ -1,59 +1,65 @@
-
-/* tamnanho das imagens das categorias */
-.content_home img{
-    max-width: 20%;
-    border-radius: 100%;
-    transition: ease 600ms;
-}
-
-/* efeito nas imagens das categorias */
-.content_home img:hover{
-    opacity: 0.7;
-    transform: scale(1.08);
-}
-
-/* alinhamento dos nomes das categorias */
-.content_home h2 {
-    text-align: center;
+/* div contendo o conteudo da home (titulo + box principal)*/
+.content-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* titulo principal da homepage */
-.content_home h1 {
-    text-align: center;
-    font-size: 80px;
-    padding: 10%;
+.homepage-title {
+    font-size: 60px;
+    padding: 3%;
     color: var(--preto);
+    margin-bottom: 10px;
 }
 
-/* lista das imagens das categorias */
-.first-row li, .second-row li, .third-row li {
-    display: inline;
-    vertical-align: middle;
-    margin-left: 8.8em;
+/* propriedades da div principal (box contendo as colunas de categorias) */
+.category-box {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    max-width: 75%;
 }
 
-/* lista dos titulos das categorias */
-.first-row-titles li, .second-row-titles li , .third-row-titles li  {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 15px;
-    margin-bottom: 40px;
-    font-size: 40px;
+/* coluna contendo 3 categorias */
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* categoria contendo label + imagem */
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* centralizando imagem dentro da tag a */
+.content-home a {
+    display: flex;
+    justify-content: center;
+}
+
+/* tamnanho das imagens das categorias */
+.category-img{
+    max-width: 50%;
+    border-radius: 100%;
+    transition: ease 500ms;
+}
+
+/* label das categorias */
+.label {
+    font-size: 30px;
     color: var(--preto);
+    margin: 10px 0px 30px 0px;
+    justify-content: space-evenly;
 }
 
-/* alinhando os titulos */
-.first-row-titles li {
-    margin-left: 210px;
-    margin-right: 35px;
-}
-
-.second-row-titles li {
-    margin-left: 180px;
-    margin-right: 40px;
-}
-
-.third-row-titles li {
-    margin-left: 220px;
-    margin-right: 40px;
+/* efeito nas imagens das categorias */
+.category-img:hover {
+    opacity: 0.4;
+    transform: scale(1.05);
 }

@@ -1,0 +1,108 @@
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .modal-container {
+    width: 600px;
+    height: 350px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+
+  .modal-title{
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+  }
+  
+  .modal-body {
+    margin: 20px 0;
+  }
+  
+  .modal-default-button {
+    background-color: #193fd6;
+    color: #FCDC56 ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 10px 20px 10px 20px;
+    border-style: none;
+    margin-right: 10px;
+  }
+
+  .modal-default-button:hover {
+    border-radius: 5px;
+    padding: 15px 40px;
+    opacity: 90%;
+    transition: ease 0.4s
+}
+
+  .cancel{
+    background-color: #dc2012;
+    color: #FCDC56 ;
+    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+    border-style: none;
+  }
+
+  .cancel:hover {
+    border-radius: 5px;
+    padding: 15px 40px;
+    opacity: 90%;
+    transition: ease 0.4s
+}
+
+  .form-group{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 35px;
+    width: 95%;
+    align-self: center;
+  }
+
+  .modal-mask input {
+    background-color: #ececec;
+    width: 180px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 10px 10px 12px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+
+.field-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-modal {
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-top: 30px;
+}
+
