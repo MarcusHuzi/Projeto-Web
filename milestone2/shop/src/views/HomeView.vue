@@ -66,7 +66,7 @@
                             <img src="@/assets/image/homepage-categories/laticinios.png">
                         </li>
                         <li>
-                            <img src="@/assets/image/homepage-categories/limpeza.png">
+                            <router-link to="/listaprodutos"><img src="@/assets/image/homepage-categories/limpeza.png"></router-link>
                         </li>
                         <li>
                             <img src="@/assets/image/homepage-categories/promocao.png">
