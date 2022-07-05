@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        name: "ProdContent",
+        name: "CartProducts",
         data() {
             return {
                 products: [

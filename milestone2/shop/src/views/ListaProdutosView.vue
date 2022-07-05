@@ -8,7 +8,7 @@
 
         <div class="listagem">
             <ul>
-                <product-content></product-content>
+                <product-list></product-list>
             </ul>
         </div>
 
@@ -19,13 +19,13 @@
 
 <script>
 
-    import ProductContent from "../components/ProductContent.vue"
+    import ProductList from "../components/ProductList.vue"
     import ModalProduct from "../components/ModalProduct.vue"
 
     export default {
         name: 'ListaProdutosView',
         components: {
-            ProductContent,
+            ProductList,
             ModalProduct
         },
         data() {

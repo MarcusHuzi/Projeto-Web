@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: "ProductContent",
+        name: "ProductList",
         data() {
             return {
                 products: [

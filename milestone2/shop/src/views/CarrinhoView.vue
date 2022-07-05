@@ -8,7 +8,7 @@
 
         <div class="produtos">
             <ul>
-                <prod-content @emit-price="updatePrice"></prod-content>
+                <cart-products @emit-price="updatePrice"></cart-products>
             </ul>
         </div>
 
@@ -33,12 +33,12 @@
 
 <script>
 
-    import ProdContent from "../components/ProdContent.vue"
+    import CartProducts from "../components/CartProducts.vue"
 
     export default {
         name: 'CarrinhoView',
         components: {
-            ProdContent
+            CartProducts
         },
         data() {
             return {
