@@ -1,7 +1,7 @@
 <template id="product-template">
     <li  v-for="(product, index) in products" class="produto" :key="product">
         <div class="prod-imagem-box" @click="this.$parent.showModal(product)">
-            <img :src="product.image_src" :alt="product.image_alt">
+            <img :src="getImgUrl(product.image_src)" :alt="product.image_alt">
             <button v-on:click.stop="addProduct(index)" v-show="product.quantity == 0" type="button" class="btn-add-product">+</button>
             <input v-on:click.stop v-show="product.quantity >= 1" v-model="product.quantity" type="number" class="input-add-product">
         </div>
@@ -17,7 +17,7 @@
             return {
                 products: [
                         {
-                            image_src: "@/assets/image/produtos/ype-clear.png",
+                            image_src: "image/produtos/ype-clear.png",
                             image_alt: "ype-clear",
                             name: "Detergente Líquido Ypê Clear 500ml",
                             description: "Detergente Líquido Ypê Clear 500ml",
@@ -25,7 +25,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "@/assets/image/produtos/ype-maca.png",
+                            image_src: "image/produtos/ype-maca.png",
                             image_alt: "ype-maca",
                             name: "Detergente Líquido Ypê Maçã 500ml",
                             description: "Detergente Líquido Ypê Maçã 500ml",
@@ -33,7 +33,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "@/assets/image/produtos/ype-neutro.png",
+                            image_src: "image/produtos/ype-neutro.png",
                             image_alt: "ype-neutro",
                             name: "Detergente Líquido Ypê Neutro 500ml",
                             description: "Detergente Líquido Ypê Neutro 500ml",
@@ -41,7 +41,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "@/assets/image/produtos/ype-clear.png",
+                            image_src: "image/produtos/ype-clear.png",
                             image_alt: "placeholder",
                             name: "Item a ser adicionado",
                             description: "TBD",
@@ -54,6 +54,9 @@
         methods: {
             addProduct(index) {
                 this.products[index].quantity += 1
+            },
+            getImgUrl(url){
+                return require('@/assets/' + url)
             }
         }
     }

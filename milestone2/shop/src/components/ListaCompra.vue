@@ -10,7 +10,7 @@
                 <div class="product-box">
                     <div class="prod-details">
                         <div class="prod-imagem-box">
-                            <img :src="product.image_src" :alt="product.img_alt" class="prod-imagem">
+                            <img :src="getImgUrl(product.image_src)" :alt="product.img_alt" class="prod-imagem">
                         </div>
                         <h2>{{ product.name }}</h2>
                     </div>
@@ -37,7 +37,7 @@
                             title: "Lista de terça"
                         },
                         {
-                            image_src: "../image/produtos/ype-clear.png",
+                            image_src: "image/produtos/ype-clear.png",
                             image_alt: "ype-clear",
                             name: "Detergente Líquido Ypê Clear 500ml",
                             description: "Detergente Líquido Ypê Clear 500ml",
@@ -45,7 +45,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "../image/produtos/ype-maca.png",
+                            image_src: "image/produtos/ype-maca.png",
                             image_alt: "ype-maca",
                             name: "Detergente Líquido Ypê Maçã 500ml",
                             description: "Detergente Líquido Ypê Maçã 500ml",
@@ -58,7 +58,7 @@
                             title: "Lista de sempre"
                         },
                         {
-                            image_src: "../image/produtos/ype-maca.png",
+                            image_src: "image/produtos/ype-maca.png",
                             image_alt: "ype-maca",
                             name: "Detergente Líquido Ypê Maçã 500ml",
                             description: "Detergente Líquido Ypê Maçã 500ml",
@@ -66,7 +66,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "../image/produtos/ype-neutro.png",
+                            image_src: "image/produtos/ype-neutro.png",
                             image_alt: "ype-neutro",
                             name: "Detergente Líquido Ypê Neutro 500ml",
                             description: "Detergente Líquido Ypê Neutro 500ml",
@@ -79,7 +79,7 @@
                             title: "Fins de semana"
                         },
                         {
-                            image_src: "../image/produtos/ype-clear.png",
+                            image_src: "image/produtos/ype-clear.png",
                             image_alt: "ype-clear",
                             name: "Detergente Líquido Ypê Clear 500ml",
                             description: "Detergente Líquido Ypê Clear 500ml",
@@ -87,7 +87,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "../image/produtos/ype-maca.png",
+                            image_src: "image/produtos/ype-maca.png",
                             image_alt: "ype-maca",
                             name: "Detergente Líquido Ypê Maçã 500ml",
                             description: "Detergente Líquido Ypê Maçã 500ml",
@@ -95,7 +95,7 @@
                             price: 2.39
                         },
                         {
-                            image_src: "../image/produtos/ype-neutro.png",
+                            image_src: "image/produtos/ype-neutro.png",
                             image_alt: "ype-neutro",
                             name: "Detergente Líquido Ypê Neutro 500ml",
                             description: "Detergente Líquido Ypê Neutro 500ml",
@@ -112,6 +112,9 @@
             },
             getListItems(index){
                 return this.listas[index].slice(1)
+            },
+            getImgUrl(url){
+                return require('@/assets/' + url)
             }
         }
     }
