@@ -1,5 +1,6 @@
 <template id="template-lista-compra">
     <div class="content">
+        <button type="button" class="btn-add-lista botao-lista">Adicionar nova lista </button>
         <div v-for="(lista, index) in listas" class="lista-div" :key="lista">
             <div class="titulo-lista">
                 <h1>{{lista[0].title}}</h1>
@@ -22,9 +23,9 @@
                     </div>
                 </li>
             </ul>
+            <button type="button" class="btn-edit-lista botao-lista">Editar Lista</button>
             <button type="button" class="btn-add-to-cart botao-lista">Adicionar ao carrinho</button>
         </div>
-        <button type="button" class="btn-add-list">Adicionar ao lista</button>
     </div>
 
 </template>
@@ -125,6 +126,7 @@
 </script>
 
 <style scoped>
+
     .lista-div {
         margin: 10px 3% 20px 3%;
         background-color: var(--cinza);
@@ -176,6 +178,18 @@
     .btn-add-to-cart {
         align-self: flex-end;
         margin: 10px;
+    }
+
+    .btn-edit-lista {
+        align-self: flex-end;
+        margin: 10px;
+    }
+
+    .btn-add-lista {
+        margin: 30px 50px 40px 100px;
+        width: 180px;
+        height: 60px;
+        font-size: 20px;
     }
 
     .product-box {
