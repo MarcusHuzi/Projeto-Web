@@ -1,11 +1,3 @@
-.content_home{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    min-height: 800px;
-}
 
 /* tamnanho das imagens das categorias */
 .content_home img{
@@ -29,7 +21,7 @@
 .content_home h1 {
     text-align: center;
     font-size: 80px;
-    padding: 5% 10% 10% 5%;
+    padding: 10%;
     color: var(--preto);
 }
 
