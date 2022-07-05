@@ -21,6 +21,7 @@
                 this.$emit('close')
             },
             getImgUrl(url){
+                if (url == undefined) return ""
                 return require('@/assets/' + url)
             }
         }
