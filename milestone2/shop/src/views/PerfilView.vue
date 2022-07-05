@@ -87,7 +87,34 @@
                         <label>Status:</label>
                         <span> Entregue </span>
                     </div>
-
+                </li>
+                <li class="info-pedido">
+                    <div class="id">
+                        <label> ID: </label>
+                        <span> 1234 </span>
+                    </div>
+                    <div class="data">
+                        <label> Data: </label>
+                        <span> 01/07/22 </span>
+                    </div>
+                    <div class="status">
+                        <label>Status:</label>
+                        <span> Cancelado </span>
+                    </div>
+                </li>
+                <li class="info-pedido">
+                    <div class="id">
+                        <label> ID: </label>
+                        <span> 3360 </span>
+                    </div>
+                    <div class="data">
+                        <label> Data: </label>
+                        <span> 02/07/22 </span>
+                    </div>
+                    <div class="status">
+                        <label>Status:</label>
+                        <span> Em progresso </span>
+                    </div>
                 </li>
             </ul>
 
