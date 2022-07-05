@@ -2,7 +2,7 @@
     <div class="modal-backdrop" @click="close">
         <div class="modal">
             <div class="modal-prod-image-box">
-                <img :src="this.$parent.modalProduct.image_src" :alt="this.$parent.modalProduct.image_alt">
+                <img :src="getImgUrl(this.$parent.modalProduct.image_src)" :alt="this.$parent.modalProduct.image_alt">
             </div>
             <div class="modal-prod-description">
                 <h1>{{this.$parent.modalProduct.name}}</h1>
@@ -19,6 +19,9 @@
         methods: {
             close() {
                 this.$emit('close')
+            },
+            getImgUrl(url){
+                return require('@/assets/' + url)
             }
         }
     }
