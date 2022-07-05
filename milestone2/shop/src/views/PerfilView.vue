@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="saveChanges">
-            <button class="saveChanges-btn">Confirmar alterações</button>
+            <button class="saveChanges-btn">Salvar alterações</button>
         </div>
         <div class="line bottom-line">
             <hr/>
