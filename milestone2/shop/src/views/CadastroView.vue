@@ -94,6 +94,9 @@
 </template>
 
 <script>
+	import clients from "../data/clients.json";
+
+
 	let ano = new Date().getFullYear();
     export default {
         name: 'CadastroView',
@@ -217,7 +220,36 @@
 					e.preventDefault();
 					alert("Informação inválida");
 				} else {
+					let erroCPF;
+					let erroEmail;
+
+					//verificar se email e cpf estão dispniveis
+					for (let i = 0; i < clients.length; i++) {
+						erroEmail = (this.email == clients[i]['email']); erroCPF = (this.cpf == clients[i]['cpf']);
+						if(erroCPF || erroEmail){break;}
+
+					}
+
+					if(erroEmail){
+						document.getElementById("e_email").innerText = "Email já pertence a uma conta";
+					} else{
+						document.getElementById("e_email").innerText = ""
+					}
+
+					if(erroCPF){
+						document.getElementById("v_cpf").innerText = "CPF já pertence a uma conta"
+					} else{
+						document.getElementById("v_cpf").innerText = ""
+					}
+
+					if(erroCPF || erroEmail){
+						e.preventDefault();
+						alert("Informação inválida");
+						return;
+					}
+					
 					alert("Cadastro concluído");
+					this.$router.push('/')
 				}
         }
 		}
