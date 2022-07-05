@@ -1,5 +1,5 @@
 <template>
-    <div id="tituloPagina">
+    <div id="titulo_cadastro">
 				<h1>Cadastro</h1>
 				<h2>Home > Cadastro</h2>
 				<hr/>
