@@ -1,28 +1,35 @@
+.content_home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: 800px;
+}
+
 /* tamnanho das imagens das categorias */
-.content img{
+.content_home img{
     max-width: 20%;
     border-radius: 100%;
     transition: ease 600ms;
 }
 
 /* efeito nas imagens das categorias */
-.content img:hover{
+.content_home img:hover{
     opacity: 0.7;
     transform: scale(1.08);
 }
 
 /* alinhamento dos nomes das categorias */
-.content h2 {
+.content_home h2 {
     text-align: center;
 }
 
 /* titulo principal da homepage */
-.content h1 {
+.content_home h1 {
     text-align: center;
     font-size: 80px;
-    padding: 10%;
-    margin-top: -70px;
-    margin-bottom: -110px;
+    padding: 5% 10% 10% 5%;
     color: var(--preto);
 }
 
