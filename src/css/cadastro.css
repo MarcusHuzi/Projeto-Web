@@ -105,14 +105,12 @@
 
 /*termos e termos1 definem o formato do paragrafo com os testo sobre os termos*/
 #termos{
-	font-family:Itim;
 	position:relative;
 	left:170px;
 	margin-bottom:15px;
 }
 
 #termos1{
-	font-family:itim;
 	color:blue;
 }
 
