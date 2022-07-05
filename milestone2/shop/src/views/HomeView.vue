@@ -1,94 +1,69 @@
 <template>
-    <div class="content_home">
-                <h1 class="titulo_home">Categorias</h1>
-            
-                <div class="first-row">
-                    <ul class="categorias">
-                        <li>
-                            <img src="@/assets/image/homepage-categories/bebidas.png">
-                        </li>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/cereais.png">
-                        </li>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/congelados.png">
-                        </li>
-                    </ul>
+    <div class="content-home">
+        <h1 class="homepage-title"><b>CATEGORIAS</b></h1>
+        <div class="category-box">
+            <div class="column left-column">
+                <div class="category bebidas">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/bebidas.png">
+                    </router-link>
+                    <h2 class="label">Bebidas</h2>
                 </div>
-
-                <div class="first-row-titles">
-                    <ul class="categorias">
-                        <li>
-                            <h2>Bebidas</h2>
-                        </li>
-                        <li>
-                            <h2>Hortifruti</h2>
-                        </li>
-                        <li>
-                            <h2>Laticínios</h2>
-                        </li>
-                    </ul>
+                <div class="category congelados">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/congelados.png">
+                    </router-link>
+                    <h2 class="label">Congelados</h2>
                 </div>
-
-                <div class="second-row">
-                    <ul>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/enlatados.png">
-                        </li>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/higiene.png">
-                        </li>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/hortifruti.png">
-                        </li>
-                    </ul>
-
+                <div class="category higiene">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/higiene.png">
+                    </router-link>
+                    <h2 class="label">Higiene</h2>
                 </div>
-
-                <div class="second-row-titles">
-                    <ul class="categorias">
-                        <li>
-                            <h2>Congelados</h2>
-                        </li>
-                        <li>
-                            <h2>Enlatados</h2>
-                        </li>
-                        <li>
-                            <h2>Cereais</h2>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <div class="third-row">
-                    <ul>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/laticinios.png">
-                        </li>
-                        <li>
-                            <router-link to="/listaprodutos"><img src="@/assets/image/homepage-categories/limpeza.png"></router-link>
-                        </li>
-                        <li>
-                            <img src="@/assets/image/homepage-categories/promocao.png">
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="third-row-titles">
-                    <ul class="categorias">
-                        <li>
-                            <h2>Higiene</h2>
-                        </li>
-                        <li>
-                            <h2>Limpeza</h2>
-                        </li>
-                        <li>
-                            <h2>Promoções</h2>
-                        </li>
-                    </ul>
-                </div>
-                
             </div>
+            <div class="column center-column">
+                <div class="category hortifruti">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/hortifruti.png">
+                    </router-link>
+                    <h2 class="label">Hortifruti</h2>
+                </div>
+                <div class="category enlatados">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/enlatados.png">
+                    </router-link>
+                    <h2 class="label">Enlatados</h2>
+                </div>
+                <div class="category limpeza">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/limpeza.png">
+                    </router-link>
+                    <h2 class="label">Limpeza</h2>
+                </div>
+            </div>
+            <div class="column center-column">
+                <div class="category laticinios">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/laticinios.png">
+                    </router-link>
+                    <h2 class="label">Laticínios</h2>
+                </div>
+                <div class="category cereais">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/cereais.png">
+                    </router-link>
+                    <h2 class="label">Cereais</h2>
+                </div>
+                <div class="category promocoes">
+                    <router-link to="/Listaprodutos">
+                        <img class="category-img" src="@/assets/image/homepage-categories/promocao.png">
+                    </router-link>
+                    <h2 class="label">Promoções</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
