@@ -94,12 +94,7 @@
 </template>
 
 <script>
-
-	let mailFormat = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
-	let cpfFormat = /^\d{3}\.\d{3}\.\d{3}\d{2}$/;
-	let cepFormat = /^\d{5}\d{3}$/;
-	let celularFormat = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$/;
-
+	let ano = new Date().getFullYear();
     export default {
         name: 'CadastroView',
 		data(){
@@ -139,7 +134,7 @@
 				}
 				
 				//verificar se o email esta no formato adequado
-				if(this.email == "" || !this.email.match(mailFormat)){
+				if(this.email == "" ){
 					document.getElementById("e_email").innerText = "Email inválido"
 					this.erro[2] = 1;
 				} else {
@@ -148,7 +143,7 @@
 				}
 
 				//verificar se o cpf ta no formato adequado
-				if(this.cpf=="" || !this.cpf.match(cpfFormat)){
+				if(this.cpf==""){
 					document.getElementById("v_cpf").innerText = "CPF inválido"
 					this.erro[3] = 1;
 				} else{
@@ -157,7 +152,7 @@
 				}
 
 				//verificar se o cep ta no formato adequado
-				if(this.cep=="" || !this.cep.match(cepFormat)){
+				if(this.cep==""){
 					document.getElementById("v_cep").innerText = "CEP inválido"
 					this.erro[4] = 1;
 				} else{
@@ -184,7 +179,7 @@
 				}
 				
 				//verificar se celular foi inserido corretamente
-				if(this.celular == "" || !this.celular.match(celularFormat)){
+				if(this.celular == ""){
 					document.getElementById("v_celular").innerText = "Celular inválido"
 					this.erro[7] = 1;
 				} else{
@@ -206,7 +201,7 @@
 					document.getElementById("v_nasc").innerText = "Data inválida"
 					this.erro[9] = 1;
 
-				} else if(parseInt(this.nasc.substring(5,0)) > 2008){
+				} else if(ano - parseInt(this.nasc.substring(5,0)) < 14){
 					document.getElementById("v_nasc").innerText = "Data inválida"
 					this.erro[9] = 1;
 		
