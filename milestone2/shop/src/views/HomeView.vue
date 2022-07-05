@@ -97,7 +97,6 @@
     }
 </script>
 
-<style>
-    @import '/src/assets/css/style.css';
+<style scoped>
     @import '/src/assets/css/home.css';
 </style>

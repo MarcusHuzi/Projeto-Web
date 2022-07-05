@@ -31,8 +31,6 @@
     }
 </script>
 
-<style>
-    @import '/src/assets/css/style.css';
-    @import '/src/assets/css/reset.css';
+<style scoped>
     @import '/src/assets/css/login.css';
 </style>
