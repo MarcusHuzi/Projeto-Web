@@ -67,6 +67,33 @@
         <div class="line bottom-line">
             <hr/>
         </div>
+
+        <div class="lista-pedidos">
+
+            <h3> Pedidos </h3>
+            <hr/>
+
+            <ul class="pedidos">
+                <li class="info-pedido">
+                    <div class="id">
+                        <label> ID: </label>
+                        <span> 7798 </span>
+                    </div>
+                    <div class="data">
+                        <label> Data: </label>
+                        <span> 05/07/22 </span>
+                    </div>
+                    <div class="status">
+                        <label>Status:</label>
+                        <span> Entregue </span>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+        
+
     </div>
 
     <div v-if="myModal"> 
