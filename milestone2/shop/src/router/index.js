@@ -56,6 +56,11 @@ const routes = [
         component: () => import('../views/NotFound.vue')
     },
 
+    {
+        path: '/areaAdmin',
+        name: 'AreaAdmin',
+        component: () => import('../views/AreaAdminView.vue')
+    },
 
 ]
 
