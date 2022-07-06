@@ -65,7 +65,13 @@
         emits: ['emit-price'],
         methods: {
             getImgUrl(url){
-                return require('@/assets/' + url)
+                try {
+                    let str = require('@/assets/' + url)
+                    return str
+                }
+                catch {
+                    return ""
+                }
             }
         }
     }

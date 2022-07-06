@@ -16,7 +16,9 @@
                 <div class="items-list">
                     <ul>
                         <li v-for="produto in estoque" :key="produto.id" class="item">
-                            <img src=produto.imagem>
+                            <div class="prod-imagem-box">
+                                <img :src="getImgUrl(produto.foto)" class="img-produto">
+                            </div>
                             <input v-model="produto.nome" type="text">
                             <input v-model="produto.preco"  type="float">
                             <input v-model="produto.quantidade" type="float">
@@ -56,6 +58,17 @@
                 clientes: clientsData,
             };
         },
+        methods: {
+            getImgUrl(url){
+                try {
+                    let str = require('@/assets/' + url)
+                    return str
+                }
+                catch {
+                    return ""
+                }
+            }
+        }
     };
 </script>
 

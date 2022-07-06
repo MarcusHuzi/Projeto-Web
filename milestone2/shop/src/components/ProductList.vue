@@ -296,7 +296,13 @@
                 this.products[index].quantity += 1
             },
             getImgUrl(url){
-                return require('@/assets/' + url)
+                try {
+                    let str = require('@/assets/' + url)
+                    return str
+                }
+                catch {
+                    return ""
+                }
             }
         }
     }
