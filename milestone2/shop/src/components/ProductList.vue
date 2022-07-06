@@ -47,6 +47,246 @@
                             description: "TBD",
                             quantity: 0,
                             price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
+                        },
+                        {
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "placeholder",
+                            name: "Item a ser adicionado",
+                            description: "TBD",
+                            quantity: 0,
+                            price: 0.00
                         }
                     ]
             }

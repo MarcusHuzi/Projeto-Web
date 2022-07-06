@@ -7,9 +7,7 @@
             <hr/>
         </div>
         
-        <lista-compra>
-
-        </lista-compra>
+        <lista-compra></lista-compra>
 
     </div>
 

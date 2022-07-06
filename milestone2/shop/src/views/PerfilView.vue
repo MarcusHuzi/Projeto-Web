@@ -68,6 +68,7 @@
             <hr/>
         </div>
 
+        <!--
         <div class="lista-pedidos">
 
             <h3> Pedidos </h3>
@@ -119,6 +120,8 @@
             </ul>
 
         </div>
+        -->
+        
         
 
     </div>
