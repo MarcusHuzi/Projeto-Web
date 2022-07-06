@@ -114,7 +114,7 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 <a name="Comentários-sobre-o-código"/>
 
 ## 3. Comentários sobre o código
-O código ainda está numa fase inicial em que não foram implementadas funcionalidades de servidor nem de banco de dados. As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js.
+O código ainda está numa fase inicial em que não foram implementadas funcionalidades de banco de dados. As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js.
 <br>
 <br>
 
@@ -135,7 +135,25 @@ Neste estado inicial, os testes mostraram-se satisfatórios.
 <a name="Building"/>
 
 ## 6. Building
-Ainda não foi feita a criação de um servidor, as páginas devem ser acessadas diretamente pelo navegador através dos arquivos .html.
+É necessário ter o npm e node.js instalados. Todos os comandos abaixo devem ser digitados no escopo da pasta `shop`:
+
+#### Instalação de Dependências:
+
+```
+npm install
+```
+
+#### Compilação no Modo de Desenvolvimento:
+
+```
+npm run serve
+```
+
+#### Compilação e Minificação para Produção:
+
+```
+npm run build
+```
 <br>
 <br>
 
