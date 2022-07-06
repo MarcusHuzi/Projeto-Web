@@ -197,12 +197,12 @@
             name: 'PerfilView',
             data(){
                 return{
-                    nome:"",
-                    sobrenome:"",
-                    cpf:"",
-                    email:"",
-                    tel:"",
-                    end:"",
+                    nome:"Cliente 1",
+                    sobrenome:"Sobrenome dele",
+                    cpf:"89568958745",
+                    email:"cliente1@usp.br",
+                    tel:"16992458756",
+                    end:"Rua 3",
                     e_tel:"",
                     e_end:"",
                     e_nome:"",
