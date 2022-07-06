@@ -1,32 +1,32 @@
 [
     {
         "email": "123@123.com",
-        "nome": "Batata Inglesa Mandioca",
+        "nome": "Pedro",
         "cpf": "90522045923",
-        "endereço": "Rua Plantação Batata, 44",
+        "endereço": "Rua dom pedro, 44",
         "telefone": "11923493950",
         "password": "123"
     },
     {
         "email": "aaa@aaa.com",
-        "nome": "xaropinho alo alo",
+        "nome": "Alice",
         "cpf": "90522045923",
-        "endereço": "Rua Plantação Batata, 44",
+        "endereço": "Rua dom Pedro, 44",
         "telefone": "11923493950",
         "password": "123"
     },
     {
         "email": "123@123.com",
-        "nome": "Batata Inglesa Mandioca",
+        "nome": "BFelipe",
         "cpf": "90522045923",
-        "endereço": "Rua Plantação Batata, 44",
+        "endereço": "Rua Plantação, 44",
         "telefone": "11923493950",
         "password": "123"
     },    {
         "email": "123@123.com",
-        "nome": "Batata Inglesa Mandioca",
+        "nome": "Leo",
         "cpf": "90522045923",
-        "endereço": "Rua Plantação Batata, 44",
+        "endereço": "Rua alvorada, 44",
         "telefone": "11923493950",
         "password": "123"
     }

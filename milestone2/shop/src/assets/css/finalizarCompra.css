@@ -99,7 +99,7 @@
 .pedido{
     background-color: #F9F9F9;
     width: 600px;
-    height: 800px;
+    height: 900px;
     border: 1px solid;
     border-radius: 12px;
     padding: 40px 20px 40px 20px;
@@ -186,9 +186,24 @@
     font-weight: 400;
 }
 
+.valor-total{
+    width: 280px;
+    height: 100px;
+    margin: 40px 10px 5px 10px; 
+    display:block;
+    padding: 40px 5px 5px 5px ;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.valor-total label{
+    margin-right: 20px;
+}
+
+
 .btn-pagar{
     width: 60%; 
-    margin: 50px 5px 10px 5px;
+    margin: 10px 5px 10px 5px;
 	padding: 12px 10px 10px 10px; 
 	display: inline-block; 
 	border-radius: 10px; 

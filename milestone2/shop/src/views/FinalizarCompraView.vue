@@ -120,7 +120,9 @@
                     </select>
 
 
-                    <div class="valor">
+                    <div class="valor-total">
+                        <label>Valor Total:</label>
+                         <span class="preco">XX,X</span>
                     </div>
 
                 </div>
