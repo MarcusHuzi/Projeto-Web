@@ -1,14 +1,13 @@
+const controller = {}
 
 controller.get = (req,res)=>{
 
     res.status(200).send({
         key: req.params.key,
-        value: response,
     });
 };
 
 controller.put = (req,res)=>{
-
     res.status(201).send({
         key: req.params.key,
         value: req.body,

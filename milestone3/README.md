@@ -1,0 +1,1 @@
+Para rodar o server execute o comando 'npx nodemon ./bin/server.js'
