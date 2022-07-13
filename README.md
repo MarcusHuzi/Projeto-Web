@@ -98,7 +98,6 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - cpf
 - endereço
 - número de telefone
-- sexo
 
 #### Produtos:
 - id (identificador do produto, valor único)
