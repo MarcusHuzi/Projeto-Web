@@ -5,10 +5,14 @@ const router = express.Router();
 
 router.get('/', controller.get);
 
+router.get('/:cpf', controller.getByCPF);
+
+router.get('/:id', controller.getById);
+
 router.post('/', controller.post);
 
-router.put('/:key', controller.put);
+router.put('/:id', controller.put);
 
-router.delete('/:key', controller.delete);
+router.delete('/:id', controller.delete);
 
 export default router;

@@ -18,24 +18,78 @@ controller.post = async (req, res) => {
     });
 };
 
-controller.get = (req,res)=>{
-
-    res.status(200).send({
-        message:"Get realizado"
-    });
+controller.get = async (req,res)=>{
+    try{
+        const data = await Client.find({active: true}, 'nome cpf email tel cep num nasc')
+        res.status(200).send(data)
+    } catch (e){
+        res.status(400).send(e)
+    }
 };
 
-controller.put = (req,res)=>{
-    res.status(201).send({
-        key: req.params.key,
-        value: req.body,
-    });
+controller.getByCPF = async (req,res)=>{
+    try{
+        const data = await Client.find({active: true, cpf: req.params.cpf}, 'nome email tel cep num nasc')
+        res.status(200).send(data)
+    } catch (e){
+        res.status(400).send(e)
+    }
 };
 
-controller.delete = (req,res)=>{
-    res.status(201).send({
-        deleting: req.params.key,
-    });
+controller.getByCPF = async (req,res)=>{
+    try{
+        const data = await Client.findOne({active: true, cpf: req.params.cpf}, 'nome email tel cep num nasc')
+        res.status(200).send(data)
+    } catch (e){
+        res.status(400).send(e)
+    }
+};
+
+controller.getById = async (req,res)=>{
+    try{
+        const data = await Client.findById({active: true, cpf: req.params.id}, 'nome email tel cep num nasc')
+        res.status(200).send(data)
+    } catch (e){
+        res.status(400).send(e)
+    }
+};
+
+controller.put = async (req,res)=>{
+    try{
+        await Client.findByIdAndUpdate(req.params.id,{
+            $set:{
+                nome: req.body.nome,
+                email: req.body.email,
+                tel: req.body.tel,
+                senha: req.body.senha,
+                cep: req.body.cep,
+                num: req.body.num,
+                comp: req.body.comp
+            }
+        });
+        res.status(201).send({
+            message: 'Cliente atualizado com sucesso'
+        });
+    } catch(e){
+        res.status(400).send({
+            message: 'Falha na atualização de dados',
+            data: e
+        });
+    }
+};
+
+controller.delete = async (req,res)=>{
+    try{
+        await Client.findOneAndRemove({_id: req.params.id});
+        res.status(201).send({
+            message: 'Cliente deletado com sucesso'
+        });
+    } catch(e){
+        res.status(400).send({
+            message: 'Falha no delete',
+            data: e
+        });
+    }
 };
 
 export default controller;
