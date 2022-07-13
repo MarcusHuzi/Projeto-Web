@@ -3,7 +3,9 @@ import controller from '../controllers/controller.js'
 
 const router = express.Router();
 
-router.get('/:key', controller.get);
+router.get('/', controller.get);
+
+router.post('/', controller.post);
 
 router.put('/:key', controller.put);
 

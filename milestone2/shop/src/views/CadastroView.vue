@@ -37,16 +37,6 @@
 						<input class="secao" type="date" name="data" v-model="nasc"><br>
 						<br>
 					<p id="v_nasc" class="form_erro"></p>
-					
-					<span class="titulo">Sexo</span>
-						<br>
-						<input class="secao" name="sexo" list="lista-sexo" autocomplete="off">
-						<datalist id="lista-sexo">
-							<option value="Masculino"> </option>
-							<option value="Feminino"> </option>
-							<option value="Outros"> </option>
-						</datalist>
-						<br><br>
 
 					<span class="titulo">*CEP</span>
 						<br>

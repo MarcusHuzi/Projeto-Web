@@ -1,9 +1,27 @@
+import mongoose from "mongoose";
+
+const Client = mongoose.model('Client')
+
 const controller = {}
+
+controller.post = async (req, res) => {
+    const client = new Client(req.body)
+    try{
+        await client.save()
+    } catch(e){
+        res.status(400).send({
+            message: "Falha no cadastro"
+        });
+    }
+    res.status(201).send({
+        message: "Cliente cadastrado."
+    });
+};
 
 controller.get = (req,res)=>{
 
     res.status(200).send({
-        key: req.params.key,
+        message:"Get realizado"
     });
 };
 
