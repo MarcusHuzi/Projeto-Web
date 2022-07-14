@@ -8,37 +8,37 @@
 
             <div class="navbar-icons">
                 <ul>
-                    <li>
+                    <li  v-if="logged == false" >
                         <router-link to="/login">
                              <span class="login"> Login </span>
                         </router-link>
                     </li>
-                    <li>
-                        <router-link to="/">
+                    <li  v-if="logged == true">
+                        <a @click="logout()">
                              <span class="logout"> Logout </span>
-                        </router-link>
+                        </a>
                     </li>
-                    <li>
+                    <li v-if="logged == false">
                         <router-link to="/cadastro">
                             <span class="signup"> Sign up </span>
                         </router-link>
                     </li>
-                    <li>
+                    <li v-if="logged == true">
                         <router-link to="/carrinho">
                             <img src="@/assets/image/navbar-icons/kart.png" class="kart"> 
                         </router-link>
                     </li>
-                    <li>
+                    <li v-if="logged == true">
                         <router-link to="/listacompras">
                             <img src="@/assets/image/navbar-icons/shop-list.png" class="shoplist">
                         </router-link>
                     </li>
-                    <li>
+                    <li v-if="logged == true">
                         <router-link to="/perfil">
                             <img src="@/assets/image/navbar-icons/profile.png" class="profile"> 
                         </router-link>
                     </li>
-                    <li>
+                    <li v-if="isAdmin == true">
                         <router-link to="/areaAdmin">
                             <span class="adm"> Adm </span>
                         </router-link>
@@ -74,6 +74,10 @@ export default {
 				this.isAdm = account.adm;
             } 
         },
+        logout() {
+			this.$cookies.remove("account_id");
+			this.$router.push('/');
+		},
     }
 }
 </script>
