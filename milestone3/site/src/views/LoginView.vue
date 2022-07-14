@@ -53,7 +53,7 @@
                         if (account.email == this.email && account.senha == this.password) {
                             logged = true;
                             this.$cookies.set("account_id", account._id);
-                            window.location.href = "/perfil-cliente";
+                            window.location.href = "/";
                             break;
                         }
                     }
