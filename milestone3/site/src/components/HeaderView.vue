@@ -15,7 +15,7 @@
                     </li>
                     <li  v-if="logged == true">
                         <a @click="logout()">
-                             <span class="logout"> Logout </span>
+                             <span class="logout"> Sair </span>
                         </a>
                     </li>
                     <li v-if="logged == false">

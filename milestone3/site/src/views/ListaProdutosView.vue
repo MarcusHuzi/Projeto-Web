@@ -1,8 +1,8 @@
 <template>
     <div class="content_produtos">
         <div class="titulo_produtos">
-            <h1>Produtos de limpeza</h1>
-            <h2>Home > Produtos de Limpeza</h2>
+            <h1>{{ getPageTitle() }}</h1>
+            <h2><router-link to="/">Home</router-link> > {{ getPageTitle() }}</h2>
             <hr/>
         </div>
 
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-
     import ProductList from "../components/ProductList.vue"
     import ModalProduct from "../components/ModalProduct.vue"
 
@@ -41,6 +40,25 @@
             },
             closeModal() {
                 this.isModalVisible = false
+            },
+            getPageTitle() {
+                let cat = String(this.$route.params.category)
+                if (cat === "bebidas")
+                    return "Bebidas"
+                else if (cat === "congelados")
+                    return "Congelados"
+                else if (cat === "higiene")
+                    return "Produtos de Higiene"
+                else if (cat === "hortifruti")
+                    return "Hortifruti"
+                else if (cat === "enlatados")
+                    return "Enlatados"
+                else if (cat === "limpeza")
+                    return "Produtos de Limpeza"
+                else if (cat === "laticinios")
+                    return "Laticínios"
+                else if (cat === "cereais")
+                    return "Cereais"
             }
         }
     }
