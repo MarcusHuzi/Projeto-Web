@@ -7,7 +7,7 @@ const controller = {};
 controller.getAllProducts = async (req, res) => {
     try {
         const data = await Product
-            .find({ active: true }, 'slug title description price category in_stock sold')
+            .find({ active: true }, 'slug title description price category in_stock sold image_src image_alt')
         res.status(200).send(data)
     } catch (e) { res.status(400).send(e) }
 }
