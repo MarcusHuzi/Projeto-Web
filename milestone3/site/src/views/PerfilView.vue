@@ -7,16 +7,20 @@
         <div class="line top-line">
             <hr/>
         </div>
+        
+        <div class="nome">
+            <div class="field field-nome">
+                        <div class="label label-nome">
+                            <h3>Nome</h3>
+                        </div>
+                        <div class="data data-nome">
+                            <div class="dados"><span>{{nome}}</span></div>
+                        </div>
+            </div>
+        </div>
         <div class="personal-info">
+        
             <div class="left-column">
-                <div class="field field-nome">
-                    <div class="label label-nome">
-                        <h3>Nome</h3>
-                    </div>
-                    <div class="data data-nome">
-                        <div class="dados"><span>{{nome}}</span></div>
-                    </div>
-                </div>
                 <div class="field field-cpf">
                     <div class="label label-cpf">
                         <h3>CPF</h3>
@@ -35,14 +39,6 @@
                 </div>
             </div>
             <div class="right-column">
-                <div class="field field-sobrenome">
-                    <div class="label label-sobrenome">
-                        <h3>Sobrenome</h3>
-                    </div>
-                    <div class="data data-sobrenone">
-                        <div class="dados"><span>{{sobrenome}}</span></div>
-                    </div>
-                </div>
                 <div class="field field-endereco">
                     <div class="label label-endereco">
                         <h3>Endereço</h3>
@@ -67,60 +63,6 @@
         <div class="line bottom-line">
             <hr/>
         </div>
-
-        <!--
-        <div class="lista-pedidos">
-
-            <h3> Pedidos </h3>
-            <hr/>
-
-            <ul class="pedidos">
-                <li class="info-pedido">
-                    <div class="id">
-                        <label> ID: </label>
-                        <span> 7798 </span>
-                    </div>
-                    <div class="data">
-                        <label> Data: </label>
-                        <span> 05/07/22 </span>
-                    </div>
-                    <div class="status">
-                        <label>Status:</label>
-                        <span> Entregue </span>
-                    </div>
-                </li>
-                <li class="info-pedido">
-                    <div class="id">
-                        <label> ID: </label>
-                        <span> 1234 </span>
-                    </div>
-                    <div class="data">
-                        <label> Data: </label>
-                        <span> 01/07/22 </span>
-                    </div>
-                    <div class="status">
-                        <label>Status:</label>
-                        <span> Cancelado </span>
-                    </div>
-                </li>
-                <li class="info-pedido">
-                    <div class="id">
-                        <label> ID: </label>
-                        <span> 3360 </span>
-                    </div>
-                    <div class="data">
-                        <label> Data: </label>
-                        <span> 02/07/22 </span>
-                    </div>
-                    <div class="status">
-                        <label>Status:</label>
-                        <span> Em progresso </span>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
-        -->
         
         
 
@@ -147,12 +89,12 @@
                                                     <input type="text" class="form-control" v-model="e_nome">
                                                 </div>
                                             </div>
-                                            <div class="field-modal field-sobrenome">
-                                                <div class="label-modal label-sobrenome">
-                                                    <h3>Sobrenome</h3>
+                                            <div class="field-modal field-senha">
+                                                <div class="label-modal label-senha">
+                                                    <h3>Senha</h3>
                                                 </div>
-                                                <div class="data data-sobrenome">
-                                                    <input type="text" class="form-control" v-model="e_sobrenome">
+                                                <div class="data data-senha">
+                                                    <input type="text" class="form-control" v-model="e_senha">
                                                 </div>
                                             </div>
                                         </div>
@@ -198,7 +140,7 @@
             data(){
                 return{
                     nome:"Cliente 1",
-                    sobrenome:"Sobrenome dele",
+                    senha:"senha dele",
                     cpf:"89568958745",
                     email:"cliente1@usp.br",
                     tel:"16992458756",
@@ -206,7 +148,7 @@
                     e_tel:"",
                     e_end:"",
                     e_nome:"",
-                    e_sobrenome:"",
+                    e_senha:"",
                     myModal:false,
                 }
             },
@@ -217,7 +159,7 @@
 
                 enviarDados(){
                     this.nome = this.e_nome;
-                    this.sobrenome = this.e_sobrenome;
+                    this.senha = this.e_senha;
                     this.tel = this.e_tel;
                     this.end = this.e_end;
                     this.myModal = false;
@@ -227,7 +169,7 @@
                 cancelarAlt(){
                     this.e_end = this.end;
                     this.e_nome = this.nome;
-                    this.e_sobrenome = this.sobrenome;
+                    this.e_senha = this.senha;
                     this.e_tel = this.tel;
                     this.myModal = false;
                 }
