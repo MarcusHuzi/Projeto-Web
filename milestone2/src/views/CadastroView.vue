@@ -46,7 +46,7 @@
 					
 					<span class="titulo">*Número + Complemento</span>
 						<br>
-						<input class="secao1" type="number" name="numero" v-model="num" > <input class="secao2" type="number" name="comp"> <br>
+						<input class="secao1" type="number" name="numero" v-model="num" > <input class="secao2" type="number" name="comp" v-model="comp"> <br>
 						<br>
 					<p id="v_num" class="form_erro"></p>
 
@@ -99,6 +99,7 @@
 				cpf:"",
 				cep:"",
 				num: null,
+				comp: null,
 				celular:"",
 				nome:"",
 				nasc:"",
@@ -107,7 +108,7 @@
 		},
 
 		methods:{
-			verificar(e){
+			verificar: async function (e){
 				//verificar se senhas são iguais
 				if(this.password != this.conf_password){
 					document.getElementById("v_senha").innerText = "Senha não corresponde"
@@ -237,9 +238,37 @@
 						alert("Informação inválida");
 						return;
 					}
+
+					try{
+						let req = JSON.stringify({
+							nome: this.nome,
+							cpf: this.cpf,
+							email: this.email,
+							tel: this.celular,
+							nasc: this.nasc,
+							senha: this.password,
+							cep: this.cep,
+							num: this.num,
+							comp: this.comp
+						});
+
+						let resp = await fetch("http://localhost:3000/loja/cadastro", {
+							method: 'POST',
+							headers: { 'Content-Type': 'application/json' },
+							body: req
+						});
+	
+						let resp_json = await resp.json();
+						alert(resp_json.message);
+
+						if(resp.status == 200){
+							this.$router.push('/')
+						}
+
+					} catch(e){
+						alert('Error:' + e);
+					}
 					
-					alert("Cadastro concluído");
-					this.$router.push('/')
 				}
         }
 		}

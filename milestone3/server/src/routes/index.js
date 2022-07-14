@@ -9,7 +9,7 @@ router.get('/:cpf', controller.getByCPF);
 
 router.get('/:id', controller.getById);
 
-router.post('/', controller.post);
+router.post('/cadastro', controller.post);
 
 router.put('/:id', controller.put);
 

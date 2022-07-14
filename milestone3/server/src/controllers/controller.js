@@ -8,14 +8,15 @@ controller.post = async (req, res) => {
     const client = new Client(req.body)
     try{
         await client.save()
+        res.status(200).send({
+            message: "Cadastrado efetuado"
+        });
     } catch(e){
         res.status(400).send({
             message: "Falha no cadastro"
         });
     }
-    res.status(201).send({
-        message: "Cliente cadastrado."
-    });
+
 };
 
 controller.get = async (req,res)=>{
