@@ -1,0 +1,65 @@
+/* div contendo o conteudo da home (titulo + box principal)*/
+.content-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* titulo principal da homepage */
+.homepage-title {
+    font-size: 60px;
+    padding: 3%;
+    color: var(--preto);
+    margin-bottom: 10px;
+}
+
+/* propriedades da div principal (box contendo as colunas de categorias) */
+.category-box {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    max-width: 75%;
+}
+
+/* coluna contendo 3 categorias */
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* categoria contendo label + imagem */
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* centralizando imagem dentro da tag a */
+.content-home a {
+    display: flex;
+    justify-content: center;
+}
+
+/* tamnanho das imagens das categorias */
+.category-img{
+    max-width: 50%;
+    border-radius: 100%;
+    transition: ease 500ms;
+}
+
+/* label das categorias */
+.label {
+    font-size: 30px;
+    color: var(--preto);
+    margin: 10px 0px 30px 0px;
+    justify-content: space-evenly;
+}
+
+/* efeito nas imagens das categorias */
+.category-img:hover {
+    opacity: 0.4;
+    transform: scale(1.05);
+}

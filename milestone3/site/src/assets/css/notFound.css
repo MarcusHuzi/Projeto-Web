@@ -1,0 +1,8 @@
+.erro{
+    display: flex;
+    align-self: center;
+    font-size: 28px;
+    height: 500px;
+    padding-top: 100px;
+    padding-right: 800px;
+}

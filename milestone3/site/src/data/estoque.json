@@ -1,0 +1,32 @@
+[
+    {
+        "foto": "image/produtos/",
+        "nome": "Coca Cola 2L",
+        "quantidade": "30",
+        "preco": "8.30"
+    },
+    {
+        "foto": "image/produtos/ype-neutro.png",
+        "nome": "Detergente Ype Neutro",
+        "quantidade": "80",
+        "preco": "2.20"
+    },
+    {
+        "foto": "image/produtos/",
+        "nome": "Amaciante Comfort 1L",
+        "quantidade": "15",
+        "preco": "16.90"
+    },
+    {
+        "foto": "image/produtos/",
+        "nome": "Bolacha Maizena Marilan 280g",
+        "quantidade": "32",
+        "preco": "3.90"
+    },
+    {
+        "foto": "image/produtos/",
+        "nome": "Suco Laranja Natural One 500ml",
+        "quantidade": "5",
+        "preco": "8.00"
+    }
+]
