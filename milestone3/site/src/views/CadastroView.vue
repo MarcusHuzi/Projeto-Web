@@ -238,7 +238,7 @@
 						alert(resp_json.message);
 
 						if(resp.status == 200){
-							this.$router.push('/login')
+							this.$router.push('/')
 						}
 
 					} catch(e){
