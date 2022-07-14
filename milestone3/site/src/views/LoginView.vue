@@ -48,7 +48,10 @@
                             headers: { 'Content-Type': 'application/json' }
                         })
                         // pegando o body do request
+                        console.log(resp.status);
+                        console.log(resp);
                         let resp_json = await resp.json();
+
 
                         // logado com sucesso
                         if (this.password == resp_json.senha && this.email == resp_json.email) {

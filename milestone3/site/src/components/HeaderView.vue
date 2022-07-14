@@ -76,7 +76,7 @@ export default {
         },
         logout() {
 			this.$cookies.remove("account_id");
-			this.$router.push('/');
+			window.location.href = "/";
 		},
     }
 }
