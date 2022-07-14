@@ -10,7 +10,12 @@
                 <ul>
                     <li>
                         <router-link to="/login">
-                             <span class="adm"> Login </span>
+                             <span class="login"> Login </span>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/">
+                             <span class="logout"> Logout </span>
                         </router-link>
                     </li>
                     <li>
@@ -45,7 +50,30 @@
 </template>
 
 <script>
-    export default {
-        name: 'HeaderView',
+export default {
+    name: 'HeaderView',
+
+    data() {
+        return{
+            logged: false,
+			isAdmin: false,
+        };
+    },
+    created(){
+        this.isLogged();
+    },
+    methods: {
+        async isLogged(){
+            let accountId = this.$cookies.get("account_id");
+			this.logged = false;
+			if (accountId != null) {
+                this.logged = true;
+                let response = await fetch(
+                "http://localhost:3000/clients/" + accountId);
+				let account = await response.json();
+				this.isAdm = account.adm;
+            } 
+        },
     }
+}
 </script>
