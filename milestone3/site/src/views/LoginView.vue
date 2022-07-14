@@ -37,42 +37,30 @@
 
         methods: {
             login: async function() {
-
                 // verifica se algum dos campos foi deixado em branco
                 if(this.email != "" && this.password != "") {
-                    try {
-
-                        // get
-						let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email, { 
-                            method: 'GET', 
-                            headers: { 'Content-Type': 'application/json' }
-                        })
-                        // pegando o body do request
-                        console.log(resp.status);
-                        console.log(resp);
-                        let resp_json = await resp.json();
-
-
-                        // logado com sucesso
-                        if (this.password == resp_json.senha && this.email == resp_json.email) {
-                            alert(`Bem vindo ${resp_json.nome}!`);
-                            this.$cookies.set("account_id", resp_json._id);
-                            window.location.href = "/";
-                        }
-
-                        // apenas o email inserido corretamente
-                        else if (this.email == resp_json.email) {
-                            alert("Senha incorreta");
-                        }
-
-                        // email nao existe
-                        else {
-                            alert("Conta inexistente");
+                    // get
+                    let resp = await fetch("http://localhost:3000/clients");   
+                    let accounts = await resp.json();
+                
+                    let logged = false;
+                    for (let account of accounts) {
+                        console.log(account);
+                        console.log(account.email);
+                        console.log(account.senha);
+                        console.log(this.email);
+                        console.log(this.password);
+                        if (account.email == this.email && account.senha == this.password) {
+                            logged = true;
+                            this.$cookies.set("account_id", account._id);
+                            window.location.href = "/perfil-cliente";
+                            break;
                         }
                     }
-                    catch(e) {
-                        console.log(e);
-                        alert("Erro durante o Login");
+
+                    if (logged == false) {
+                        this.password = "";
+                        alert("Email ou senha incorreta!");
                     }
                 }
                 else {
