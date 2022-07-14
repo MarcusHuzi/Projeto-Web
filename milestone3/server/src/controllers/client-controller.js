@@ -9,7 +9,8 @@ controller.newClient = async (req, res) => {
     try{
         await client.save()
         res.status(201).send({
-            message: "Cadastrado efetuado"
+            message: "Cadastrado efetuado",
+            id: client._id
         });
     } catch(e){
         res.status(400).send({

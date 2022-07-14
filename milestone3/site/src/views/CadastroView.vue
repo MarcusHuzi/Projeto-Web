@@ -238,7 +238,8 @@
 						alert(resp_json.message);
 
 						if(resp.status == 200){
-							this.$router.push('/login')
+							this.$cookies.set("account_id", resp_json.id);
+							this.$router.push('/')
 						}
 
 					} catch(e){
