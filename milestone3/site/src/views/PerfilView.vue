@@ -230,6 +230,7 @@
             },
 
             async getAccountInformation() {
+                const d = new Date();
                 let accountId = this.$cookies.get("account_id");
                 console.log(accountId);
                 if (accountId == null) {
@@ -245,7 +246,7 @@
 
                     this.nome = resp_json.nome;
                     this.cpf = resp_json.cpf;
-                    this.nasc = resp_json.nasc;
+                    this.nasc =d.getDate(resp_json.nasc) + "-" + d.getMonth(resp_json.nasc) + "-" + d.getFullYear(resp_json.nasc);
                     this.cep = resp_json.cep;
                     this.email = resp_json.email;
                     this.senha = resp_json.senha
