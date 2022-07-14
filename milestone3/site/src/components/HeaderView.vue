@@ -9,13 +9,13 @@
             <div class="navbar-icons">
                 <ul>
                     <li>
-                        <router-link to="/login">
-                             <span class="adm"> Login </span>
+                        <router-link to="/areaAdmin">
+                            <span class="adm"> Adm </span>
                         </router-link>
-                    </li>
+                    </li> 
                     <li>
                         <router-link to="/cadastro">
-                            <span class="signup"> Sign up </span>
+                            <span class="signup"> Cadastro </span>
                         </router-link>
                     </li>
                     <li>
@@ -34,8 +34,8 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/areaAdmin">
-                            <span class="adm"> Adm </span>
+                        <router-link to="/login">
+                             <span class="adm" @click="logout()">{{this.$cookies.get("header_label")}} </span>
                         </router-link>
                     </li>
                 </ul>
@@ -47,5 +47,18 @@
 <script>
     export default {
         name: 'HeaderView',
+        methods: {
+            async logout() {
+                // caso usuario logado
+                if (this.$cookies.get('account_id') != null) {
+                    alert("Volte sempre!");
+                    // limpando os cookies
+                    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                }
+                else {
+                    this.$cookies.set("header_label", "Login");
+                }
+            }
+        }
     }
 </script>

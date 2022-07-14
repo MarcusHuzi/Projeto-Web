@@ -37,28 +37,40 @@
 
         methods: {
             login: async function() {
+
+                // verifica se algum dos campos foi deixado em branco
                 if(this.email != "" && this.password != "") {
                     try {
-						const req_body = JSON.stringify({
-                            password: this.password,
-							email: this.email
-						});	
 
-						let resp = await fetch("http://localhost:3000/clients/ck_email"+this.email, { 
-                            method: 'POST', 
-                            body: req_body,
+                        // get
+						let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email, { 
+                            method: 'GET', 
                             headers: { 'Content-Type': 'application/json' }
-                        });
+                        })
+                        // pegando o body do request
+                        let resp_json = await resp.json();
 
-                        if (resp.status === 201) {
-                            alert("usuario valido");
+                        // logado com sucesso
+                        if (this.password == resp_json.senha && this.email == resp_json.email) {
+                            alert(`Bem vindo ${resp_json.nome}!`);
+                            this.$cookies.set("account_id", resp_json._id);
+                            this.$cookies.set("header_label", "Sair");
+                            this.$router.push('/')
                         }
+
+                        // apenas o email inserido corretamente
+                        else if (this.email == resp_json.email) {
+                            alert("Senha incorreta");
+                        }
+
+                        // email nao existe
                         else {
-                            alert("usuario invalido");
+                            alert("Conta inexistente");
                         }
                     }
                     catch(e) {
-                        alert("Erro na verificação do login");
+                        console.log(e);
+                        alert("Erro durante o Login");
                     }
                 }
                 else {

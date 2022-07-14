@@ -68,7 +68,7 @@
 
     </div>
 
-    <div v-if="myModal"> 
+    <div v-if="myModal">
             <transition name="modal"> 
                 <div class="modal-mask">
                     <div class="modal-wrapper">
@@ -136,44 +136,71 @@
 
 <script>
     export default {
-            name: 'PerfilView',
-            data(){
-                return{
-                    nome:"Cliente 1",
-                    senha:"senha dele",
-                    cpf:"89568958745",
-                    email:"cliente1@usp.br",
-                    tel:"16992458756",
-                    end:"Rua 3",
-                    e_tel:"",
-                    e_end:"",
-                    e_nome:"",
-                    e_senha:"",
-                    myModal:false,
-                }
+        name: 'PerfilView',
+        data() {
+            return {
+                nome:"",
+                senha:"",
+                cpf:"",
+                email:"",
+                tel:"",
+                end:"",
+                e_tel:"",
+                e_end:"",
+                e_nome:"",
+                e_senha:"",
+                myModal:""
+            }
+        },
+
+        created() {
+            this.getAccountInformation();
+        },
+
+        methods:{
+            openModal(){
+                this.myModal = true;
             },
-            methods:{
-                openModal(){
-                    this.myModal = true;
-                },
 
-                enviarDados(){
-                    this.nome = this.e_nome;
-                    this.senha = this.e_senha;
-                    this.tel = this.e_tel;
-                    this.end = this.e_end;
-                    this.myModal = false;
-                    alert("Dados alterados");
-                },
+            enviarDados(){
+                this.nome = this.e_nome;
+                this.senha = this.e_senha;
+                this.tel = this.e_tel;
+                this.end = this.e_end;
+                this.myModal = false;
+                alert("Dados alterados");
+            },
 
-                cancelarAlt(){
-                    this.e_end = this.end;
-                    this.e_nome = this.nome;
-                    this.e_senha = this.senha;
-                    this.e_tel = this.tel;
-                    this.myModal = false;
+            cancelarAlt(){
+                this.e_end = this.end;
+                this.e_nome = this.nome;
+                this.e_senha = this.senha;
+                this.e_tel = this.tel;
+                this.myModal = false;
+            },
+
+            async getAccountInformation() {
+                let accountId = this.$cookies.get("account_id");
+                console.log(accountId);
+                if (accountId == null) {
+                    alert("Você precisa estar logado para acessar esta página.");
+                    this.$router.push('/login')
+                }
+                else {
+                    let resp = await fetch("http://localhost:3000/clients/"+accountId, { 
+                        method: 'GET', 
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    let resp_json = await resp.json();
+
+                    this.nome = resp_json.nome;
+                    this.cpf = resp_json.cpf;
+                    this.email = resp_json.email;
+                    this.end = resp_json.endereco;
+                    this.tel = resp_json.tel;			
                 }
             }
+        }
     }
 </script>
 
