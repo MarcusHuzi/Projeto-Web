@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', controller.getAllClients);
 
-router.get('/ck_cpf/:cpf', controller.getByCPF);
+router.get('/ck_email/:email', controller.getByEmail);
 
 router.get('/:id', controller.getById);
 
