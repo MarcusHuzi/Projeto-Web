@@ -6,6 +6,14 @@
     margin-top: 30px;
 }
 
+.nome{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    align-self: center;
+}
+
 .personal-info {
     display: flex;
     justify-content: space-around;
@@ -118,40 +126,4 @@
     padding-left: 20px;
 }
 
-.lista-pedidos{
-    width: 1400px;
-    height: 300px;
-    margin: 0px 10px 40px 10px;
-    padding: 0px 10px 10px 10px;
-    align-self: center;
-    
-}
 
-.lista-pedidos h3{
-    color:#A40444;
-    font-size: 45px;
-    margin-bottom: 10px;
-    margin-left: 50px;
-
-}
-
-.pedidos{
-    overflow: auto;
-    margin: 40px 0px 5px 50px;
-    border-radius: 10px;
-    border: 2.5px solid rgba(0, 0, 0, 0.2);
-    font-weight: bolder;
-    width: 800px;
-    height: 200px;
-    padding: 10px 10px 10px 40px;
-}
-
-.info-pedido{
-    font-size: 20px;
-    padding: 10px 10px 10px 10px;
-    margin: 5px 10px 10px 5px;
-    background-color: #ececec;
-    width: 600px;
-    border: none;
-    border-radius: 10px;
-}
