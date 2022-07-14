@@ -17,7 +17,6 @@ controller.newClient = async (req, res) => {
             data: e
         });
     }
-
 };
 
 controller.getAllClients = async (req,res)=>{
