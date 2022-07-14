@@ -1,3 +1,4 @@
+
 import express from 'express';
 import controller from '../controllers/client-controller.js'
 
@@ -5,7 +6,7 @@ const router = express.Router();
 
 router.get('/', controller.get);
 
-router.get('/:cpf', controller.getByCPF);
+router.get('/ck_cpf/:cpf', controller.getByCPF);
 
 router.get('/:id', controller.getById);
 

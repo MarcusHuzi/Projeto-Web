@@ -44,7 +44,7 @@ p, h1, h2, h3, a, input, span{
 }
 
 /* barra de navegação */
-.navbar {
+.navbar{
     background-color: var(--vermelho-escuro);
     height: 100px;
     display: flex;
@@ -52,6 +52,21 @@ p, h1, h2, h3, a, input, span{
     justify-content: space-around;
     align-items: center;
 }
+
+.navbar-icons ul{
+    display: flex;
+    padding-top: 5px;
+}
+
+.navbar-icons span{
+    display: flex;
+    padding-top: 5px;
+}
+
+.navbar-icons li{
+   margin: 0px 30px 4px 30px;
+}
+
 
 /* alinhamento, animação e tamanho do logo */
 .logo {
@@ -74,17 +89,22 @@ p, h1, h2, h3, a, input, span{
 }
 
 /* tamanho e alinhamento dos icones da barra de navegação */
-.kart, .shoplist , .profile, .login {
+.kart, .shoplist , .profile, .login, .signup, .adm {
     width: 30px;
     transition: ease 600ms;
 }
 
-.login {
-    width: 50px;
+
+.signup, .adm, .login{
+    color: #FCCC04;
+    font-size: medium;
+    font-weight: 700;
+    font-family: sans-serif;
 }
 
+
 /* efeito dos icones da barra de navegação */
-.kart:hover, .shoplist:hover, .profile:hover, .login:hover {
+.kart:hover, .shoplist:hover, .profile:hover, .login:hover, .signup:hover, .adm:hover {
     opacity: 0.7;
     transform: scale(1.08);
 }

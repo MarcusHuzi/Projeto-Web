@@ -76,7 +76,7 @@
 						
 						<p id="termos"> Ao cadastrar-se, você aceita nossos <br> <a id="termos1" href="" target="_blank"> Termos de Uso e Política de Privacidade.</a> </p>
 					
-					<button class="enviar" type="submit" name="btn-enviar" @click="verificar"> Finalizar Cadastro </button>
+					<button class="enviar" type="button" name="btn-enviar" @click="verificar()"> Finalizar Cadastro </button>
 					
 				</form>
 				
@@ -84,7 +84,6 @@
 </template>
 
 <script>
-	import clients from "../data/clients.json";
 	let ano = new Date().getFullYear();
 
 
@@ -92,6 +91,7 @@
         name: 'CadastroView',
 		data(){
 			return{
+				
 				email:"",
 				conf_email:"",
 				password:"",
@@ -108,7 +108,7 @@
 		},
 
 		methods:{
-			verificar: async function (e){
+			verificar: async function (){
 				//verificar se senhas são iguais
 				if(this.password != this.conf_password){
 					document.getElementById("v_senha").innerText = "Senha não corresponde"
@@ -208,39 +208,12 @@
 				if(this.erro[0]==1 || this.erro[1]==1 || this.erro[2]==1 || this.erro[3]==1 || this.erro[4]==1 || this.erro[5]==1
 					|| this.erro[6]==1 || this.erro[7]==1 || this.erro[8]==1 || this.erro[9]==1){
 
-					e.preventDefault();
 					alert("Informação inválida");
 				} else {
-					let erroCPF;
-					let erroEmail;
-
-					//verificar se email e cpf estão dispniveis
-					for (let i = 0; i < clients.length; i++) {
-						erroEmail = (this.email == clients[i]['email']); erroCPF = (this.cpf == clients[i]['cpf']);
-						if(erroCPF || erroEmail){break;}
-
-					}
-
-					if(erroEmail){
-						document.getElementById("e_email").innerText = "Email já pertence a uma conta";
-					} else{
-						document.getElementById("e_email").innerText = ""
-					}
-
-					if(erroCPF){
-						document.getElementById("v_cpf").innerText = "CPF já pertence a uma conta"
-					} else{
-						document.getElementById("v_cpf").innerText = ""
-					}
-
-					if(erroCPF || erroEmail){
-						e.preventDefault();
-						alert("Informação inválida");
-						return;
-					}
-
+					
 					try{
-						let req = JSON.stringify({
+						
+						const req = JSON.stringify({
 							nome: this.nome,
 							cpf: this.cpf,
 							email: this.email,
@@ -249,26 +222,29 @@
 							senha: this.password,
 							cep: this.cep,
 							num: this.num,
-							comp: this.comp
-						});
+							comp: this.comp,
+							isAdm: false
+						});				
+			
 
-						let resp = await fetch("http://localhost:3000/loja/cadastro", {
+						let resp = await fetch("http://localhost:3000/clients/cadastro", {
 							method: 'POST',
 							headers: { 'Content-Type': 'application/json' },
 							body: req
 						});
-	
+					
+
 						let resp_json = await resp.json();
 						alert(resp_json.message);
 
 						if(resp.status == 200){
-							this.$router.push('/')
+							this.$router.push('/login')
 						}
 
 					} catch(e){
 						alert('Error:' + e);
 					}
-					
+	
 				}
         }
 		}
