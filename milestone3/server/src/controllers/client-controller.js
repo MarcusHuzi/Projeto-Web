@@ -30,15 +30,6 @@ controller.get = async (req,res)=>{
 
 controller.getByCPF = async (req,res)=>{
     try{
-        const data = await Client.find({active: true, cpf: req.params.cpf}, 'nome email tel cep num nasc')
-        res.status(200).send(data)
-    } catch (e){
-        res.status(400).send(e)
-    }
-};
-
-controller.getByCPF = async (req,res)=>{
-    try{
         const data = await Client.findOne({active: true, cpf: req.params.cpf}, 'nome email tel cep num nasc')
         res.status(200).send(data)
     } catch (e){
