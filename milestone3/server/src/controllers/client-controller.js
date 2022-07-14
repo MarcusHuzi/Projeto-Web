@@ -4,7 +4,7 @@ const Client = mongoose.model('Client')
 
 const controller = {}
 
-controller.post = async (req, res) => {
+controller.newClient = async (req, res) => {
     const client = new Client(req.body)
     try{
         await client.save()
@@ -13,15 +13,17 @@ controller.post = async (req, res) => {
         });
     } catch(e){
         res.status(400).send({
-            message: "Falha no cadastro"
+            message: "Falha no cadastro",
+            data: e
         });
     }
 
 };
 
-controller.get = async (req,res)=>{
+controller.getAllClients = async (req,res)=>{
     try{
-        const data = await Client.find({active: true}, 'nome cpf email tel cep num nasc')
+        const data = await Client
+            .find({active: true}, 'nome cpf email tel nasc cep endereco')
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
@@ -30,7 +32,8 @@ controller.get = async (req,res)=>{
 
 controller.getByCPF = async (req,res)=>{
     try{
-        const data = await Client.findOne({active: true, cpf: req.params.cpf}, 'cpf')
+        const data = await Client
+            .findOne({active: true, cpf: req.params.cpf})
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
@@ -39,24 +42,25 @@ controller.getByCPF = async (req,res)=>{
 
 controller.getById = async (req,res)=>{
     try{
-        const data = await Client.findById({active: true, cpf: req.params.id}, 'nome email tel cep num nasc')
+        const data = await Client.findById(req.params.id)
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
     }
 };
 
-controller.put = async (req,res)=>{
+controller.updateClient = async (req,res)=>{
     try{
         await Client.findByIdAndUpdate(req.params.id,{
             $set:{
                 nome: req.body.nome,
+                cpf: req.body.cpf,
                 email: req.body.email,
-                tel: req.body.tel,
                 senha: req.body.senha,
+                tel: req.body.tel,
+                nasc: req.body.nasc,
                 cep: req.body.cep,
-                num: req.body.num,
-                comp: req.body.comp
+                endereco: req.body.endereco,
             }
         });
         res.status(201).send({
@@ -70,9 +74,11 @@ controller.put = async (req,res)=>{
     }
 };
 
-controller.delete = async (req,res)=>{
+controller.deleteClient = async (req,res)=>{
     try{
-        await Client.findOneAndRemove({_id: req.params.id});
+        await Client
+            //.findOneAndRemove({cpf: req.params.cpf}); // Delete by id
+            .findByIdAndRemove(req.params.id);
         res.status(201).send({
             message: 'Cliente deletado com sucesso'
         });

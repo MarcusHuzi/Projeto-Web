@@ -4,49 +4,52 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     nome:{
-        type:String,
+        type: String,
         required: true,
         trim: true
     },
     cpf:{
-        type:String,
-        trim:true,
-        index:true,
+        type: String,
+        required: true,
+        trim: true,
+        index: true,
         unique: true
     },
     email: {
-        type:String,
+        type: String,
         required: true,
+        trim: true,
         index: true,
-        unique:true
-    },
-    tel:{
-        type:String,
-        required: true,
-    },
-    nasc:{
-        type:String,
-        required: true,
+        unique: true
     },
     senha:{
-        type:String,
+        type: String,
+        required: true,
+        trim: true,
+    },
+    tel:{
+        type: String,
+        required: true,
+        trim: true
+    },
+    nasc:{
+        type: Date,
         required: true,
     },
-
     cep:{
-        type:String,
+        type: String,
         required: true,
+        trim: true
     },
-    num:{
-        type:Number,
+    endereco:{
+        type: String,
         required: true,
-    },
-    comp:{
-        type:Number,
+        trim: true
     },
     isAdm:{
         type: Boolean,
         required: true,
+        default: false
     }
 
 });

@@ -4,16 +4,16 @@ import controller from '../controllers/client-controller.js'
 
 const router = express.Router();
 
-router.get('/', controller.get);
+router.get('/', controller.getAllClients);
 
 router.get('/ck_cpf/:cpf', controller.getByCPF);
 
 router.get('/:id', controller.getById);
 
-router.post('/cadastro', controller.post);
+router.post('/cadastro', controller.newClient);
 
-router.put('/:id', controller.put);
+router.put('/:id', controller.updateClient);
 
-router.delete('/:id', controller.delete);
+router.delete('/:id', controller.deleteClient);
 
 export default router;
