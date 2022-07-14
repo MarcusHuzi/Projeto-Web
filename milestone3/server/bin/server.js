@@ -21,7 +21,7 @@ function normalizePort(val){
         return val;
     }
 
-    if(port >=0){
+    if(port >= 0){
         return port;
     }
 
