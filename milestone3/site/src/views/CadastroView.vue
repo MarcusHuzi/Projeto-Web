@@ -224,9 +224,10 @@
 							num: this.num,
 							comp: this.comp,
 							isAdm: false
-						});
+						});				
+			
 
-						let resp = await fetch("http://localhost:3000/loja/cadastro", {
+						let resp = await fetch("http://localhost:3000/clients/cadastro", {
 							method: 'POST',
 							headers: { 'Content-Type': 'application/json' },
 							body: req

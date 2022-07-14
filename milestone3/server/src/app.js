@@ -13,8 +13,8 @@ import clientRoute from './routes/client-route.js';
 const app = express();
 
 // To access local MongoDB instance:
-mongoose.connect('mongodb+srv://thales:123@cluster0.7woti.mongodb.net/?retryWrites=true&w=majority');
-//mongoose.connect('mongodb://localhost:27017/mercado');
+//mongoose.connect('mongodb+srv://thales:123@cluster0.7woti.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb://localhost:27017/mercado');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
