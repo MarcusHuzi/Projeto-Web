@@ -2,11 +2,11 @@
     <li  v-for="(product, index) in products" class="produto" :key="product">
         <div class="prod-imagem-box" @click="this.$parent.showModal(product)">
             <img :src="getImgUrl(product.image_src)" :alt="product.image_alt">
-            <button v-on:click.stop="addProduct(index)" v-show="product.quantity == 0" type="button" class="btn-add-product">+</button>
-            <input v-on:click.stop v-show="product.quantity >= 1" v-model="product.quantity" type="number" class="input-add-product">
+            <button v-on:click.stop="addProduct(index)" v-show="product.in_stock == 0" type="button" class="btn-add-product">+</button>
+            <input v-on:click.stop v-show="product.in_stock >= 1" v-model="product.in_stock" type="number" class="input-add-product">
         </div>
         <h3>R$ {{ product.price.toFixed(2) }}</h3>
-        <h4>{{ product.name }}</h4>
+        <h4>{{ product.title }}</h4>
     </li>
 </template>
 
@@ -17,12 +17,16 @@
             return {
                 products: [
                         {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "ype-clear",
-                            name: "Detergente Líquido Ypê Clear 500ml",
+                            _id: "62d025bb13d92aadbe4d718c",
+                            slug: "ype-clear1",
+                            title: "Detergente Líquido Ypê Clear 500ml",
                             description: "Detergente Líquido Ypê Clear 500ml",
-                            quantity: 0,
-                            price: 2.39
+                            price: 2.39,
+                            category: "limpeza",
+                            in_stock: 10,
+                            sold: 0,
+                            image_src: "image/produtos/ype-clear.png",
+                            image_alt: "ype-clear"
                         },
                         {
                             image_src: "image/produtos/ype-maca.png",
@@ -31,269 +35,17 @@
                             description: "Detergente Líquido Ypê Maçã 500ml",
                             quantity: 0,
                             price: 2.39
-                        },
-                        {
-                            image_src: "image/produtos/ype-neutro.png",
-                            image_alt: "ype-neutro",
-                            name: "Detergente Líquido Ypê Neutro 500ml",
-                            description: "Detergente Líquido Ypê Neutro 500ml",
-                            quantity: 0,
-                            price: 2.39
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "placeholder",
-                            name: "Item a ser adicionado",
-                            description: "TBD",
-                            quantity: 0,
-                            price: 0.00
                         }
                     ]
             }
         },
+        created() {
+            console.log(this.$route.params.category)
+            this.getProducts()
+        },
         methods: {
             addProduct(index) {
-                this.products[index].quantity += 1
+                this.products[index].in_stock += 1
             },
             getImgUrl(url){
                 try {
@@ -302,6 +54,16 @@
                 }
                 catch {
                     return ""
+                }
+            },
+            async getProducts(){
+                try {
+                    let resp = await fetch("http://localhost:3000/products");
+                    resp = await resp.json();
+
+                    this.products = resp
+                } catch (e) {
+                    alert("Error: " + e);
                 }
             }
         }

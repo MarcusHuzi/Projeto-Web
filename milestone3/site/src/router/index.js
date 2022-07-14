@@ -45,7 +45,7 @@ const routes = [
     },
 
     {
-        path: '/listaprodutos',
+        path: '/listaprodutos/:category',
         name: 'ListaProdutos',
         component: () => import('../views/ListaProdutosView.vue')
     },
