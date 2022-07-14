@@ -29,10 +29,10 @@ controller.getAllClients = async (req,res)=>{
     }
 };
 
-controller.getByCPF = async (req,res)=>{
+controller.getByEmail = async (req,res)=>{
     try{
         const data = await Client
-            .findOne({active: true, cpf: req.params.cpf})
+            .findOne({active: true, email: req.params.email})
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
