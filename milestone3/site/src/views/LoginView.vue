@@ -54,8 +54,7 @@
                         if (this.password == resp_json.senha && this.email == resp_json.email) {
                             alert(`Bem vindo ${resp_json.nome}!`);
                             this.$cookies.set("account_id", resp_json._id);
-                            this.$cookies.set("header_label", "Sair");
-                            this.$router.push('/')
+                            window.location.href = "/";
                         }
 
                         // apenas o email inserido corretamente
