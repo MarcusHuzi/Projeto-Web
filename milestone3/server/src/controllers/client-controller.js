@@ -4,7 +4,8 @@ const Client = mongoose.model('Client')
 
 const controller = {}
 
-controller.post = async (req, res) => {
+
+controller.addClient = async (req, res) => {
     const client = new Client(req.body)
     try{
         await client.save()
@@ -28,9 +29,18 @@ controller.get = async (req,res)=>{
     }
 };
 
+controller.getByEmail = async (req,res)=>{
+    try{
+        const data = await Client.findOne({active: true, email: req.params.email}, 'email')
+        res.status(200).send(data)
+    } catch (e){
+        res.status(400).send(e)
+    }
+};
+
 controller.getByCPF = async (req,res)=>{
     try{
-        const data = await Client.findOne({active: true, cpf: req.params.cpf}, 'nome email tel cep num nasc')
+        const data = await Client.findOne({active: true, cpf: req.params.cpf}, 'cpf')
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)

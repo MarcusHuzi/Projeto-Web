@@ -43,6 +43,10 @@ const schema = new Schema({
     },
     comp:{
         type:Number,
+    }, 
+    isAdm:{
+        type:Boolean,
+        required: true,
     }
 
 });
