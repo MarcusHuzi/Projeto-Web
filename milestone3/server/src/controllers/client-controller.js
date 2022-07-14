@@ -8,7 +8,7 @@ controller.newClient = async (req, res) => {
     const client = new Client(req.body)
     try{
         await client.save()
-        res.status(200).send({
+        res.status(201).send({
             message: "Cadastrado efetuado"
         });
     } catch(e){
@@ -17,7 +17,6 @@ controller.newClient = async (req, res) => {
             data: e
         });
     }
-
 };
 
 controller.getAllClients = async (req,res)=>{
@@ -79,7 +78,7 @@ controller.deleteClient = async (req,res)=>{
         await Client
             //.findOneAndRemove({cpf: req.params.cpf}); // Delete by id
             .findByIdAndRemove(req.params.id);
-        res.status(201).send({
+        res.status(200).send({
             message: 'Cliente deletado com sucesso'
         });
     } catch(e){
