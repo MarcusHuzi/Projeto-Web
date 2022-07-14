@@ -213,7 +213,7 @@
 					
 					try{
 						
-						const req = JSON.stringify({
+						let req = JSON.stringify({
 							nome: this.nome,
 							cpf: this.cpf,
 							email: this.email,

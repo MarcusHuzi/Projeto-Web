@@ -17,7 +17,7 @@
   
   .modal-container {
     width: 600px;
-    height: 350px;
+    height: 500px;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;
@@ -106,3 +106,8 @@
     margin-top: 30px;
 }
 
+.e_nome{
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+}
