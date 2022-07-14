@@ -222,11 +222,29 @@
 							senha: this.password,
 							cep: this.cep,
 							num: this.num,
-							comp: this.comp
+							comp: this.comp,
+							isAdm: false
 						});
 
+						let resp = await fetch("http://localhost:3000/loja/ck_email" + '/' + req.email);
+						
+						resp = await resp.json()
 
-						let resp = await fetch("http://localhost:3000/loja/cadastro", {
+						if(resp !== null){
+							alert("Email já cadastrado em outra conta")
+							return;
+						}
+
+						resp = await fetch("http://localhost:3000/loja/ck_cpf" + '/' + req.cpf);
+
+						resp = await resp.json()
+						
+						if(resp !== null){
+							alert("CPF já cadastrado em outra conta")
+							return;
+						}
+
+						resp = await fetch("http://localhost:3000/loja/cadastro", {
 							method: 'POST',
 							headers: { 'Content-Type': 'application/json' },
 							body: req
