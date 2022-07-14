@@ -23,12 +23,12 @@
                             <span class="signup"> Cadastro </span>
                         </router-link>
                     </li>
-                    <li v-if="logged == true">
+                    <li v-if="logged == true && isAdmin == false">
                         <router-link to="/carrinho">
                             <img src="@/assets/image/navbar-icons/kart.png" class="kart"> 
                         </router-link>
                     </li>
-                    <li v-if="logged == true">
+                    <li v-if="logged == true && isAdmin == false">
                         <router-link to="/listacompras">
                             <img src="@/assets/image/navbar-icons/shop-list.png" class="shoplist">
                         </router-link>
