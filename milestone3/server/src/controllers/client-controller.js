@@ -52,22 +52,16 @@ controller.getById = async (req,res)=>{
 };
 
 controller.updateClient = async (req,res)=>{
+    const client = new Client(req.body)
     try{
-        await Client.findByIdAndUpdate(req.params.id,{
-            $set:{
-                nome: req.body.nome,
-                senha: req.body.senha,
-                tel: req.body.tel,
-                endereco: req.body.endereco,
-                cep: req.body.cep,
-            }
-        });
+        await client.save()
         res.status(201).send({
-            message: 'Cliente atualizado com sucesso'
+            message: "Atualização efetuada",
+            id: client._id
         });
     } catch(e){
         res.status(400).send({
-            message: 'Falha na atualização de dados',
+            message: "Falha na atualização",
             data: e
         });
     }
