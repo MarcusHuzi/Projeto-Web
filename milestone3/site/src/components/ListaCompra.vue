@@ -138,9 +138,8 @@
                     email = resp.email
                 } catch(e) {
                     alert("Erro ao ler dados do usuário");
+                    return
                 }
-
-                console.log(email)
 
                 //get lists
                 let lists
@@ -149,6 +148,7 @@
                     lists = await lists.json()
                 } catch(e) {
                     console.error("Erro ao requisitar listas do usuário");
+                    return
                 }
                     
                 for (let list of lists) {
@@ -175,7 +175,7 @@
                                 quantity: list.products[i].quant
                             })
                         } catch(e){
-                            console.error("Erro ao ler um produto de uma lista")
+                            console.error("Erro ao ler um produto cujo slug é " + list.products[i].slug)
                         }
                     }
 

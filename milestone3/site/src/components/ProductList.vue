@@ -108,7 +108,7 @@
                         })
                     }
                 } catch (e) {
-                    alert("Error: " + e);
+                    console.error("Erro ao listar produtos.");
                 }
             }
         }

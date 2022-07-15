@@ -67,7 +67,8 @@
                     resp = await resp.json()
                     email = resp.email
                 } catch(e) {
-                    alert("Error " + e)
+                    alert("Erro ao ler dados do usuário")
+                    return
                 }
                 
 
@@ -98,7 +99,7 @@
                     })
                     alert("Lista salva com sucesso")
                 } catch(e) {
-                    alert("Error " + e)
+                    alert("Erro ao salvar lista")
                 }
             }
         }

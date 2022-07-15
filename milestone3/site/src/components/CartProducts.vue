@@ -105,7 +105,7 @@
                             quantity: item.quantity
                         })
                     } catch(e) {
-                        alert("Error: " + e);
+                        console.log("Erro ao carregar produto cujo slug é " + item.slug);
                     }
                 }
             },
