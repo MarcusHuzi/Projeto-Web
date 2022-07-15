@@ -6,11 +6,13 @@ import mongoose from 'mongoose';
 //Schemas
 import Product from './models/product.js';
 import Client from './models/client.js';
+import List from './models/list.js';
 
 //Routes
 import productRoute from './routes/product-route.js';
 import indexRoute from './routes/index-route.js';
 import clientRoute from './routes/client-route.js';
+import listRoute from './routes/list-route.js';
 
 const app = express();
 
@@ -36,5 +38,6 @@ app.use(cors());
 app.use('/', indexRoute);
 app.use('/products', productRoute);
 app.use('/clients', clientRoute);
+app.use('/lists', listRoute)
 
 export default app;
