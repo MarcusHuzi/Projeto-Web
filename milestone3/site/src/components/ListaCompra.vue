@@ -103,10 +103,12 @@
                             alert("A quantidade desejada de " + prod.title + " não consta no estoque e foi alterada")
                             qte = prod.in_stock
                         }
-                        cart.push({
-                            slug: prod.slug,
-                            quantity: qte
-                        })
+                        if (qte != 0){
+                            cart.push({
+                                slug: prod.slug,
+                                quantity: qte
+                            })
+                        }
                     }
                 }
 
