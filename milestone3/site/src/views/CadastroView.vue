@@ -234,7 +234,7 @@
 						let resp_json = await resp.json();
 						alert(resp_json.message);
 
-						if(resp.status == 200){
+						if(resp.status == 201){
 							this.$cookies.set("account_id", resp_json.id);
 							this.$router.push('/')
 						}

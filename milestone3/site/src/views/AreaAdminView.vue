@@ -60,7 +60,7 @@
                     <button class="delete-product-btn" @click="deleteProduct()">Deletar produto</button>
                 </div>
                 <div class="delete-product" v-if="this.productExist == true && this.addprod==true">
-                    <button class="delete-product-btn" @click="add()">Adicionar produto</button>
+                    <button class="delete-product-btn" @click="addp()">Adicionar produto</button>
                 </div>
                 <div class="delete-product" v-if="this.productExist == true">
                     <button class="delete-product-btn" @click="rem()">Cancelar</button>
@@ -92,6 +92,9 @@
                         <label>Telefone</label><input required class="tel" placeholder="Telefone aqui" type="tel" v-model="celular">
                     </div>
                     <div class="field" v-if="this.userExist == true">
+                        <label>Email</label><input required class="email" placeholder="Email aqui" type="email" v-model="email">
+                    </div>
+                    <div class="field" v-if="this.userExist == true">
                         <label>Data de nascimento</label><input required class="nasc" placeholder="Data de nascimento aqui" type="date" v-model="nasc">
                     </div>
                     <div class="field" v-if="this.userExist == true">
@@ -108,17 +111,21 @@
                         <input required class="isAdm" type="checkbox" v-model="isAdm">
                     </div>
                 </div>
-                <div class="save-changes users-save-changes" v-if="this.userExist == true">
+                <div class="save-changes users-save-changes" v-if="this.userExist == true && this.adduser == false">
                     <button class="save-changes-btn users-save-changes-btn" @click="saveUserChanges()">Salvar alterações</button>
                 </div>
-                <div class="delete-user" v-if="this.userExist == true">
+                <div class="delete-user" v-if="this.userExist == true && this.adduser == false">
                     <button class="delete-user-btn" @click="deleteUser()">Deletar usuário</button>
+                </div>
+                <div class="delete-user" v-if="this.userExist == true  && this.adduser == true">
+                    <button class="delete-user-btn" @click="addu()">Adicionar usuário</button>
                 </div>
                  <div class="delete-user" v-if="this.userExist == true">
                     <button class="delete-user-btn" @click="rem2()">Cancelar</button>
                 </div>
                 <div class="load-user"  v-if="this.userExist == false">
                     <button class="load-user-btn" @click="loadUser()">Buscar usuário</button>
+                    <button class="load-user-btn" @click="addUser()">Adicionar usuário</button>
                 </div>
             </div>
         </div>
@@ -143,6 +150,7 @@
                 id:"",
                 isAdm: false,
                 userExist: false,
+                adduser: false,
 
 
                 slug:"",
@@ -169,14 +177,19 @@
                 this.productExist = true;
                 this.addprod = true;
             },
+            addUser(){
+                this.userExist = true;
+                this.adduser = true;
+            },
             rem(){
                 this.productExist=false;
                 this.addprod=false;
             },
              rem2(){
                 this.userExist=false;
+                this.adduser = false;
             },
-            add: async function (){
+            addp: async function (){
                 try{
                     let req = JSON.stringify({
 							slug: this.slug_produto,
@@ -207,6 +220,42 @@
 					alert("Error:" + e);
 
 				}
+            },
+            addu: async function(){
+                try{
+						
+						let req = JSON.stringify({
+							nome: this.nome,
+							cpf: this.cpf,
+							email: this.email,
+							tel: this.celular,
+							nasc: this.nasc,
+							senha: this.senha,
+							cep: this.cep,
+							endereco: this.end,
+                            isAdm: this.isAdm
+						});				
+			
+
+						let resp = await fetch("http://localhost:3000/clients/cadastro", {
+							method: 'POST',
+							headers: { 'Content-Type': 'application/json' },
+							body: req
+						});
+					
+
+						let resp_json = await resp.json();
+						alert(resp_json.message);
+
+						if(resp.status == 201){
+							this.$cookies.set("account_id", resp_json.id);
+							window.location.href = "/areaAdmin";
+						}
+
+					} catch(e){
+						alert('Error:' + e);
+					}
+	
             },
 
             formattedDate(date){
@@ -261,6 +310,7 @@
                                 tel: this.celular,
                                 nasc: new Date(this.nasc),
                                 cep: this.cep,
+                                email:this.email,
                                 endereco: this.end,
                                 isAdm: this.isAdm
                             } 
