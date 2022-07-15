@@ -236,7 +236,7 @@
 
 						if(resp.status == 201){
 							this.$cookies.set("account_id", resp_json.id);
-							this.$router.push('/')
+							this.$router.push('/login')
 						}
 
 					} catch(e){
