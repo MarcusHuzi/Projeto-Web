@@ -167,10 +167,6 @@
 				}
             },
             saveUserChanges: async function() {
-<<<<<<< HEAD
-=======
-
->>>>>>> c64fb6bff5ea60da05c15e4cba2df8b7ebd14c76
                 try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',
