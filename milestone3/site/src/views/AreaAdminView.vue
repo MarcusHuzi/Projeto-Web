@@ -182,10 +182,13 @@
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: {
-                            "nome": this.nome,
-                            "cpf": this.cpf
-                        }
+                        body: JSON.stringify(
+                            {
+                                nome: this.nome,
+                                cpf: this.cpf
+                            }
+                        )
+                        
                     });
                     let resp_json = await resp.json();
 
