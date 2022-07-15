@@ -234,7 +234,10 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: {
                             "title": this.nome_produto,
-                            "description": this.descricao
+                            "description": this.descricao,
+                            "price": this.preco,
+                            "category": this.categoria,
+                            "in_stock": this.qntEstoque
                         }
                     });
                     let resp_json = await resp.json();
