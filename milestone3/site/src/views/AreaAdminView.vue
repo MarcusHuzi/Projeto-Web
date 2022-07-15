@@ -146,6 +146,11 @@
                     let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email);
                     let resp_json = await resp.json();
 
+                    if(resp_json.email == null){
+                        alert("Usuário inexistente");
+                        return;
+                    }
+
                     this.userExist = true;
                     this.nome = resp_json.nome;
                     this.cpf = resp_json.cpf;
