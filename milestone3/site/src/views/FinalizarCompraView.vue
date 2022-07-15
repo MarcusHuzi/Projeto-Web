@@ -158,11 +158,6 @@
                    return;
                 }
 
-                if(this.nasc == ""){
-                   alert("Preencha o campo Data de Nascimento");
-                   return;
-                }
-
                 let cart = JSON.parse(this.$cookies.get("shopping_cart"));
                 if (cart == null) cart = [];
 
