@@ -77,6 +77,7 @@
 
             },
             addListToCart(index){
+                let limit = false;
                 let cart = JSON.parse(this.$cookies.get("shopping_cart"))
                 if (cart == null) cart = []
                 
@@ -89,7 +90,8 @@
                             added = true
                             if (cart[i].quantity + prod.quantity > prod.in_stock){
                                 cart[i].quantity = prod.in_stock
-                                alert("A quantidade desejada de " + prod.title + " não consta no estoque e foi alterada")
+                                alert("A quantidade desejada de " + prod.title + " não consta no estoque")
+                                limit = true;
                             }
                             else{
                                 cart[i].quantity += prod.quantity
@@ -100,8 +102,10 @@
                     if (added == false) {
                         let qte = prod.quantity
                         if (qte > prod.in_stock){
-                            alert("A quantidade desejada de " + prod.title + " não consta no estoque e foi alterada")
+                            alert("A quantidade desejada de " + prod.title + " não consta no estoque")
                             qte = prod.in_stock
+                            limit = true;
+
                         }
                         if (qte != 0){
                             cart.push({
@@ -112,8 +116,10 @@
                     }
                 }
 
-                this.$cookies.set("shopping_cart", JSON.stringify(cart))
-                alert("Produtos adicionados ao carrinho")
+                this.$cookies.set("shopping_cart", JSON.stringify(cart));
+                if (limit == false) {
+                    alert("Produtos adicionados ao carrinho");
+                }
             },
             getListItems(index){
                 return this.listas[index].slice(1)
