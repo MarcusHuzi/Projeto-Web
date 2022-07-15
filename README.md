@@ -4,7 +4,7 @@
 
 Projeto da disciplina Introdução ao Desenvolvimento Web - SCC0219.
 
-Nosso trabalho tem como tema o desenvolvimento de um website referente a um supermercado virtual
+Nosso trabalho tem como tema o desenvolvimento de um website referente a um supermercado virtual.
 
 
 ### Autores
@@ -45,7 +45,7 @@ Venda de produtos: Os produtos são selecionados, são incluídos em um carrinho
 
 Gerenciamento de produto: os administradores podem criar/atualizar/ler/excluir novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.
 
-Nosso sistema, como funcionalidade extra, também terá listas de compras, as quais os usuários podem criar a partir de carrinhos de compras ja preenchidos com produtos. Essas listas ficam salvas, permitindo o usuário utiliza-las para realizar futuras compras de forma mais rápida e prática.
+Nosso sistema, como funcionalidade extra, também terá listas de compras, as quais os usuários podem criar a partir de carrinhos de compras ja preenchidos com produtos. Essas listas ficam salvas, permitindo o usuário utilizá-las para realizar futuras compras de forma mais rápida e prática.
 
 O sistema visa uma boa acessibilidade e usabilidade para seus usuários.
 <br>
@@ -54,10 +54,10 @@ O sistema visa uma boa acessibilidade e usabilidade para seus usuários.
 <a name="Descrição-do-Projeto"/>
 
 ## 2. Descrição do Projeto
-Nosso Mercadinho consiste eu um supermercado virtual, no qual são vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5, a linguagem de estilização CSS3 e foi utilizado Vue.js para o front-end. Por enquanto, o back-end não foi implementado e foram usados dados estáticos temporários para efeito de simulação das funcionalidades do site.
+Nosso Mercadinho consiste eu um supermercado virtual, no qual são vendidos produtos de ampla varieadade com um enfoque em alimentos, cuidados da casa e cuidados pessoais, como produtos de limpeza, produtos de higiene pessoal e comidas congeladas, enlatadas, in natura, dentre outras. Nosso projeto foi implementado com a linguagem de marcação HTML5, a linguagem de estilização CSS3 e foi utilizado Vue.js para o front-end. Além disso, foi utilizado Node.js para o back-end e MondoDB para o banco de dados.
 
 ### Diagrama de navegação:
-Considere para o diagrama que o usuário somente pode acessar a página 'Finalizar Compra' e a página 'Listas de Compras' caso esteja logado no sistema. Caso contrário, ele será redirecionado para a página de login.
+Considere para o diagrama que o usuário não é capaz de acessar as páginas de Carrinho e de Listas de Compras caso não esteja logado no sistema.
 <br>
 <br>
 <img src="./nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
@@ -77,12 +77,12 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 ### Funcionalidades visadas pelo nosso site:
 
 - Login com email e senha na plataforma, com opção de criar uma nova conta.
-- Visualização das informações do cliente, com opção de alterar cadastro.
+- Visualização das informações do cliente, com opção de atualizar dados de cadastro.
 - Visualização da página de administrador, com opção de administrar os produtos e usuários da loja.
 - Acesso à homepage, com visualização das categorias de produtos presentes na loja.
 - Visualização de produtos pertencentes a uma categoria com opção de adicioná-los ao carrinho.
 - Visualização de um modal a partir do clique em um produto contendo seu nome, descrição e valor.
-- Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total, finalizar a compra e salvar a lista para compras futuras.
+- Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, excluir um item do carringo, conferir o preço total, finalizar a compra e salvar uma lista a partir do carrinho para compras futuras.
 - Opção de inserir informações do cartão de crédito para efetuar o pagamento.
 - Opção de alterar o endereço de entrega.
 - Criação de listas de compras que ficam salvas para facilitar futuras compras.
@@ -99,43 +99,56 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - endereço
 - cep
 - número de telefone
+- data de nascimento
 
 #### Produtos:
-- id (identificador do produto, valor único)
+- slug (identificador do produto, string única)
 - título
 - categoria
 - preço
 - descrição
-- identificador da imagem
+- link da imagem
+- texto alternativo para imagem
 - quantidade em estoque
 - quantidade vendida do produto
+- ativo (booleano)
 
+#### Listas de compras:
+- email (do usuário o qual a lista pertence)
+- nome
+- produtos (cada um com seu slug e sua quantidade)
 
 <a name="Comentários-sobre-o-código"/>
 
 ## 3. Comentários sobre o código
-O código ainda está numa fase inicial em que não foram implementadas funcionalidades de banco de dados. As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js.
+As páginas foram feitas utilizando-se HTML5, CSS3 e Vue.js. O código para o servidor e banco de dados está na pasta server, separado do código para o cliente Vue, que está na pasta site.
 <br>
 <br>
 
 <a name="Plano-de-teste"/>
 
 ## 4. Plano de teste
-Os testes estão sendo feitos no próprio navegador a medida que o projeto é desenvolvido. Por não haver muita responsividade implementada, o foco está em manter a integridade de cada página ao longo de diferentes tamanhos de tela e situações. Ademais, foi utilizada a plataforma Insomnia para testar as requisões do CRUD.
+Os testes foram feitos no próprio navegador ao longo de todo o desenvolvimento, visando testar a integridade estrutural das páginas, as funcionalidades implementadas e a integração com o banco de dados. Ademais, foi utilizada a plataforma Insomnia para testar as requisões do CRUD.
 <br>
 <br>
 
 <a name="Resultados-dos-testes"/>
 
 ## 5. Resultados dos testes
-Neste estado inicial, os testes mostraram-se satisfatórios.
+Os testes feitos auxiliaram tanto a encontrar e resolver bugs quanto a melhorar o visual e interatividade do site. Na entrega final, não encontramos bugs que afetassem significativamente a experiência do usuário e o site apresentou comportamento satisfatório de acordo com os requisitos.
 <br>
 <br>
 
 <a name="Building"/>
 
 ## 6. Building
-É necessário ter o npm e node.js instalados.
+É necessário ter o `npm` e o `node.js` instalados.
+O front-end e o back-end (o site e o servidor) serão executados localmente, enquanto que o banco de dados está hosteado num servidor de mongodb.
+
+Para rodar o servidor:
+- `cd server`
+- `npm install`
+- `npx nodemon ./bin/server.js`
 
 Para abrir o site:
 - `cd site`
@@ -144,20 +157,23 @@ Para abrir o site:
 - o programa, no terminal, indicará em qual localhost está sendo executado
 - basta acessá-lo no navegador de sua preferência.
 
-Para rodar o servidor:
-- `cd server`
-- `npm install`
-- 'npx nodemon ./bin/server.js'
+Para acessar a visão de Administrador, deve-se efetuar o login com email `admin@admin.com` e senha `admin`.
 <br>
 <br>
 
 <a name="Problemas"/>
 
 ## 7. Problemas
-O maior desafio por enquanto está em aprender Vue.js e implementar as funcionalidades do servidor simultaneamente com a confecção de cada página, tarefas que demandam muito tempo.
+O maior desafio foi aprender tantas tecnologias diferentes e ter que integrá-las todas no projeto, principalmente, pelo fato de nosso grupo não possuir experiência prévia com elas. Outra grande dificuldade foi adaptar toda a parte do Vue que estava pronta no milestone 2 para ser usada com o banco de dados, visto que muitas funcionalidades tiveram que ser refeitas.
 <br>
 <br>
 
 <a name="Comentários"/>
 
 ## 8. Comentários
+Alguns dos frameworks/ferramentas usados pelo grupo foram:
+- Figma (para os mockups)
+- Vue.js (front-end)
+- Mongoose (integração entre o banco de dados e o servidor)
+- Studio 3T (para a visualização do banco de dados)
+- Insomnia (para simular requisições HTTP)
