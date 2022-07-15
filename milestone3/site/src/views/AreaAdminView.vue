@@ -14,13 +14,16 @@
                 </div>
                 <div class="response-area products-response-area">
                     <div class="field" v-if="this.productExist == false">
-                        <label>Selug do produto</label><input class="title" placeholder="Slug do produto aqui" v-model="slug">
+                        <label>Selug do produto</label>
+                        <select v-model="slug">
+                            <option v-for="name in this.productsNames" v-bind:key="name">{{name}}</option>;
+                        </select>
                     </div>
                     <div class="field" v-if="this.productExist == true">
                         <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui" v-model="nome_produto">
                     </div>
                     <div class="field" v-if="this.productExist == true">
-                        <label>Descrição</label>
+                        <label >Descrição</label>
                         <textarea class="description" placeholder="Descrição do produto aqui" rows="11" cols="0" v-model="descricao"></textarea>    
                     </div>
                     <div class="field" v-if="this.productExist == true">
@@ -28,7 +31,7 @@
                     </div>
                     <div class="field" v-if="this.productExist == true">
                         <label>Categoria</label>
-                        <select class="category" aria-placeholder="Selecione a categoria" v-model="categoria">
+                        <select class="category" placeholder="Selecione a categoria" v-model="categoria">
                             <option value="bebidas">Bebidas</option>
                             <option value="hortifruti" selected>Hortifruti</option>
                             <option value="laticinios">Laticinios</option>
@@ -65,7 +68,10 @@
                         <label>CPF</label><input required class="cpf" placeholder="CPF aqui" type="text" v-model="cpf">
                     </div>
                     <div class="field" v-if="this.userExist == false">
-                        <label>Email</label><input required class="email" placeholder="Email aqui" type="email" v-model="email">
+                        <label>Email</label>
+                        <select v-model="email"><input required class="email" placeholder="Email aqui" type="email">
+                            <option v-for="email in this.clientsEmails" v-bind:key="email">{{email}}</option>;
+                        </select>
                     </div>
                     <div class="field" v-if="this.userExist == true">
                         <label>Telefone</label><input required class="tel" placeholder="Telefone aqui" type="tel" v-model="celular">
@@ -124,8 +130,13 @@
                 descricao:"",
                 categoria:"",
                 qntEstoque:"",
-                productExist: false
+                productExist: false,
+                productsNames: [],
+                clientsEmails: []
             };
+        },
+        created() {
+            this.getOptions()
         },
         methods: {
             loadUser: async function() {
@@ -197,6 +208,7 @@
             },
             loadProduct: async function() {
                 try{
+                    console.log(this.slug)
                     // fazendo um GET com o email passado
                     let resp = await fetch("http://localhost:3000/products/"+this.slug);
                     let resp_json = await resp.json();
@@ -252,6 +264,31 @@
                 catch(e) {
 					alert('Falha ao atualizar produto');
 				}
+            },
+            async getOptions(){
+                try {
+                    let resp = await fetch("http://localhost:3000/products");
+                    let products = await resp.json();
+  
+                    for (let product of products) {
+                        this.productsNames.push(product.slug);
+                    }
+                    console.log(this.productsNames);
+                } catch (e) {
+                    console.error("Erro ao listar produtos.");
+                }
+
+                try {
+                    let resp = await fetch("http://localhost:3000/clients");
+                    let clients = await resp.json();
+  
+                    for (let client of clients) {
+                        this.clientsEmails.push(client.email);
+                    }
+                    console.log(this.clientsEmails);
+                } catch (e) {
+                    console.error("Erro ao listar usuarios.");
+                }
             }
         }
     };
