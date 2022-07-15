@@ -100,7 +100,7 @@
                     <button class="delete-user-btn" @click="deleteUser()">Deletar usuário</button>
                 </div>
                 <div class="load-user"  v-if="this.userExist == false">
-                    <button class="load-user-btn load.btn" @click="loadUser()">Buscar usuário</button>
+                    <button class="load-user-btn" @click="loadUser()">Buscar usuário</button>
                 </div>
             </div>
         </div>
@@ -157,7 +157,6 @@
                     this.celular = resp_json.tel;	
                     this.isAdm = resp_json.isAdm;
                     this.id = resp_json._id;
-                    console.log(this.id)
 				} 
                 catch(e) {
 					alert('Usuario não cadastrado');
@@ -193,7 +192,7 @@
                                 cep: this.cep,
                                 endereco: this.end,
                                 isAdm: this.isAdm
-                            }
+                            } 
                         )
                     });
                     let resp_json = await resp.json();
@@ -274,7 +273,6 @@
                     for (let product of products) {
                         this.productsNames.push(product.slug);
                     }
-                    console.log(this.productsNames);
                 } catch (e) {
                     console.error("Erro ao listar produtos.");
                 }
@@ -286,7 +284,6 @@
                     for (let client of clients) {
                         this.clientsEmails.push(client.email);
                     }
-                    console.log(this.clientsEmails);
                 } catch (e) {
                     console.error("Erro ao listar usuarios.");
                 }
