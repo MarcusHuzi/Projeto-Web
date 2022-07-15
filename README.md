@@ -1,4 +1,4 @@
-![Cartaz](./src/image/Cartaz.png)
+![Cartaz](./milestone1/src/image/Cartaz.png)
 # Nosso Mercadinho
 
 
