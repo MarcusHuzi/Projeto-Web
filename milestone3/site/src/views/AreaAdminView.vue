@@ -46,17 +46,24 @@
                         <label>Quantidade no estoque</label><input class="in_stock" placeholder="Quantidade de itens no estoque aqui" v-model="qntEstoque">
                     </div>
                 </div>
-                <div class="save-changes product-save-changes" v-if="this.productExist == true">
+                <div class="save-changes product-save-changes" v-if="this.productExist == true && this.addprod==false">
                     <button class="save-changes-btn product-save-changes-btn" @click="saveProductChanges()">Salvar alterações</button>
                 </div>
-                <div class="delete-product" v-if="this.productExist == true">
+                <div class="delete-product" v-if="this.productExist == true && this.addprod==false">
                     <button class="delete-product-btn" @click="deleteProduct()">Deletar produto</button>
+                </div>
+                <div class="delete-product" v-if="this.productExist == true && this.addprod==true">
+                    <button class="delete-product-btn" @click="add()">Adicionar produto</button>
+                </div>
+                <div class="delete-product" v-if="this.productExist == true">
+                    <button class="delete-product-btn" @click="rem()">Cancelar</button>
                 </div>
                 <div class="load-user"  v-if="this.productExist == false">
                     <button class="load-product-btn load-btn" @click="loadProduct()">Buscar produto</button>
                     <button class="load-product-btn load-btn" @click="addProduct()">Adicionar produto</button>
                 </div>
             </div>
+            
             <div class="side users-side">
                 <div class="side-title users-side-title">
                     <h1>Usuários</h1>
@@ -127,6 +134,7 @@
                 isAdm: false,
                 userExist: false,
 
+
                 slug:"",
                 nome_produto:"",
                 preco:"",
@@ -134,6 +142,7 @@
                 categoria:"",
                 qntEstoque:"",
                 productExist: false,
+                addprod: false,
                 productsNames: [],
                 clientsEmails: []
             };
@@ -142,6 +151,42 @@
             this.getOptions()
         },
         methods: {
+            
+            addProduct(){
+                this.productExist = true;
+                this.addprod = true;
+            },
+            rem(){
+                this.productExist=false;
+            },
+            add: async function (){
+                try{
+                    let req = JSON.stringify({
+							slug: "zap",
+                            title: "zap",
+                            description: "zzzzz",
+                            price: 5.50,
+                            category: "limpeza",
+                            in_stock: 27,
+                            sold: 0,
+                            image_src: "image/produtos/zap.png",
+                            image_alt: "zap"
+						});	
+
+                    let resp = await fetch("http://localhost:3000/products", {
+							method: 'POST',
+							headers: { 'Content-Type': 'application/json' },
+							body: req
+						});		
+
+                    let resp_json = await resp.json();
+					alert(resp_json.message);
+				} 
+                catch(e) {
+					alert("Error:" + e);
+				}
+            },
+
             formattedDate(date){
                 return moment(date).format('dd-mm-yyyy')
             },
