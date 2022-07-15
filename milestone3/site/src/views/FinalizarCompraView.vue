@@ -86,7 +86,7 @@
 
                     <div class="valor-total">
                         <label>Valor Total:</label>
-                         <span class="preco"> R$ {{valor}}</span>
+                         <span class="preco"> R$ {{valor.toFixed(2)}}</span>
                     </div>
 
                 <h3> Forma de Pagamento </h3>
@@ -134,7 +134,7 @@
         },
 
         methods:{
-            validate(){
+            async validate(){
                 if(this.num ==""){
                     alert("Preencha o campo Número do Cartão");
                     return;
@@ -170,6 +170,39 @@
                    return;
                 }
 
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"));
+                if (cart == null) cart = [];
+
+                for (let item of cart) {
+                
+                    let resp = await fetch(
+                        "http://localhost:3000/products/" + item.slug
+                    );
+                    let resp_json = await resp.json();
+
+
+                    let req = JSON.stringify({
+                        in_stock: resp_json.in_stock - item.quantity,
+                        sold: resp_json.sold + item.quantity
+                    });
+                    
+                    try{
+                        let update = await fetch("http://localhost:3000/products/" + resp_json._id,{
+                            method: "PUT",
+                            headers: { 'Content-Type': 'application/json' },
+							body: req
+                        });
+
+                        let update_json = await update.json();
+                        console.log(update_json.message);
+                    } catch(e){
+                        alert("Error:" + e)
+                        return;
+                    }
+    
+                }
+
+                this.$cookies.set("shopping_cart", null)
                 alert("Compra realizada!!")
                 this.$router.push('/')
 
