@@ -108,6 +108,8 @@
 </template>
 
 <script>
+    import moment from 'moment'
+
     export default {
         name: 'AreaAdminView',
         data() {
@@ -139,9 +141,11 @@
             this.getOptions()
         },
         methods: {
+            formattedDate(date){
+                return moment(date).format('dd-mm-yyyy')
+            },
             loadUser: async function() {
                 try{
-                    const d = new Date();
                     // fazendo um GET com o email passado
                     let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email);
                     let resp_json = await resp.json();
@@ -154,7 +158,7 @@
                     this.userExist = true;
                     this.nome = resp_json.nome;
                     this.cpf = resp_json.cpf;
-                    this.nasc = d.getDate(resp_json.nasc) + "-" + d.getMonth(resp_json.nasc) + "-" + d.getFullYear(resp_json.nasc);
+                    this.nasc = moment(resp_json.nasc).utc().format("YYYY-MM-DD")
                     this.cep = resp_json.cep;
                     this.email = resp_json.email;
                     this.senha = resp_json.senha
@@ -182,7 +186,6 @@
 				}
             },
             saveUserChanges: async function() {
-                console.log("isAdm? " +this.isAdm)
                 try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',
@@ -193,7 +196,7 @@
                                 cpf: this.cpf,
                                 senha: this.senha,
                                 tel: this.celular,
-                                nasc: this.nasc,
+                                nasc: new Date(this.nasc),
                                 cep: this.cep,
                                 endereco: this.end,
                                 isAdm: this.isAdm
