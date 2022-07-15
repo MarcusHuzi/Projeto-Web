@@ -5,11 +5,14 @@
                 <div class="prod-imagem-box">
                     <img :src="getImgUrl(product.image_src)" :alt="product.img_alt" class="prod-imagem">
                 </div>
-                <h2>{{ product.name }}</h2>
+                <h2>{{ product.title }}</h2>
             </div>
             <div class="prod-quantity">
-                <input type="number" v-model="product.quantity" min="0" max="999">
+                <input type="number" v-model="product.quantity" v-on:input="validateInput(index)" min="0" max="999">
                 <h2>R$ {{ (product.quantity * product.price).toFixed(2) }}</h2>
+                <button v-on:click="removeFromCart(index)" class="removeItemButton"> 
+                    <img src="@/assets/image/icons/delete.png">
+                </button>
             </div>
         </div>
     </li>
@@ -20,33 +23,11 @@
         name: "CartProducts",
         data() {
             return {
-                products: [
-                {
-                        image_src: "image/produtos/ype-clear.png",
-                        image_alt: "ype-clear",
-                        name: "Detergente Líquido Ypê Clear 500ml",
-                        description: "Detergente Líquido Ypê Clear 500ml",
-                        quantity: 0,
-                        price: 2.39
-                    },
-                    {
-                        image_src: "image/produtos/ype-maca.png",
-                        image_alt: "ype-maca",
-                        name: "Detergente Líquido Ypê Maca 500ml",
-                        description: "Detergente Líquido Ypê Maca 500ml",
-                        quantity: 0,
-                        price: 2.39
-                    },
-                    {
-                        image_src: "image/produtos/ype-neutro.png",
-                        image_alt: "ype-neutro",
-                        name: "Detergente Líquido Ypê Neutro 500ml",
-                        description: "Detergente Líquido Ypê Neutro 500ml",
-                        quantity: 0,
-                        price: 2.39
-                    }
-                ]
+                products: []
             }
+        },
+        created() {
+            this.loadCart()
         },
         computed: {
             fullPrice() {
@@ -72,7 +53,78 @@
                 catch {
                     return ""
                 }
-            }
+            },
+            validateInput(index){
+                let prod = this.products[index]
+                if (prod.quantity <= 0){
+                    prod.quantity = 0
+                }
+                else if (prod.quantity > prod.in_stock){
+                    alert("Quantidade máxima em estoque atingida")
+                    prod.quantity = prod.in_stock
+                }
+
+                this.updateCart(index)
+            }, 
+            removeFromCart(index) {
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                if (cart == null) cart = []
+
+                let prod = this.products[index]
+                for (let i = 0; i < cart.length; i++){
+                    if (cart[i].slug == prod.slug){
+                        cart.splice(i, 1)
+                        break
+                    }
+                }
+
+                this.$cookies.set("shopping_cart", JSON.stringify(cart))
+                console.log(this.$cookies.get("shopping_cart"))
+
+                this.products.splice(index, 1)
+            },
+            async loadCart() {
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                if (cart == null) {
+                    this.products = []
+                    return  
+                } 
+
+                for (let item of cart) {
+                    try {
+                        let prod = await fetch("http://localhost:3000/products/" + item.slug);
+                        prod = await prod.json()
+
+                        this.products.push({
+                            slug: prod.slug,
+                            title: prod.title,
+                            description: prod.description,
+                            price: prod.price,
+                            in_stock: prod.in_stock,
+                            image_src: prod.image_src,
+                            image_alt: prod.image_alt,
+                            quantity: item.quantity
+                        })
+                    } catch(e) {
+                        alert("Error: " + e);
+                    }
+                }
+            },
+            updateCart(index){
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                if (cart == null) cart = []
+                
+                let prod = this.products[index]
+                for (let i = 0; i < cart.length; i++){
+                    if (cart[i].slug == prod.slug){
+                        cart[i].quantity = prod.quantity
+                        break
+                    }
+                }
+
+                this.$cookies.set("shopping_cart", JSON.stringify(cart))
+                console.log(this.$cookies.get("shopping_cart"))
+            },
         }
     }
 
@@ -130,7 +182,11 @@
     }
 
     .prod-quantity h2 {
-        width: 120px;
+        width: 70px;
+    }
+
+    .removeItemButton img {
+        width: 20px
     }
 
 </style>

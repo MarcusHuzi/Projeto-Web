@@ -8,6 +8,8 @@ router.get('/', controller.getAllProducts);
 
 router.get('/:slug', controller.getBySlug);
 
+router.get('/cat/:category', controller.getByCategory);
+
 router.post('/', controller.newProduct);
 
 router.put('/:id', controller.updateProduct);

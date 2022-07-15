@@ -20,6 +20,16 @@ controller.getBySlug = async (req, res) => {
     } catch (e) { res.status(400).send(e) }
 }
 
+controller.getByCategory = async (req, res) => {
+    try {
+        const data = await Product
+            .find({ active: true, category: req.params.category }, 'slug title description price category in_stock sold image_src image_alt')
+            res.status(200).send(data)
+    } catch(e) {
+        res.status(400).send(e)
+    }
+}
+
 controller.newProduct = async (req, res) => {
     const product = new Product(req.body)
     try{

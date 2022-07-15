@@ -5,7 +5,7 @@
                 <img :src="getImgUrl(this.$parent.modalProduct.image_src)" :alt="this.$parent.modalProduct.image_alt">
             </div>
             <div class="modal-prod-description">
-                <h1>{{this.$parent.modalProduct.name}}</h1>
+                <h1>{{this.$parent.modalProduct.title}}</h1>
                 <h2>{{this.$parent.modalProduct.description}}</h2>
                 <h3>R$ {{this.$parent.modalProduct.price}}</h3>
             </div>

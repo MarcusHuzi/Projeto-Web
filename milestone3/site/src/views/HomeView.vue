@@ -55,12 +55,6 @@
                     </router-link>
                     <h2 class="label">Cereais</h2>
                 </div>
-                <div class="category promocoes">
-                    <router-link to="/listaprodutos">
-                        <img class="category-img" src="@/assets/image/homepage-categories/promocao.png">
-                    </router-link>
-                    <h2 class="label">Promoções</h2>
-                </div>
             </div>
         </div>
     </div>
