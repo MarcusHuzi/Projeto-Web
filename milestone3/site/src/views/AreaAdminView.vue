@@ -14,8 +14,13 @@
                 </div>
                 <div class="query-area products-query-area">
                     <div class="query-forms products-query-forms">
-                        <input class="query-input products-query-input">
-                        <button class="query-btn products-query-btn"></button>
+                        <div class="query-label products-query-label">
+                            <label class="query-input-label products-query-input-label">Slug do Produto</label>
+                        </div>
+                        <div class="query-input-area products-query-input-area">
+                            <input class="query-input products-query-input" placeholder="Slug do produto aqui">
+                            <button class="query-btn products-query-btn">Consultar</button>
+                        </div>
                     </div>
                     <div class="response-area users-response-area">
                         <img class="product-img">
@@ -26,7 +31,7 @@
                         <input class="in_stock">
                     </div>
                     <div class="save-changes users-save-changes">
-                        <button class="save-changes-btn users-save-changes-btn"></button>
+                        <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
                     </div>
                 </div>
 
@@ -37,8 +42,13 @@
                 </div>
                 <div class="query-area users-query-area">
                     <div class="query-forms users-query-forms">
-                        <input class="query-input user-query-input">
-                        <button class="query-btn users-query-btn"></button>
+                        <div class="query-label users-query-label">
+                            <label class="query-input-label users-query-input-label">CPF do usuário</label>
+                        </div>
+                        <div class="query-input-area users-query-input-area">
+                            <input class="query-input users-query-input" placeholder="CPF do usuário aqui">
+                            <button class="query-btn useres-query-btn">Consultar</button>
+                        </div>
                     </div>
                     <div class="response-area users-response-area">
                         <input class="nome">
@@ -51,7 +61,7 @@
                         <input class="isAdm">
                     </div>
                     <div class="save-changes users-save-changes">
-                        <button class="save-changes-btn users-save-changes-btn"></button>
+                        <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
                     </div>
                 </div>
             </div>
