@@ -68,14 +68,7 @@
                     </div>
                 </div>
 
-                <div class="field field-nasc">
-                    <div class="label label-nasc">
-                        <h3>Data de Nascimento</h3>
-                    </div>
-                    <div class="data data-nasc">
-                        <input type="date" class="form-control" v-model="nasc"/>
-                    </div>
-                </div>
+                
             
             </div>
 
