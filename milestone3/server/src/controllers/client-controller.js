@@ -31,7 +31,6 @@ controller.getAllClients = async (req,res)=>{
 };
 
 controller.getByEmail = async (req,res)=>{
-    console.log("a");
     try{
         const data = await Client
             .findOne({active: true, email: req.params.email})

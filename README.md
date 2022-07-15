@@ -156,6 +156,7 @@ Para abrir o site:
 - o programa, no terminal, indicará em qual localhost está sendo executado
 - basta acessá-lo no navegador de sua preferência.
 
+Para acessar a visão de usuário comum sem a necessidade de fazer o cadastro de uma nova conta use o email `email@email.com` e senha `12345`.
 Para acessar a visão de Administrador, deve-se efetuar o login com email `admin@admin.com` e senha `admin`.
 <br>
 <br>
