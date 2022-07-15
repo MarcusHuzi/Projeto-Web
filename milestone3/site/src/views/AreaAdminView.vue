@@ -13,17 +13,20 @@
                     <h1>Produtos</h1>
                 </div>
                 <div class="response-area products-response-area">
-                    <div class="field">
-                        <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui">
+                    <div class="field" v-if="this.productExist == false">
+                        <label>Selug do produto</label><input class="title" placeholder="Slug do produto aqui" >
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.productExist == true">
+                        <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui" >
+                    </div>
+                    <div class="field" v-if="this.productExist == true">
                         <label>Descrição</label>
                         <textarea class="description" placeholder="Descrição do produto aqui" rows="11" cols="0"></textarea>    
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.productExist == true">
                         <label>Preço</label><input class="price" placeholder="Preço do produto aqui">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.productExist == true">
                         <label>Categoria</label>
                         <select class="category" aria-placeholder="Selecione a categoria">
                             <option value="bebidas">Bebidas</option>
@@ -36,12 +39,15 @@
                             <option value="limpeza">Limpeza</option>
                         </select>
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.productExist == true">
                         <label>Quantidade no estoque</label><input class="in_stock" placeholder="Quantidade de itens no estoque aqui">
                     </div>
                 </div>
-                <div class="save-changes users-save-changes">
+                <div class="save-changes users-save-changes" v-if="this.productExist == true">
                     <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
+                </div>
+                <div class="load-user"  v-if="this.productExist == false">
+                    <button class="load-product-btn load-btn" @click="loadUser()">Buscar produto</button>
                 </div>
             </div>
             <div class="side users-side">
@@ -55,7 +61,7 @@
                     <div class="field" v-if="this.userExist == true">
                         <label>CPF</label><input required class="cpf" placeholder="CPF aqui" type="text" v-model="cpf">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == false">
                         <label>Email</label><input required class="email" placeholder="Email aqui" type="email" v-model="email">
                     </div>
                     <div class="field" v-if="this.userExist == true">
@@ -79,13 +85,13 @@
                     </div>
                 </div>
                 <div class="save-changes users-save-changes" v-if="this.userExist == true">
-                    <button class="save-changes-btn users-save-changes-btn" @click="saveChanges()">Salvar alterações</button>
+                    <button class="save-changes-btn users-save-changes-btn" @click="saveUserChanges()">Salvar alterações</button>
                 </div>
                 <div class="delete-user" v-if="this.userExist == true">
                     <button class="delete-user-btn" @click="deleteUser()">Deletar usuário</button>
                 </div>
                 <div class="load-user"  v-if="this.userExist == false">
-                    <button class="load-user-btn" @click="loadUser()">Buscar usuário</button>
+                    <button class="load-user-btn load.btn" @click="loadUser()">Buscar usuário</button>
                 </div>
             </div>
         </div>
@@ -107,7 +113,14 @@
                 senha:"",
                 id:"",
                 isAdm: false,
-                userExist: false
+                userExist: false,
+
+                nome_produto:"",
+                preço:"",
+                descricao:"",
+                categoria:"",
+                qntEstoque:"",
+                productExist: false
             };
         },
         methods: {
@@ -149,24 +162,96 @@
 					alert('Falha ao deletar usuário');
 				}
             },
-            saveChanges: async function() {
-                try{
-                    let req = JSON.stringify({
-                        nome: this.nome,
-                        cpf: this.cpf,
-                        email: this.email,
-                        senha: this.senha,
-                        tel: this.celular,
-                        nasc: this.nasc,
-                        cep: this.cep,
-                        endereco: this.end,
-                        isAdm: this.isAdm
-                    });
+            saveUserChanges: async function() {
+                console.log(this.nome);
+                console.log(this.email);
+                console.log(this.cpf);
+                console.log(this.cep);
+                console.log(this.end);
+                console.log(this.celular);
+                console.log(this.nasc);
+                console.log(this.senha);
+                console.log(this.id);
+                console.log(this.isAdm);
 
+                try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: req
+                        body: {
+                            "nome": this.nome,
+                            "cpf": this.cpf
+                        }
+                    });
+                    let resp_json = await resp.json();
+
+                    console.log(resp_json.message);
+                    console.log(resp.status);
+                    alert("Usuario atualizado com sucesso");
+                    window.location.href = "/areaAdmin";
+				} 
+                catch(e) {
+					alert('Falha ao atualizar usuário');
+				}
+            },
+            loadProduct: async function() {
+                try{
+                    const d = new Date();
+                    // fazendo um GET com o email passado
+                    let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email);
+                    let resp_json = await resp.json();
+
+                    this.userExist = true;
+                    this.nome = resp_json.nome;
+                    this.cpf = resp_json.cpf;
+                    this.nasc = d.getDate(resp_json.nasc) + "-" + d.getMonth(resp_json.nasc) + "-" + d.getFullYear(resp_json.nasc);
+                    this.cep = resp_json.cep;
+                    this.email = resp_json.email;
+                    this.senha = resp_json.senha
+                    this.end = resp_json.endereco;
+                    this.celular = resp_json.tel;	
+                    this.isAdm = resp_json.isAdm;
+                    this.id = resp_json._id;
+                    console.log(this.id)
+				} 
+                catch(e) {
+					alert('Usuario não cadastrado');
+				}
+            },
+            deleteProduct: async function() {
+                try{
+                    let resp = await fetch("http://localhost:3000/clients/"+this.id, {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    console.log(resp.status);
+                    alert("Usuario deletado com sucesso");
+                    window.location.href = "/areaAdmin";
+				} 
+                catch(e) {
+					alert('Falha ao deletar usuário');
+				}
+            },
+            saveProductChanges: async function() {
+                console.log(this.nome);
+                console.log(this.email);
+                console.log(this.cpf);
+                console.log(this.cep);
+                console.log(this.end);
+                console.log(this.celular);
+                console.log(this.nasc);
+                console.log(this.senha);
+                console.log(this.id);
+                console.log(this.isAdm);
+
+                try{
+                    let resp = await fetch("http://localhost:3000/clients/"+this.id, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: {
+                            "nome": this.nome,
+                            "cpf": this.cpf
+                        }
                     });
                     let resp_json = await resp.json();
 
@@ -179,7 +264,6 @@
 					alert('Falha ao atualizar usuário');
 				}
             }
-        
         }
     };
 </script>
