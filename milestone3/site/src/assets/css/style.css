@@ -134,7 +134,7 @@ p, h1, h2, h3, a, input, span{
 .aboutus-section {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: baseline;
 }
 

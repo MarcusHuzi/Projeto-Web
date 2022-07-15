@@ -50,33 +50,33 @@
                 </div>
                 <div class="response-area users-response-area">
                     <div class="field">
-                        <label>Nome do Usuário</label><input class="nome" placeholder="Nome de usuário aqui">
+                        <label>Nome do Usuário</label><input required class="nome" placeholder="Nome de usuário aqui" type="text" v-model="nome">
                     </div>
                     <div class="field">
-                        <label>CPF</label><input class="cpf" placeholder="CPF aqui">
+                        <label>CPF</label><input required class="cpf" placeholder="CPF aqui" type="text" v-model="cpf">
                     </div>
                     <div class="field">
-                        <label>Email</label><input class="email" placeholder="Email aqui">
+                        <label>Email</label><input required class="email" placeholder="Email aqui" type="email" v-model="email">
                     </div>
                     <div class="field">
-                        <label>Telefone</label><input class="tel" placeholder="Telefone aqui">
+                        <label>Telefone</label><input required class="tel" placeholder="Telefone aqui" type="tel" v-model="celular">
                     </div>
                     <div class="field">
-                        <label>Data de nascimento</label><input class="nasc" placeholder="Data de nascimento aqui">
+                        <label>Data de nascimento</label><input required class="nasc" placeholder="Data de nascimento aqui" type="date" v-model="nasc">
                     </div>
                     <div class="field">
-                        <label>CEP</label><input class="cep" placeholder="CEP aqui">
+                        <label>CEP</label><input class="cep" required placeholder="CEP aqui" type="text" v-model="cep">
                     </div>
                     <div class="field">
-                        <label>Endereço</label><input class="endereco" placeholder="Endereço aqui">
+                        <label>Endereço</label><input required class="endereco" placeholder="Endereço aqui" type="text" v-model="end">
                     </div>
                     <div class="field adm-checkbox">
                         <label class="isAdm-lavel">É administrador:</label>
-                        <input class="isAdm" type="checkbox">
+                        <input required class="isAdm" type="checkbox" v-model="isAdm">
                     </div>
                 </div>
                 <div class="save-changes users-save-changes">
-                    <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
+                    <button class="save-changes-btn users-save-changes-btn" @click="verificar()">Salvar alterações</button>
                 </div>
             </div>
         </div>
@@ -84,30 +84,56 @@
 </template>
 
 <script>
-    import productsData from '../data/estoque.json'
-    import clientsData from '../data/clients.json'
-
     export default {
         name: 'AreaAdminView',
         data() {
             return {
-                estoque: productsData,
-                clientes: clientsData,
-                mostrarCampos: false
+				email:"",
+				cpf:"",
+				cep:"",
+				end:"",
+				celular:"",
+				nome:"",
+				nasc:"",
+                isAdm: false,
             };
         },
         methods: {
-            getImgUrl(url){
-                try {
-                    let str = require('@/assets/' + url)
-                    return str
+            verificar: async function() {
+                if(this.email ==""){
+                    alert("Preencha o campo Email");
+                    return;
                 }
-                catch {
-                    return ""
+
+                if(this.cpf == ""){
+                   alert("Preencha o campo CPF");
+                   return;
                 }
-            },
-            query() {
-                this.mostrarCampos = true;
+
+                if(this.cep == ""){
+                   alert("Preencha o campo CEP");
+                   return;
+                }
+
+                if(this.end == ""){
+                   alert("Preencha o campo Endereço");
+                   return;
+                }
+
+                if(this.celular == ""){
+                   alert("Preencha o campo Celular");
+                   return;
+                }
+
+                if(this.nome == ""){
+                   alert("Preencha o campo Nome");
+                   return;
+                }
+
+                if(this.nasc == ""){
+                   alert("Preencha o campo Data de Nascimento");
+                   return;
+                }
             }
         }
     };

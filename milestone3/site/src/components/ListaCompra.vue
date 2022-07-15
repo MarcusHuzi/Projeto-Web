@@ -111,7 +111,7 @@
                 }
 
                 this.$cookies.set("shopping_cart", JSON.stringify(cart))
-                console.log(this.$cookies.get("shopping_cart"))
+                alert("Produtos adicionados ao carrinho")
             },
             getListItems(index){
                 return this.listas[index].slice(1)
