@@ -97,7 +97,7 @@
 
 .save-changes, .load-user, .load-product, .delete-user, .delete-product{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .response-area {

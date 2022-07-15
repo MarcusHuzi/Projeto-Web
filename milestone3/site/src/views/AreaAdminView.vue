@@ -178,6 +178,7 @@
 				}
             },
             saveUserChanges: async function() {
+                console.log("isAdm? " +this.isAdm)
                 try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',

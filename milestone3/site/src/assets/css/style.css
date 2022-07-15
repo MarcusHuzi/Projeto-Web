@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
-@font-face {
-    font-family: 'Rubik', sans-serif;
-}
-
 :root {
     --vermelho-escuro: #A40444;
     --amarelo: #FCCC04;
@@ -102,6 +98,9 @@ p, h1, h2, h3, a, input, span{
     font-family: sans-serif;
 }
 
+.logout {
+    cursor: pointer;
+}
 
 /* efeito dos icones da barra de navegação */
 .kart:hover, .shoplist:hover, .profile:hover, .login:hover, .signup:hover, .adm:hover, .logout:hover {

@@ -23,7 +23,7 @@ controller.newClient = async (req, res) => {
 controller.getAllClients = async (req,res)=>{
     try{
         const data = await Client
-            .find({active: true}, 'nome cpf email tel nasc cep endereco senha')
+            .find({active: true}, 'nome cpf email tel nasc cep endereco senha isAdm')
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
