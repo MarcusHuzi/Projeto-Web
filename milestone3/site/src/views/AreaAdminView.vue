@@ -163,16 +163,6 @@
 				}
             },
             saveUserChanges: async function() {
-                console.log(this.nome);
-                console.log(this.email);
-                console.log(this.cpf);
-                console.log(this.cep);
-                console.log(this.end);
-                console.log(this.celular);
-                console.log(this.nasc);
-                console.log(this.senha);
-                console.log(this.id);
-                console.log(this.isAdm);
 
                 try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
@@ -181,7 +171,13 @@
                         body: JSON.stringify(
                             {
                                 nome: this.nome,
-                                cpf: this.cpf
+                                cpf: this.cpf,
+                                senha: this.senha,
+                                tel: this.celular,
+                                nasc: this.nasc,
+                                cep: this.cep,
+                                endereco: this.end,
+                                isAdm: this.isAdm
                             }
                         )
                         
