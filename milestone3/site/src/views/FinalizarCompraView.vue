@@ -17,7 +17,7 @@
                         <h3>Número do Cartão</h3>
                     </div>
                     <div class="data data-num">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" v-model="num"/>
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@
                             <h3>Validade</h3>
                         </div>
                         <div class="data data-val">
-                            <input type="month" class="form-control"/>
+                            <input type="month" class="form-control" v-model="val"/>
                         </div>
                     </div>
                     <div class="cvv">
@@ -35,7 +35,7 @@
                             <h3>CVV</h3>
                         </div>
                         <div class="data data-cvv">
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" v-model="cvv"/>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         <h3>Nome Completo</h3>
                     </div>
                     <div class="data data-nome">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" v-model="nome"/>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
                         <h3>CPF</h3>
                     </div>
                     <div class="data data-cpf">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" v-model="cpf"/>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                         <h3>Telefone</h3>
                     </div>
                     <div class="data data-tel">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" v-model="tel"/>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                         <h3>Data de Nascimento</h3>
                     </div>
                     <div class="data data-nasc">
-                        <input type="date" class="form-control"/>
+                        <input type="date" class="form-control" v-model="nasc"/>
                     </div>
                 </div>
             
@@ -120,6 +120,7 @@
                 cpf:"",
                 num:"",
                 val:"",
+                cvv:"",
                 tel:"",
                 valor: null,
                 form:"",
@@ -170,6 +171,7 @@
                 }
 
                 alert("Compra realizada!!")
+                this.$router.push('/')
 
             },
 
@@ -178,13 +180,17 @@
                 
                 let cart = JSON.parse(this.$cookies.get("shopping_cart"));
                 if (cart == null) cart = [];
-            
+
+                
                 for (let item of cart) {
-                    let response = await fetch(
-                        "http://localhost:3000/products/" + item.id
+
+                
+                    let resp = await fetch(
+                        "http://localhost:3000/products/" + item.slug
                     );
-                    let product = await response.json();
-                    this.totalPrice += item.quantity * product.price;
+                    let resp_json = await resp.json();
+                    this.valor += item.quantity * resp_json.price;
+    
                 }
             }
         }
