@@ -12,57 +12,71 @@
                 <div class="side-title products-side-title">
                     <h1>Produtos</h1>
                 </div>
-                <div class="query-area products-query-area">
-                    <div class="query-forms products-query-forms">
-                        <div class="query-label products-query-label">
-                            <label class="query-input-label products-query-input-label">Slug do Produto</label>
-                        </div>
-                        <div class="query-input-area products-query-input-area">
-                            <input class="query-input products-query-input" placeholder="Slug do produto aqui">
-                            <button class="query-btn products-query-btn">Consultar</button>
-                        </div>
+                <div class="response-area products-response-area">
+                    <div class="field">
+                        <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui">
                     </div>
-                    <div class="response-area users-response-area">
-                        <img class="product-img">
-                        <input class="title">
-                        <input class="description">
-                        <input class="price">
-                        <input class="category">
-                        <input class="in_stock">
+                    <div class="field">
+                        <label>Descrição</label>
+                        <textarea class="description" placeholder="Descrição do produto aqui" rows="11" cols="0"></textarea>    
                     </div>
-                    <div class="save-changes users-save-changes">
-                        <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
+                    <div class="field">
+                        <label>Preço</label><input class="price" placeholder="Preço do produto aqui">
+                    </div>
+                    <div class="field">
+                        <label>Categoria</label>
+                        <select class="category" aria-placeholder="Selecione a categoria">
+                            <option value="bebidas">Bebidas</option>
+                            <option value="hortifruti" selected>Hortifruti</option>
+                            <option value="laticinios">Laticinios</option>
+                            <option value="congelados">Congelados</option>
+                            <option value="enlatados">Enlatados</option>
+                            <option value="cereais">Cereais</option>
+                            <option value="higiene">Higiene</option>
+                            <option value="limpeza">Limpeza</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Quantidade no estoque</label><input class="in_stock" placeholder="Quantidade de itens no estoque aqui">
                     </div>
                 </div>
-
+                <div class="save-changes users-save-changes">
+                    <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
+                </div>
             </div>
             <div class="side users-side">
                 <div class="side-title users-side-title">
                     <h1>Usuários</h1>
                 </div>
-                <div class="query-area users-query-area">
-                    <div class="query-forms users-query-forms">
-                        <div class="query-label users-query-label">
-                            <label class="query-input-label users-query-input-label">CPF do usuário</label>
-                        </div>
-                        <div class="query-input-area users-query-input-area">
-                            <input class="query-input users-query-input" placeholder="CPF do usuário aqui">
-                            <button class="query-btn useres-query-btn">Consultar</button>
-                        </div>
+                <div class="response-area users-response-area">
+                    <div class="field">
+                        <label>Nome do Usuário</label><input class="nome" placeholder="Nome de usuário aqui">
                     </div>
-                    <div class="response-area users-response-area">
-                        <input class="nome">
-                        <input class="cpf">
-                        <input class="email">
-                        <input class="tel">
-                        <input class="nasc">
-                        <input class="cep">
-                        <input class="endereco">
-                        <input class="isAdm">
+                    <div class="field">
+                        <label>CPF</label><input class="cpf" placeholder="CPF aqui">
                     </div>
-                    <div class="save-changes users-save-changes">
-                        <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
+                    <div class="field">
+                        <label>Email</label><input class="email" placeholder="Email aqui">
                     </div>
+                    <div class="field">
+                        <label>Telefone</label><input class="tel" placeholder="Telefone aqui">
+                    </div>
+                    <div class="field">
+                        <label>Data de nascimento</label><input class="nasc" placeholder="Data de nascimento aqui">
+                    </div>
+                    <div class="field">
+                        <label>CEP</label><input class="cep" placeholder="CEP aqui">
+                    </div>
+                    <div class="field">
+                        <label>Endereço</label><input class="endereco" placeholder="Endereço aqui">
+                    </div>
+                    <div class="field adm-checkbox">
+                        <label class="isAdm-lavel">É administrador:</label>
+                        <input class="isAdm" type="checkbox">
+                    </div>
+                </div>
+                <div class="save-changes users-save-changes">
+                    <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
                 </div>
             </div>
         </div>
@@ -79,6 +93,7 @@
             return {
                 estoque: productsData,
                 clientes: clientsData,
+                mostrarCampos: false
             };
         },
         methods: {
@@ -90,6 +105,9 @@
                 catch {
                     return ""
                 }
+            },
+            query() {
+                this.mostrarCampos = true;
             }
         }
     };
