@@ -54,6 +54,7 @@
                 </div>
                 <div class="load-user"  v-if="this.productExist == false">
                     <button class="load-product-btn load-btn" @click="loadProduct()">Buscar produto</button>
+                    <button class="load-product-btn load-btn" @click="addProduct()">Adicionar produto</button>
                 </div>
             </div>
             <div class="side users-side">
@@ -150,11 +151,6 @@
                     let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email);
                     let resp_json = await resp.json();
 
-                    if(resp_json.email == null){
-                        alert("Usuário inexistente");
-                        return;
-                    }
-
                     this.userExist = true;
                     this.nome = resp_json.nome;
                     this.cpf = resp_json.cpf;
@@ -220,6 +216,11 @@
                     // fazendo um GET com o email passado
                     let resp = await fetch("http://localhost:3000/products/"+this.slug);
                     let resp_json = await resp.json();
+
+                    if(resp_json.slug == null){
+                        alert('produto inexistente');
+                        return;
+                    }
 
                     this.productExist = true;
                     this.nome_produto = resp_json.title;
