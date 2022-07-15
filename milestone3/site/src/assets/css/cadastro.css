@@ -129,6 +129,7 @@
 	color:#FCCC04;
 	font-size:1.25em;
 	font-family: 'Rubik', sans-serif;
+	cursor: pointer;
 }
 
 .enviar:hover{

@@ -1,5 +1,6 @@
 <template>
     <div class="content-perfil">
+        <!--
         <div class="sub-header">
             <h1 class="profile-title"><b>Perfil do Usuário</b></h1>
             <h2 class="profile-path"><b>Home > Meu Perfil</b></h2>
@@ -7,7 +8,12 @@
         <div class="line top-line">
             <hr/>
         </div>
-        
+        -->
+        <div class="titulo_perfil">
+            <h1>Perfil do Usuário</h1>
+            <h2><router-link to="/">Home</router-link> > Perfil do Usuário</h2>
+            <hr/>
+        </div>
         <div class="nome">
             <div class="field field-nome">
                         <div class="label label-nome">
@@ -75,9 +81,6 @@
         </div>
         <div class="saveChanges">
             <button class="saveChanges-btn" @click="openModal">Editar dados</button>
-        </div>
-        <div class="line bottom-line">
-            <hr/>
         </div>
         
         

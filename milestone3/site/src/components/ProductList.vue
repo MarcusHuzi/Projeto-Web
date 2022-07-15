@@ -3,7 +3,7 @@
         <div class="prod-imagem-box" @click="this.$parent.showModal(product)">
             <img :src="getImgUrl(product.image_src)" :alt="product.image_alt">
             <button v-on:click.stop="addProduct(index)" 
-                v-show="product.quantity == 0" type="button" class="btn-add-product">+</button>
+                v-show="product.quantity == 0" type="button" class="btn-add-product"></button>
             <input v-on:click.stop v-on:input="validateInput(index)" 
                 v-show="product.quantity >= 1" v-model="product.quantity" type="number" class="input-add-product">
         </div>
@@ -144,6 +144,15 @@
         right: 5%;
         position: absolute;
         z-index: 1;
+        border: none;
+        border-radius: 90px;
+        background-color: white;
+        outline: none;
+        background-image: url("@/assets/image/icons/add3.png");
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
     }
 
     .input-add-product {
@@ -172,7 +181,7 @@
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400; 
-        font-size: 14px;  
+        font-size: 16px;  
         line-height: 14px;
         height: 42px;
         color: rgba(0, 0, 0, 0.7);

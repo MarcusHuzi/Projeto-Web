@@ -1,9 +1,33 @@
-.content-perfil {
+/*.content-perfil {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 500px;
     margin-top: 30px;
+}*/
+
+.content-perfil {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 800px;
+}
+
+.titulo_perfil {
+    margin: 3% 3% 10px 3%;
+}
+
+.titulo_perfil h1 {
+    color: var(--vermelho-escuro);
+    font-size: 40px;
+    text-align: left;
+}
+
+.titulo_perfil h2 {
+    color: var(--vermelho-escuro);
+    font-size: 14px;
+    text-align: left;
 }
 
 .nome{
@@ -37,6 +61,7 @@
     font-size: 20px;
     border-style: none;
     padding: 10px 20px 10px 20px;
+    cursor: pointer;
 }
 
 .saveChanges-btn:hover {
@@ -46,42 +71,11 @@
     transition: ease 0.4s
 }
 
-.bottom-line {
-    margin-bottom: 60px;
-}
-
-.content-perfil hr {
-    background: var(--cinza); 
-    height: 0.1px;
-    width: 85%;
-    margin: 0px 50px 0px 50px;
-}
-
-.line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .sub-header {
     display: flex;
     flex-direction: column;
     margin: 0px 110px 15px 110px;
     font-weight: bolder;
-}
-
-.profile-title {
-    color: var(--vermelho-escuro);
-    font-size: 50px;
-}
-
-.profile-path {
-    color: var(--vermelho-escuro);
-    font-size: 20px;
-}
-
-.profile-title, .profile-path{
-    color: var(--vermelho-escuro);
 }
 
 .field {
@@ -127,4 +121,6 @@
     overflow: auto;
 }
 
-
+.modal-default-button, .cancel {
+    cursor: pointer;
+}

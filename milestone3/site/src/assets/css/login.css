@@ -61,6 +61,7 @@ p#senha-field-label, p#email-field-label, p#create-account-text, h1#login-form-t
     border: none;
     padding: 15px 40px;
     margin: 20px 0px 20px 0px;
+    cursor: pointer;
 }
 
 .senha-field input, .email-field input{

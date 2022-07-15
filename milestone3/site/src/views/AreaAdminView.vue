@@ -1,10 +1,8 @@
 <template>
     <div class="content-admin">
-        <div class="sub-header">
-            <h1 class="admin-title"><b>Área do Administrador</b></h1>
-            <h2 class="admin-path"><b>Home > Área do Administrador</b></h2>
-        </div>
-        <div class="line top-line">
+        <div class="titulo_admin">
+            <h1>Área do Administrador</h1>
+            <h2><router-link to="/">Home</router-link> > Área do Administrador</h2>
             <hr/>
         </div>
         <div class="sides">

@@ -1,7 +1,7 @@
 <template>
     <div id="titulo_cadastro">
 				<h1>Cadastro</h1>
-				<h2>Home > Cadastro</h2>
+				<h2><router-link to="/">Home</router-link> > Cadastro</h2>
 				<hr/>
 			</div>
 			

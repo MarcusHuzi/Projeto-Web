@@ -2,7 +2,7 @@
     <div class="content_finalizar">
         <div class="titulo_finalizar">
             <h1>Finalizar Compra</h1>
-            <h2>Home > Carrinho > Finalizar Compra</h2>
+            <h2><router-link to="/">Home</router-link> > <router-link to="/carrinho">Carrinho</router-link> > Finalizar Compra</h2>
             <hr/>
         </div>
 

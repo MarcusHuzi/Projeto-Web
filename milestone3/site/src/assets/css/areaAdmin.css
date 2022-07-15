@@ -1,37 +1,30 @@
 .content-admin {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: auto;
     min-height: 500px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
-.sub-header {
-    display: flex;
-    flex-direction: column;
-    margin: 0px 110px 15px 110px;
-    font-weight: bolder;
+.titulo_admin {
+    margin: 3% 3% 10px 3%;
 }
 
-.admin-title {
+.titulo_admin h1 {
     color: var(--vermelho-escuro);
-    font-size: 50px;
+    font-size: 40px;
+    text-align: left;
 }
 
-.admin-path {
+.titulo_admin h2 {
     color: var(--vermelho-escuro);
-    font-size: 20px;
+    font-size: 14px;
+    text-align: left;
 }
 
-.profile-title, .profile-path{
-    color: var(--vermelho-escuro);
-}
-
-.content-admin hr {
-    background: var(--cinza); 
-    height: 0.1px;
-    width: 85%;
-    margin: 0px 50px 0px 50px;
+.titulo_admin hr {
+    color: var(--cinza);
 }
 
 .line {
@@ -60,7 +53,7 @@
 }
 
 .products-side {
-    max-height: 600px;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -98,6 +91,8 @@
 .save-changes, .load-user, .load-product, .delete-user, .delete-product{
     display: flex;
     justify-content: flex-end;
+    gap: 20px;
+    margin-top: 10px;
 }
 
 .response-area {

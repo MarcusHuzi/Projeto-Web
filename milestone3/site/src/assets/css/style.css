@@ -51,13 +51,10 @@ p, h1, h2, h3, a, input, span{
 
 .navbar-icons ul{
     display: flex;
-    padding-top: 5px;
+    align-items: center;
 }
 
-.navbar-icons span{
-    display: flex;
-    padding-top: 5px;
-}
+
 
 .navbar-icons li{
    margin: 0px 30px 4px 30px;

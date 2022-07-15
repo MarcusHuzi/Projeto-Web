@@ -15,7 +15,7 @@
             </div>
 
             <div class="entrar-field">
-                <input id="entrar-btn" type="submit" value="Entrar" @click="login()">
+                <input type="submit" value="Entrar" @click="login()">
             </div>
 
             <div class="create-account-field">
