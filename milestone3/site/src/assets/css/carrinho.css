@@ -130,3 +130,8 @@
     opacity: 0.7;
     transform: scale(1.04);
 }
+
+#carrinho-vazio {
+    color: var(--preto);
+    font-size: 40px
+}
