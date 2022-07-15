@@ -123,6 +123,7 @@
     font-size: 15px;
     border-style: none;
     padding: 5px 10px 5px 10px;
+    cursor: pointer;
 }
 
 .save-changes-btn:hover, .load-user-btn:hover, .delete-user-btn:hover, .load-product-btn:hover, .delete-produc-btn:hover{
