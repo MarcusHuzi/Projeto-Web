@@ -79,7 +79,10 @@
                     </div>
                 </div>
                 <div class="save-changes users-save-changes" v-if="this.userExist == true">
-                    <button class="save-changes-btn users-save-changes-btn" @click="verificar()">Salvar alterações</button>
+                    <button class="save-changes-btn users-save-changes-btn" @click="saveChanges()">Salvar alterações</button>
+                </div>
+                <div class="delete-user" v-if="this.userExist == true">
+                    <button class="delete-user-btn" @click="deleteUser()">Deletar usuário</button>
                 </div>
                 <div class="load-user"  v-if="this.userExist == false">
                     <button class="load-user-btn" @click="loadUser()">Buscar usuário</button>
@@ -102,6 +105,7 @@
 				nome:"",
 				nasc:"",
                 senha:"",
+                id:"",
                 isAdm: false,
                 userExist: false
             };
@@ -123,12 +127,59 @@
                     this.senha = resp_json.senha
                     this.end = resp_json.endereco;
                     this.celular = resp_json.tel;	
-                    this.isAdm = resp_json.isAdm
+                    this.isAdm = resp_json.isAdm;
+                    this.id = resp_json._id;
+                    console.log(this.id)
 				} 
                 catch(e) {
 					alert('Usuario não cadastrado');
 				}
+            },
+            deleteUser: async function() {
+                try{
+                    let resp = await fetch("http://localhost:3000/clients/"+this.id, {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    console.log(resp.status);
+                    alert("Usuario deletado com sucesso");
+                    window.location.href = "/areaAdmin";
+				} 
+                catch(e) {
+					alert('Falha ao deletar usuário');
+				}
+            },
+            saveChanges: async function() {
+                try{
+                    let req = JSON.stringify({
+                        nome: this.nome,
+                        cpf: this.cpf,
+                        email: this.email,
+                        senha: this.senha,
+                        tel: this.celular,
+                        nasc: this.nasc,
+                        cep: this.cep,
+                        endereco: this.end,
+                        isAdm: this.isAdm
+                    });
+
+                    let resp = await fetch("http://localhost:3000/clients/"+this.id, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: req
+                    });
+                    let resp_json = await resp.json();
+
+                    console.log(resp_json.message);
+                    console.log(resp.status);
+                    alert("Usuario atualizado com sucesso");
+                    window.location.href = "/areaAdmin";
+				} 
+                catch(e) {
+					alert('Falha ao atualizar usuário');
+				}
             }
+        
         }
     };
 </script>
