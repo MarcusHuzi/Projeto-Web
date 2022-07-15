@@ -49,34 +49,40 @@
                     <h1>Usuários</h1>
                 </div>
                 <div class="response-area users-response-area">
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == true">
                         <label>Nome do Usuário</label><input required class="nome" placeholder="Nome de usuário aqui" type="text" v-model="nome">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == true">
                         <label>CPF</label><input required class="cpf" placeholder="CPF aqui" type="text" v-model="cpf">
                     </div>
                     <div class="field">
                         <label>Email</label><input required class="email" placeholder="Email aqui" type="email" v-model="email">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == true">
                         <label>Telefone</label><input required class="tel" placeholder="Telefone aqui" type="tel" v-model="celular">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == true">
                         <label>Data de nascimento</label><input required class="nasc" placeholder="Data de nascimento aqui" type="date" v-model="nasc">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == true">
                         <label>CEP</label><input class="cep" required placeholder="CEP aqui" type="text" v-model="cep">
                     </div>
-                    <div class="field">
+                    <div class="field" v-if="this.userExist == true">
                         <label>Endereço</label><input required class="endereco" placeholder="Endereço aqui" type="text" v-model="end">
                     </div>
-                    <div class="field adm-checkbox">
+                   <div class="field" v-if="this.userExist == true">
+                        <label>Senha</label><input required class="senha" placeholder="Senha aqui" type="text" v-model="senha">
+                    </div>
+                    <div class="field adm-checkbox" v-if="this.userExist == true">
                         <label class="isAdm-lavel">É administrador:</label>
                         <input required class="isAdm" type="checkbox" v-model="isAdm">
                     </div>
                 </div>
-                <div class="save-changes users-save-changes">
+                <div class="save-changes users-save-changes" v-if="this.userExist == true">
                     <button class="save-changes-btn users-save-changes-btn" @click="verificar()">Salvar alterações</button>
+                </div>
+                <div class="load-user"  v-if="this.userExist == false">
+                    <button class="load-user-btn" @click="loadUser()">Buscar usuário</button>
                 </div>
             </div>
         </div>
@@ -95,45 +101,33 @@
 				celular:"",
 				nome:"",
 				nasc:"",
+                senha:"",
                 isAdm: false,
+                userExist: false
             };
         },
         methods: {
-            verificar: async function() {
-                if(this.email ==""){
-                    alert("Preencha o campo Email");
-                    return;
-                }
+            loadUser: async function() {
+                try{
+                    const d = new Date();
+                    // fazendo um GET com o email passado
+                    let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email);
+                    let resp_json = await resp.json();
 
-                if(this.cpf == ""){
-                   alert("Preencha o campo CPF");
-                   return;
-                }
-
-                if(this.cep == ""){
-                   alert("Preencha o campo CEP");
-                   return;
-                }
-
-                if(this.end == ""){
-                   alert("Preencha o campo Endereço");
-                   return;
-                }
-
-                if(this.celular == ""){
-                   alert("Preencha o campo Celular");
-                   return;
-                }
-
-                if(this.nome == ""){
-                   alert("Preencha o campo Nome");
-                   return;
-                }
-
-                if(this.nasc == ""){
-                   alert("Preencha o campo Data de Nascimento");
-                   return;
-                }
+                    this.userExist = true;
+                    this.nome = resp_json.nome;
+                    this.cpf = resp_json.cpf;
+                    this.nasc = d.getDate(resp_json.nasc) + "-" + d.getMonth(resp_json.nasc) + "-" + d.getFullYear(resp_json.nasc);
+                    this.cep = resp_json.cep;
+                    this.email = resp_json.email;
+                    this.senha = resp_json.senha
+                    this.end = resp_json.endereco;
+                    this.celular = resp_json.tel;	
+                    this.isAdm = resp_json.isAdm
+				} 
+                catch(e) {
+					alert('Usuario não cadastrado');
+				}
             }
         }
     };
