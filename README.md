@@ -1,4 +1,4 @@
-![Cartaz](./src/image/Cartaz.png)
+![Cartaz](./milestone1/src/image/Cartaz.png)
 # Nosso Mercadinho
 
 
@@ -60,7 +60,7 @@ Nosso Mercadinho consiste eu um supermercado virtual, no qual são vendidos prod
 Considere para o diagrama que o usuário somente pode acessar a página 'Finalizar Compra' e a página 'Listas de Compras' caso esteja logado no sistema. Caso contrário, ele será redirecionado para a página de login.
 <br>
 <br>
-<img src="/src/image/nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
+<img src="./nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
 
 Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens dos mockups do website. As imagens também podem ser acessadas através dos links abaixo:
 - [Home Page](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/home.jpg)
@@ -97,6 +97,7 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - admin (booleano)
 - cpf
 - endereço
+- cep
 - número de telefone
 
 #### Produtos:
@@ -120,7 +121,7 @@ O código ainda está numa fase inicial em que não foram implementadas funciona
 <a name="Plano-de-teste"/>
 
 ## 4. Plano de teste
-Os testes estão sendo feitos no próprio navegador a medida que o projeto é desenvolvido. Por não haver muita responsividade implementada, o foco está em manter a integridade de cada página ao longo de diferentes tamanhos de tela e situações.
+Os testes estão sendo feitos no próprio navegador a medida que o projeto é desenvolvido. Por não haver muita responsividade implementada, o foco está em manter a integridade de cada página ao longo de diferentes tamanhos de tela e situações. Ademais, foi utilizada a plataforma Insomnia para testar as requisões do CRUD.
 <br>
 <br>
 

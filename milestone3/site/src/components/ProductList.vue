@@ -2,8 +2,10 @@
     <li  v-for="(product, index) in products" class="produto" :key="product">
         <div class="prod-imagem-box" @click="this.$parent.showModal(product)">
             <img :src="getImgUrl(product.image_src)" :alt="product.image_alt">
-            <button v-on:click.stop="addProduct(index)" v-show="product.in_stock == 0" type="button" class="btn-add-product">+</button>
-            <input v-on:click.stop v-show="product.in_stock >= 1" v-model="product.in_stock" type="number" class="input-add-product">
+            <button v-on:click.stop="addProduct(index)" 
+                v-show="product.quantity == 0" type="button" class="btn-add-product">+</button>
+            <input v-on:click.stop v-on:input="validateInput(index)" 
+                v-show="product.quantity >= 1" v-model="product.quantity" type="number" class="input-add-product">
         </div>
         <h3>R$ {{ product.price.toFixed(2) }}</h3>
         <h4>{{ product.title }}</h4>
@@ -15,37 +17,17 @@
         name: "ProductList",
         data() {
             return {
-                products: [
-                        {
-                            _id: "62d025bb13d92aadbe4d718c",
-                            slug: "ype-clear1",
-                            title: "Detergente Líquido Ypê Clear 500ml",
-                            description: "Detergente Líquido Ypê Clear 500ml",
-                            price: 2.39,
-                            category: "limpeza",
-                            in_stock: 10,
-                            sold: 0,
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "ype-clear"
-                        },
-                        {
-                            image_src: "image/produtos/ype-maca.png",
-                            image_alt: "ype-maca",
-                            name: "Detergente Líquido Ypê Maçã 500ml",
-                            description: "Detergente Líquido Ypê Maçã 500ml",
-                            quantity: 0,
-                            price: 2.39
-                        }
-                    ]
+                products: []
             }
         },
         created() {
-            console.log(this.$route.params.category)
             this.getProducts()
         },
         methods: {
             addProduct(index) {
-                this.products[index].in_stock += 1
+                this.products[index].quantity += 1
+
+                this.updateCart(index)
             },
             getImgUrl(url){
                 try {
@@ -56,12 +38,75 @@
                     return ""
                 }
             },
+            validateInput(index){
+                let prod = this.products[index]
+                if (prod.quantity <= 0){
+                    prod.quantity = 0
+                }
+                else if (prod.quantity > prod.in_stock){
+                    alert("Quantidade máxima em estoque atingida")
+                    prod.quantity = prod.in_stock
+                }
+
+                this.updateCart(index)
+            },  
+            updateCart(index){
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                if (cart == null) cart = []
+                
+                let prod = this.products[index]
+                let added = false
+                for (let i = 0; i < cart.length; i++){
+                    if (cart[i].slug == prod.slug){
+                        added = true
+                        if (prod.quantity == 0){
+                            cart.splice(i,1)
+                        }
+                        else {
+                            cart[i].quantity = prod.quantity
+                        }
+                        break
+                    }
+                }
+                if (added == false) {
+                    cart.push({
+                        slug: prod.slug,
+                        quantity: prod.quantity
+                    })
+                }
+
+                this.$cookies.set("shopping_cart", JSON.stringify(cart))
+            },
             async getProducts(){
                 try {
-                    let resp = await fetch("http://localhost:3000/products");
+                    let resp = await fetch("http://localhost:3000/products/cat/" + this.$route.params.category);
                     resp = await resp.json();
+                    
+                    let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                    if (cart == null) cart = [] 
 
-                    this.products = resp
+                    for (let prod of resp){
+                        if (prod.in_stock === 0)
+                            continue
+
+                        // checar carrinho    
+                        let qte = 0
+                        for (let item of cart){
+                            if (item.slug == prod.slug)
+                                qte = item.quantity
+                        }
+
+                        this.products.push({
+                            slug: prod.slug,
+                            title: prod.title,
+                            description: prod.description,
+                            price: prod.price,
+                            in_stock: prod.in_stock,
+                            image_src: prod.image_src,
+                            image_alt: prod.image_alt,
+                            quantity: qte
+                        })
+                    }
                 } catch (e) {
                     alert("Error: " + e);
                 }
