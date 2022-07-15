@@ -14,21 +14,21 @@
                 </div>
                 <div class="response-area products-response-area">
                     <div class="field" v-if="this.productExist == false">
-                        <label>Selug do produto</label><input class="title" placeholder="Slug do produto aqui" >
+                        <label>Selug do produto</label><input class="title" placeholder="Slug do produto aqui" v-model="slug">
                     </div>
                     <div class="field" v-if="this.productExist == true">
-                        <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui" >
+                        <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui" v-model="nome_produto">
                     </div>
                     <div class="field" v-if="this.productExist == true">
                         <label>Descrição</label>
-                        <textarea class="description" placeholder="Descrição do produto aqui" rows="11" cols="0"></textarea>    
+                        <textarea class="description" placeholder="Descrição do produto aqui" rows="11" cols="0" v-model="descricao"></textarea>    
                     </div>
                     <div class="field" v-if="this.productExist == true">
-                        <label>Preço</label><input class="price" placeholder="Preço do produto aqui">
+                        <label>Preço</label><input class="price" placeholder="Preço do produto aqui" v-model="preco">
                     </div>
                     <div class="field" v-if="this.productExist == true">
                         <label>Categoria</label>
-                        <select class="category" aria-placeholder="Selecione a categoria">
+                        <select class="category" aria-placeholder="Selecione a categoria" v-model="categoria">
                             <option value="bebidas">Bebidas</option>
                             <option value="hortifruti" selected>Hortifruti</option>
                             <option value="laticinios">Laticinios</option>
@@ -40,14 +40,17 @@
                         </select>
                     </div>
                     <div class="field" v-if="this.productExist == true">
-                        <label>Quantidade no estoque</label><input class="in_stock" placeholder="Quantidade de itens no estoque aqui">
+                        <label>Quantidade no estoque</label><input class="in_stock" placeholder="Quantidade de itens no estoque aqui" v-model="qntEstoque">
                     </div>
                 </div>
-                <div class="save-changes users-save-changes" v-if="this.productExist == true">
-                    <button class="save-changes-btn users-save-changes-btn">Salvar alterações</button>
+                <div class="save-changes product-save-changes" v-if="this.productExist == true">
+                    <button class="save-changes-btn product-save-changes-btn" @click="saveProductChanges()">Salvar alterações</button>
+                </div>
+                <div class="delete-product" v-if="this.productExist == true">
+                    <button class="delete-product-btn" @click="deleteProduct()">Deletar produto</button>
                 </div>
                 <div class="load-user"  v-if="this.productExist == false">
-                    <button class="load-product-btn load-btn" @click="loadUser()">Buscar produto</button>
+                    <button class="load-product-btn load-btn" @click="loadProduct()">Buscar produto</button>
                 </div>
             </div>
             <div class="side users-side">
@@ -115,8 +118,9 @@
                 isAdm: false,
                 userExist: false,
 
+                slug:"",
                 nome_produto:"",
-                preço:"",
+                preco:"",
                 descricao:"",
                 categoria:"",
                 qntEstoque:"",
@@ -195,40 +199,34 @@
             },
             loadProduct: async function() {
                 try{
-                    const d = new Date();
                     // fazendo um GET com o email passado
-                    let resp = await fetch("http://localhost:3000/clients/ck_email/"+this.email);
+                    let resp = await fetch("http://localhost:3000/products/"+this.slug);
                     let resp_json = await resp.json();
 
-                    this.userExist = true;
-                    this.nome = resp_json.nome;
-                    this.cpf = resp_json.cpf;
-                    this.nasc = d.getDate(resp_json.nasc) + "-" + d.getMonth(resp_json.nasc) + "-" + d.getFullYear(resp_json.nasc);
-                    this.cep = resp_json.cep;
-                    this.email = resp_json.email;
-                    this.senha = resp_json.senha
-                    this.end = resp_json.endereco;
-                    this.celular = resp_json.tel;	
-                    this.isAdm = resp_json.isAdm;
+                    this.productExist = true;
+                    this.nome_produto = resp_json.title;
+                    this.preco = resp_json.price;
+                    this.descricao = resp_json.description;
+                    this.categoria = resp_json.category;
+                    this.qntEstoque = resp_json.in_stock;
                     this.id = resp_json._id;
-                    console.log(this.id)
 				} 
                 catch(e) {
-					alert('Usuario não cadastrado');
+					alert('Produto não cadastrado');
 				}
             },
             deleteProduct: async function() {
                 try{
-                    let resp = await fetch("http://localhost:3000/clients/"+this.id, {
+                    let resp = await fetch("http://localhost:3000/products/"+this.id, {
                         method: 'DELETE',
                         headers: { 'Content-Type': 'application/json' }
                     });
                     console.log(resp.status);
-                    alert("Usuario deletado com sucesso");
+                    alert("Produto deletado com sucesso");
                     window.location.href = "/areaAdmin";
 				} 
                 catch(e) {
-					alert('Falha ao deletar usuário');
+					alert('Falha ao deletar produto');
 				}
             },
             saveProductChanges: async function() {
