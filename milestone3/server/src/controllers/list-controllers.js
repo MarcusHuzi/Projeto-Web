@@ -17,8 +17,8 @@ controller.getAllLists = async (req,res)=>{
 controller.getUserLists = async (req,res)=>{
     try{
         const data = await List
-            .find({email: req.body.email})    
-        res.status(200).send(data)
+            .find({email: req.params.email})    
+        res.status(200).send(data) 
     } catch (e){
         res.status(400).send(e)
     }

@@ -32,7 +32,7 @@
                 listas: [
                     [
                         {
-                            nome: "exemplo",
+                            nome: "lista-exemplo",
                             _id: "123"
                         },
                         {
@@ -72,7 +72,7 @@
                     })
                     this.listas.splice(index, 1)
                 } catch(e) {
-                    alert("Error: " + e);
+                    console.error("Erro ao remover lista");
                 }
 
             },
@@ -127,23 +127,43 @@
             },
             async loadLists(){
                 this.listas = []
+                
                 let accountId = this.$cookies.get("account_id")
+                
+                //get email
+                let email
                 try {
                     let resp = await fetch("http://localhost:3000/clients/" + accountId)
                     resp = await resp.json()
+                    email = resp.email
+                } catch(e) {
+                    alert("Erro ao ler dados do usuário");
+                }
 
-                    let lists = await fetch("http://localhost:3000/lists/" + resp.email)	
+                console.log(email)
+
+                //get lists
+                let lists
+                try {
+                    lists = await fetch("http://localhost:3000/lists/" + email)	
                     lists = await lists.json()
+                } catch(e) {
+                    console.error("Erro ao requisitar listas do usuário");
+                }
                     
-                    for (let list of lists) {
-                        let entry = []
-                        entry.push({
-                            nome: list.nome,
-                            _id: list._id
-                        })
-                        for (let i = 0; i < list.products.length; i++){
+                for (let list of lists) {
+                    let entry = []
+                    entry.push({
+                        nome: list.nome,
+                        _id: list._id
+                    })
+                    for (let i = 0; i < list.products.length; i++){
+
+                        //get each product
+                        try{
                             let prod = await fetch("http://localhost:3000/products/" + list.products[i].slug)
                             prod = await prod.json()
+
                             entry.push({
                                 slug: prod.slug,
                                 title: prod.title,
@@ -154,16 +174,14 @@
                                 in_stock: prod.in_stock,
                                 quantity: list.products[i].quant
                             })
+                        } catch(e){
+                            console.error("Erro ao ler um produto de uma lista")
                         }
-
-                        this.listas.push(entry)
-                        
                     }
-                    console.log(this.listas)
-                } catch(e) {
-                    alert("Error: " + e);
-                }
 
+                    this.listas.push(entry)
+                    
+                }
             }
         }
     }

@@ -13,16 +13,17 @@
         </div>
 
         <div class="botoes">
-            <button v-on:click="saveCartToList()" class="salvar-lista">
+            <h2 id="carrinho-vazio" v-if="price <= 0">Carrinho vazio</h2>
+            <button v-if="price > 0" v-on:click="saveCartToList()" class="salvar-lista">
                 <h1>Salvar lista para compras futuras</h1>
             </button>
             <div class="botoes-compra">
                 <router-link to="/finalizarcompra">
-                    <button class="finalizar-compra">
+                    <button v-if="price > 0" class="finalizar-compra">
                         <h1>Finalizar compra</h1>
                     </button>
                 </router-link>
-                <div class="total-compra">
+                <div v-if="price > 0" class="total-compra">
                     <h1>Preço Total</h1>
                     <div class="preco-box">
                         <h2>R$ {{ price.toFixed(2) }}</h2>

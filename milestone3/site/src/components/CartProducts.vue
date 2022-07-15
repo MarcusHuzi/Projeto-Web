@@ -56,8 +56,8 @@
             },
             validateInput(index){
                 let prod = this.products[index]
-                if (prod.quantity <= 0){
-                    prod.quantity = 0
+                if (prod.quantity <= 1){
+                    prod.quantity = 1
                 }
                 else if (prod.quantity > prod.in_stock){
                     alert("Quantidade máxima em estoque atingida")
