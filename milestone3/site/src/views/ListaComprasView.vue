@@ -3,7 +3,7 @@
     <div class="content_compras">
         <div class="titulo_compras">
             <h1>Listas de Compras</h1>
-            <h2>Home > Listas de Compras</h2>
+            <h2><router-link to="/">Home</router-link> > Listas de Compras</h2>
             <hr/>
         </div>
         
