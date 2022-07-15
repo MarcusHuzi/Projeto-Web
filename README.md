@@ -142,8 +142,7 @@ Os testes feitos auxiliaram tanto a encontrar e resolver bugs quanto a melhorar 
 <a name="Building"/>
 
 ## 6. Building
-É necessário ter o `npm` e o `node.js` instalados.
-O front-end e o back-end (o site e o servidor) serão executados localmente, enquanto que o banco de dados está hosteado num servidor de mongodb.
+É necessário ter o `npm` e o `node.js` instalados e estar dentro do diretório `milestone3`. O front-end e o back-end (o site e o servidor) serão executados localmente, enquanto que o banco de dados está hosteado num servidor de mongodb.
 
 Para rodar o servidor:
 - `cd server`
