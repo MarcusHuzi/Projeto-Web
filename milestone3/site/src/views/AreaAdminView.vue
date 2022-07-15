@@ -14,13 +14,22 @@
                 </div>
                 <div class="response-area products-response-area">
                     <div class="field" v-if="this.productExist == false">
-                        <label>Selug do produto</label>
+                        <label>Slug do produto</label>
                         <select v-model="slug">
                             <option v-for="name in this.productsNames" v-bind:key="name">{{name}}</option>;
                         </select>
                     </div>
                     <div class="field" v-if="this.productExist == true">
-                        <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui" v-model="nome_produto">
+                        <label>Slug do produto</label><input class="title" placeholder="Nome do produto aqui" v-model="slug_produto">
+                    </div>
+                    <div class="field" v-if="this.productExist == true">
+                        <label>Titulo</label><input class="title" placeholder="Titulo do produto aqui" v-model="titulo_produto">
+                    </div>
+                    <div class="field" v-if="this.productExist == true">
+                        <label>Imagem</label><input class="image" placeholder="Caminho da imagem do produto aqui" v-model="image_produto">
+                    </div>
+                    <div class="field" v-if="this.productExist == true">
+                        <label>Imagem alt</label><input class="image_alt" placeholder="Imagem alt do produto aqui" v-model="imageAlt_produto">
                     </div>
                     <div class="field" v-if="this.productExist == true">
                         <label >Descrição</label>
@@ -63,7 +72,7 @@
                     <button class="load-product-btn load-btn" @click="addProduct()">Adicionar produto</button>
                 </div>
             </div>
-            
+
             <div class="side users-side">
                 <div class="side-title users-side-title">
                     <h1>Usuários</h1>
@@ -136,7 +145,10 @@
 
 
                 slug:"",
-                nome_produto:"",
+                slug_produto:"",
+                titulo_produto:"",
+                image_produto:"",
+                imageAlt_produto:"",
                 preco:"",
                 descricao:"",
                 categoria:"",
@@ -158,19 +170,20 @@
             },
             rem(){
                 this.productExist=false;
+                this.addprod=false;
             },
             add: async function (){
                 try{
                     let req = JSON.stringify({
-							slug: "zap",
-                            title: "zap",
-                            description: "zzzzz",
-                            price: 5.50,
-                            category: "limpeza",
-                            in_stock: 27,
+							slug: this.slug_produto,
+                            title: this.titulo_produto,
+                            description: this.descricao,
+                            price: this.preco,
+                            category: this.categoria,
+                            in_stock: this.qntEstoque,
                             sold: 0,
-                            image_src: "image/produtos/zap.png",
-                            image_alt: "zap"
+                            image_src: this.image_produto,
+                            image_alt: this.imageAlt_produto
 						});	
 
                     let resp = await fetch("http://localhost:3000/products", {
@@ -181,9 +194,14 @@
 
                     let resp_json = await resp.json();
 					alert(resp_json.message);
+
+                    if(resp.status == 201){
+                        window.location.href = "/areaAdmin";
+                    }
 				} 
                 catch(e) {
 					alert("Error:" + e);
+
 				}
             },
 
@@ -268,11 +286,14 @@
                     }
 
                     this.productExist = true;
-                    this.nome_produto = resp_json.title;
+                    this.slug_produto = resp_json.slug;
+                    this.titulo_produto = resp_json.title;
                     this.preco = resp_json.price;
                     this.descricao = resp_json.description;
                     this.categoria = resp_json.category;
                     this.qntEstoque = resp_json.in_stock;
+                    this.image_produto = resp_json.image_src;
+                    this.imageAlt_produto = resp_json.image_alt;
                     this.id = resp_json._id;
 				} 
                 catch(e) {
@@ -300,7 +321,10 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(
                             {
-                                title: this.nome_produto,
+                                slug: this.slug_produto,
+                                title: this.titulo_produto,
+                                image_src: this.image_produto,
+                                image_alt: this.imageAlt_produto,
                                 description: this.descricao,
                                 price: this.preco,
                                 category: this.categoria,
