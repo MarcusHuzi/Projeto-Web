@@ -16,13 +16,6 @@
                             Telefone: (00) 99999-9999<br>
                             Horário: seg à sex | 08h00 - 16h00<br></p>
                     </li>
-
-                    <li class="aboutus-item">
-                        <h1>Links</h1>
-                        <p> <router-link to="/">Home Page</router-link><br>
-                            <router-link to="/carrinho">Carrinho</router-link><br>
-                            <router-link to="/perfil">Perfil</router-link><br></p>
-                    </li>
                 </ul>
             </div>
     </footer>

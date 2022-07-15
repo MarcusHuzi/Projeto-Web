@@ -7,7 +7,7 @@ router.get('/', controller.getAllLists);
 
 router.post('/', controller.addList);
 
-router.get('/:id', controller.getUserLists);
+router.get('/:email', controller.getUserLists);
 
 router.delete('/:id', controller.delList);
 

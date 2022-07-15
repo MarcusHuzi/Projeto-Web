@@ -79,7 +79,6 @@
                 }
 
                 this.$cookies.set("shopping_cart", JSON.stringify(cart))
-                console.log(this.$cookies.get("shopping_cart"))
 
                 this.products.splice(index, 1)
             },
@@ -123,7 +122,6 @@
                 }
 
                 this.$cookies.set("shopping_cart", JSON.stringify(cart))
-                console.log(this.$cookies.get("shopping_cart"))
             },
         }
     }

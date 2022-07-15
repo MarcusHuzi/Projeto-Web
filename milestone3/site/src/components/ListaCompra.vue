@@ -1,8 +1,7 @@
 <template id="template-lista-compra">
     <div v-for="(lista, index) in listas" class="lista-div" :key="lista">
         <div class="titulo-lista">
-            <h1>{{lista[0].title}}</h1>
-            <!--<button type="button">ar</button>-->
+            <h1>{{lista[0].nome}}</h1>
             <button type="button" @click="removeListByIndex(index)" class="botao-lista">Excluir lista</button>
         </div>
         <ul>
@@ -12,7 +11,7 @@
                         <div class="prod-imagem-box">
                             <img :src="getImgUrl(product.image_src)" :alt="product.image_alt" class="prod-imagem">
                         </div>
-                        <h2>{{ product.name }}</h2>
+                        <h2>{{ product.title }}</h2>
                     </div>
                     <div class="prod-quantity">
                         <h2>{{product.quantity}}</h2>
@@ -21,8 +20,7 @@
                 </div>
             </li>
         </ul>
-        <button type="button" class="btn-edit-lista botao-lista">Editar Lista</button>
-        <button type="button" class="btn-add-to-cart botao-lista">Adicionar ao carrinho</button>
+        <button v-on:click="addListToCart(index)" type="button" class="btn-add-to-cart botao-lista">Adicionar ao carrinho</button>
     </div>
 </template>
 
@@ -34,81 +32,86 @@
                 listas: [
                     [
                         {
-                            title: "Lista de terça"
+                            nome: "exemplo",
+                            _id: "123"
                         },
                         {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "ype-clear",
-                            name: "Detergente Líquido Ypê Clear 500ml",
-                            description: "Detergente Líquido Ypê Clear 500ml",
-                            quantity: 2,
-                            price: 2.39
+                            slug: 'exemplo',
+                            title: 'exemplo',
+                            description: 'exemplo   ',
+                            price: 0.00,
+                            image_src: '',
+                            image_alt: 'exemplo',
+                            in_stock: 0,
+                            quantity: 0
                         },
                         {
-                            image_src: "image/produtos/ype-maca.png",
-                            image_alt: "ype-maca",
-                            name: "Detergente Líquido Ypê Maçã 500ml",
-                            description: "Detergente Líquido Ypê Maçã 500ml",
-                            quantity: 1,
-                            price: 2.39
-                        }
-                    ],
-                    [
-                        {
-                            title: "Lista de sempre"
-                        },
-                        {
-                            image_src: "image/produtos/ype-maca.png",
-                            image_alt: "ype-maca",
-                            name: "Detergente Líquido Ypê Maçã 500ml",
-                            description: "Detergente Líquido Ypê Maçã 500ml",
-                            quantity: 1,
-                            price: 2.39
-                        },
-                        {
-                            image_src: "image/produtos/ype-neutro.png",
-                            image_alt: "ype-neutro",
-                            name: "Detergente Líquido Ypê Neutro 500ml",
-                            description: "Detergente Líquido Ypê Neutro 500ml",
-                            quantity: 3,
-                            price: 2.39
-                        }
-                    ],
-                    [
-                        {
-                            title: "Fins de semana"
-                        },
-                        {
-                            image_src: "image/produtos/ype-clear.png",
-                            image_alt: "ype-clear",
-                            name: "Detergente Líquido Ypê Clear 500ml",
-                            description: "Detergente Líquido Ypê Clear 500ml",
-                            quantity: 2,
-                            price: 2.39
-                        },
-                        {
-                            image_src: "image/produtos/ype-maca.png",
-                            image_alt: "ype-maca",
-                            name: "Detergente Líquido Ypê Maçã 500ml",
-                            description: "Detergente Líquido Ypê Maçã 500ml",
-                            quantity: 1,
-                            price: 2.39
-                        },
-                        {
-                            image_src: "image/produtos/ype-neutro.png",
-                            image_alt: "ype-neutro",
-                            name: "Detergente Líquido Ypê Neutro 500ml",
-                            description: "Detergente Líquido Ypê Neutro 500ml",
-                            quantity: 3,
-                            price: 2.39
+                            slug: 'exemplo2',
+                            title: 'exemplo2',
+                            description: 'exemplo2',
+                            price: 0.00,
+                            image_src: '',
+                            image_alt: 'exemplo2',
+                            in_stock: 0,
+                            quantity: 0
                         }
                     ]
                 ]
             }
         },
+        created(){
+            this.loadLists()
+        },
         methods: {
-            removeListByIndex(index) {
-                this.listas.splice(index, 1)
+            async removeListByIndex(index) {
+                let listId = this.listas[index][0]._id
+
+                try {
+                    await fetch("http://localhost:3000/lists/" + listId, {
+                        method: "DELETE"
+                    })
+                    this.listas.splice(index, 1)
+                } catch(e) {
+                    alert("Error: " + e);
+                }
+
+            },
+            addListToCart(index){
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                if (cart == null) cart = []
+                
+                let list = this.listas[index]
+                for (let i = 1; i < list.length; i++) {
+                    let prod = list[i]
+                    let added = false
+                    for (let i = 0; i < cart.length; i++){
+                        if (cart[i].slug == prod.slug){
+                            added = true
+                            if (cart[i].quantity + prod.quantity > prod.in_stock){
+                                cart[i].quantity = prod.in_stock
+                                alert("A quantidade desejada de " + prod.title + " não consta no estoque e foi alterada")
+                            }
+                            else{
+                                cart[i].quantity += prod.quantity
+                            }
+                            break
+                        }
+                    }
+                    if (added == false) {
+                        let qte = prod.quantity
+                        if (qte > prod.in_stock){
+                            alert("A quantidade desejada de " + prod.title + " não consta no estoque e foi alterada")
+                            qte = prod.in_stock
+                        }
+                        cart.push({
+                            slug: prod.slug,
+                            quantity: qte
+                        })
+                    }
+                }
+
+                this.$cookies.set("shopping_cart", JSON.stringify(cart))
+                alert("Produtos adicionados ao carrinho")
             },
             getListItems(index){
                 return this.listas[index].slice(1)
@@ -121,6 +124,46 @@
                 catch {
                     return ""
                 }
+            },
+            async loadLists(){
+                this.listas = []
+                let accountId = this.$cookies.get("account_id")
+                try {
+                    let resp = await fetch("http://localhost:3000/clients/" + accountId)
+                    resp = await resp.json()
+
+                    let lists = await fetch("http://localhost:3000/lists/" + resp.email)	
+                    lists = await lists.json()
+                    
+                    for (let list of lists) {
+                        let entry = []
+                        entry.push({
+                            nome: list.nome,
+                            _id: list._id
+                        })
+                        for (let i = 0; i < list.products.length; i++){
+                            let prod = await fetch("http://localhost:3000/products/" + list.products[i].slug)
+                            prod = await prod.json()
+                            entry.push({
+                                slug: prod.slug,
+                                title: prod.title,
+                                description: prod.description,
+                                price: prod.price,
+                                image_src: prod.image_src,
+                                image_alt: prod.image_alt,
+                                in_stock: prod.in_stock,
+                                quantity: list.products[i].quant
+                            })
+                        }
+
+                        this.listas.push(entry)
+                        
+                    }
+                    console.log(this.listas)
+                } catch(e) {
+                    alert("Error: " + e);
+                }
+
             }
         }
     }

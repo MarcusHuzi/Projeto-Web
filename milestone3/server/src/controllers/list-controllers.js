@@ -7,7 +7,7 @@ const controller = {};
 controller.getAllLists = async (req,res)=>{
     try{
         const data = await List
-            .find({active: true}, 'user products')
+            .find({active: true})
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
@@ -16,7 +16,8 @@ controller.getAllLists = async (req,res)=>{
 
 controller.getUserLists = async (req,res)=>{
     try{
-        const data = await List.findById(req.params.id)
+        const data = await List
+            .find({email: req.body.email})    
         res.status(200).send(data)
     } catch (e){
         res.status(400).send(e)
@@ -41,7 +42,6 @@ controller.addList = async (req, res) => {
 controller.delList = async (req,res)=>{
     try{
         await List
-            //.findOneAndRemove({cpf: req.params.cpf}); // Delete by id
             .findByIdAndRemove(req.params.id);
         res.status(200).send({
             message: 'Lista deletada com sucesso'

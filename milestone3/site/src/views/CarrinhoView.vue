@@ -13,7 +13,7 @@
         </div>
 
         <div class="botoes">
-            <button class="salvar-lista">
+            <button v-on:click="saveCartToList()" class="salvar-lista">
                 <h1>Salvar lista para compras futuras</h1>
             </button>
             <div class="botoes-compra">
@@ -50,6 +50,55 @@
         methods: {
             updatePrice(newValue) {
                 this.price = newValue
+            },
+            async saveCartToList(){
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"))
+                if (cart == null || cart.length == 0) {
+                    alert("Carrinho vazio")
+                    return
+                }
+
+                // Pegando email do usuario
+                let accountId = this.$cookies.get("account_id")
+                let email
+                try {
+                    let resp = await fetch("http://localhost:3000/clients/" + accountId)
+                    resp = await resp.json()
+                    email = resp.email
+                } catch(e) {
+                    alert("Error " + e)
+                }
+                
+
+                let products = []
+                for (let item of cart) {
+                    products.push({
+                        slug: item.slug,
+                        quant: item.quantity
+                    })
+                }
+
+                let listName = prompt("Como deseja nomear sua lista?")
+
+                let newList = {
+                    user: email,
+                    nome: listName,
+                    products: products
+                }
+
+                try {
+                    
+                    await fetch("http://localhost:3000/lists", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(newList)
+                    })
+                    alert("Lista salva com sucesso")
+                } catch(e) {
+                    alert("Error " + e)
+                }
             }
         }
     }
