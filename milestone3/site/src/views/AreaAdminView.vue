@@ -167,17 +167,6 @@
 				}
             },
             saveUserChanges: async function() {
-                console.log(this.nome);
-                console.log(this.email);
-                console.log(this.cpf);
-                console.log(this.cep);
-                console.log(this.end);
-                console.log(this.celular);
-                console.log(this.nasc);
-                console.log(this.senha);
-                console.log(this.id);
-                console.log(this.isAdm);
-
                 try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',
@@ -234,35 +223,24 @@
 				}
             },
             saveProductChanges: async function() {
-                console.log(this.nome);
-                console.log(this.email);
-                console.log(this.cpf);
-                console.log(this.cep);
-                console.log(this.end);
-                console.log(this.celular);
-                console.log(this.nasc);
-                console.log(this.senha);
-                console.log(this.id);
-                console.log(this.isAdm);
-
                 try{
-                    let resp = await fetch("http://localhost:3000/clients/"+this.id, {
+                    let resp = await fetch("http://localhost:3000/products/"+this.id, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: {
-                            "nome": this.nome,
-                            "cpf": this.cpf
+                            "title": this.nome_produto,
+                            "description": this.descricao
                         }
                     });
                     let resp_json = await resp.json();
 
                     console.log(resp_json.message);
                     console.log(resp.status);
-                    alert("Usuario atualizado com sucesso");
+                    alert("Produto atualizado com sucesso");
                     window.location.href = "/areaAdmin";
 				} 
                 catch(e) {
-					alert('Falha ao atualizar usuário');
+					alert('Falha ao atualizar produto');
 				}
             }
         }
