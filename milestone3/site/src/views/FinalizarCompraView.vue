@@ -117,7 +117,6 @@
                 tel:"",
                 valor: null,
                 form:"",
-                nasc:"",
                 nome:""
             }
         },
@@ -155,11 +154,6 @@
 
                 if(this.tel == ""){
                    alert("Preencha o campo Telefone");
-                   return;
-                }
-
-                if(this.nasc == ""){
-                   alert("Preencha o campo Data de Nascimento");
                    return;
                 }
 
