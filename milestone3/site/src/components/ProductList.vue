@@ -133,6 +133,7 @@
 
     .prod-imagem-box img {
         width: 120px;
+        height: 100px;
     }
 
     .btn-add-product {
@@ -171,7 +172,6 @@
         font-size: 14px;  
         line-height: 14px;
         height: 42px;
-        overflow: scroll;
         color: rgba(0, 0, 0, 0.7);
     }
 </style>
