@@ -9,7 +9,7 @@
                 <div class="product-box">
                     <div class="prod-details">
                         <div class="prod-imagem-box">
-                            <img :src="getImgUrl(product.image_src)" :alt="product.image_alt" class="prod-imagem">
+                            <img :src="getImgUrl(product.image_src)" :alt="product.image_alt">
                         </div>
                         <h2>{{ product.title }}</h2>
                     </div>
@@ -138,9 +138,8 @@
                     email = resp.email
                 } catch(e) {
                     alert("Erro ao ler dados do usuário");
+                    return
                 }
-
-                console.log(email)
 
                 //get lists
                 let lists
@@ -149,6 +148,7 @@
                     lists = await lists.json()
                 } catch(e) {
                     console.error("Erro ao requisitar listas do usuário");
+                    return
                 }
                     
                 for (let list of lists) {
@@ -175,7 +175,7 @@
                                 quantity: list.products[i].quant
                             })
                         } catch(e){
-                            console.error("Erro ao ler um produto de uma lista")
+                            console.error("Erro ao ler um produto cujo slug é " + list.products[i].slug)
                         }
                     }
 
@@ -270,10 +270,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100px;
+        height: 100px;
     }
 
-    .prod-imagem {
-        width: 100px;
+    .prod-imagem-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .prod-details {

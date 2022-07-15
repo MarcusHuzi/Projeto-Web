@@ -108,7 +108,7 @@
                         })
                     }
                 } catch (e) {
-                    alert("Error: " + e);
+                    console.error("Erro ao listar produtos.");
                 }
             }
         }
@@ -129,11 +129,14 @@
         align-items: center;
         position: relative;
         cursor: pointer;
+        width: 130px;
+        height: 130px;
     }
 
     .prod-imagem-box img {
-        width: 120px;
-        height: 100px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .btn-add-product {

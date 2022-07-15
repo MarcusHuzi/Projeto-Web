@@ -51,12 +51,13 @@ controller.getById = async (req,res)=>{
 };
 
 controller.updateClient = async (req,res)=>{
-    const client = new Client(req.body)
     try{
-        await client.save()
+        await Client
+            .findByIdAndUpdate(req.params.id, {
+                $set: req.body
+            });
         res.status(201).send({
-            message: "Atualização efetuada",
-            id: client._id
+            message: "Atualização efetuada"
         });
     } catch(e){
         res.status(400).send({

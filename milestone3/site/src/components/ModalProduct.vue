@@ -7,7 +7,7 @@
             <div class="modal-prod-description">
                 <h1>{{this.$parent.modalProduct.title}}</h1>
                 <h2>{{this.$parent.modalProduct.description}}</h2>
-                <h3>R$ {{this.$parent.modalProduct.price}}</h3>
+                <h3>R$ {{ (this.$parent.modalProduct.price).toFixed(2) }}</h3>
             </div>
         </div>
     </div>
@@ -64,10 +64,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 300px;
+        height: 300px;
     }
 
     .modal-prod-image-box img {
-        width: 300px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .modal-prod-description {
