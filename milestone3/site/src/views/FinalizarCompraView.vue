@@ -184,7 +184,8 @@
                         "http://localhost:3000/products/" + item.id
                     );
                     let product = await response.json();
-                    this.totalPrice += item.quantity * product.price;
+                    this.valor += item.quantity * product.price;
+    
                 }
             }
         }
