@@ -97,6 +97,7 @@ Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens 
 - admin (booleano)
 - cpf
 - endereço
+- cep
 - número de telefone
 
 #### Produtos:
