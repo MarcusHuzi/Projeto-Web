@@ -114,6 +114,9 @@
                 <div class="delete-user" v-if="this.userExist == true">
                     <button class="delete-user-btn" @click="deleteUser()">Deletar usuário</button>
                 </div>
+                 <div class="delete-user" v-if="this.userExist == true">
+                    <button class="delete-user-btn" @click="rem2()">Cancelar</button>
+                </div>
                 <div class="load-user"  v-if="this.userExist == false">
                     <button class="load-user-btn" @click="loadUser()">Buscar usuário</button>
                 </div>
@@ -169,6 +172,9 @@
             rem(){
                 this.productExist=false;
                 this.addprod=false;
+            },
+             rem2(){
+                this.userExist=false;
             },
             add: async function (){
                 try{
