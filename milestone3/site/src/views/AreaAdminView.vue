@@ -167,6 +167,10 @@
 				}
             },
             saveUserChanges: async function() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c64fb6bff5ea60da05c15e4cba2df8b7ebd14c76
                 try{
                     let resp = await fetch("http://localhost:3000/clients/"+this.id, {
                         method: 'PUT',
@@ -174,7 +178,13 @@
                         body: JSON.stringify(
                             {
                                 nome: this.nome,
-                                cpf: this.cpf
+                                cpf: this.cpf,
+                                senha: this.senha,
+                                tel: this.celular,
+                                nasc: this.nasc,
+                                cep: this.cep,
+                                endereco: this.end,
+                                isAdm: this.isAdm
                             }
                         )
                         
