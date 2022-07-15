@@ -183,7 +183,6 @@
                                 isAdm: this.isAdm
                             }
                         )
-                        
                     });
                     let resp_json = await resp.json();
 
