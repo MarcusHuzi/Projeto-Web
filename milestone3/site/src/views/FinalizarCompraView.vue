@@ -27,7 +27,7 @@
                             <h3>Validade</h3>
                         </div>
                         <div class="data data-val">
-                            <input type="text" class="form-control"/>
+                            <input type="month" class="form-control"/>
                         </div>
                     </div>
                     <div class="cvv">
@@ -73,7 +73,7 @@
                         <h3>Data de Nascimento</h3>
                     </div>
                     <div class="data data-nasc">
-                        <input type="text" class="form-control"/>
+                        <input type="date" class="form-control"/>
                     </div>
                 </div>
             
@@ -81,32 +81,13 @@
 
             <div class="pedido">
 
-                <h2> Resumo do Pedido</h2>
+                <h2> Pedido</h2>
                 <hr/>
-                <h3> Itens do Pedido</h3>
-                <ul class="itens">
-                    <li class="item">
-                        <span class="nome"> refrigerante </span>
-                        <span class="quant"> 1 </span>
-                        <span class="valor">10,00</span>
-                    </li>
-                    <li class="item">
-                        <span class="nome"> dadasdasd </span>
-                        <span class="quant"> 1 </span>
-                        <span class="valor">10,00</span>
-                    </li>
-                    <li class="item">
-                        <span class="nome"> zzzzzz </span>
-                        <span class="quant"> 1 </span>
-                        <span class="valor">10,00</span>
-                    </li>
-                    <li class="item">
-                        <span class="nome"> rrrrrrr </span>
-                        <span class="quant"> 1 </span>
-                        <span class="valor">10,00</span>
-                    </li>
-                    
-                </ul>
+
+                    <div class="valor-total">
+                        <label>Valor Total:</label>
+                         <span class="preco"> R$ {{valor}}</span>
+                    </div>
 
                 <h3> Forma de Pagamento </h3>
                 <hr/>
@@ -120,14 +101,9 @@
                     </select>
 
 
-                    <div class="valor-total">
-                        <label>Valor Total:</label>
-                         <span class="preco">XX,X</span>
-                    </div>
-
                 </div>
 
-                <button class="btn-pagar"> Pagar </button>
+                <button type="button" class="btn-pagar" @click="validate()"> Pagar </button>
         
             </div>
     
@@ -138,6 +114,80 @@
 <script>
     export default {
         name: 'FinalizarCompraView',
+
+        data(){
+            return{
+                cpf:"",
+                num:"",
+                val:"",
+                tel:"",
+                valor: null,
+                form:"",
+                nasc:"",
+                nome:""
+            }
+        },
+
+        created(){
+            this.calcPreco();
+        },
+
+        methods:{
+            validate(){
+                if(this.num ==""){
+                    alert("Preencha o campo Número do Cartão");
+                    return;
+                }
+
+                if(this.val == ""){
+                   alert("Preencha o campo Validade");
+                   return;
+                }
+
+                if(this.cvv == ""){
+                   alert("Preencha o campo CVV");
+                   return;
+                }
+
+                if(this.nome == ""){
+                   alert("Preencha o campo Nome Completo");
+                   return;
+                }
+
+                if(this.cpf == ""){
+                   alert("Preencha o campo CPF");
+                   return;
+                }
+
+                if(this.tel == ""){
+                   alert("Preencha o campo Telefone");
+                   return;
+                }
+
+                if(this.nasc == ""){
+                   alert("Preencha o campo Data de Nascimento");
+                   return;
+                }
+
+                alert("Compra realizada!!")
+
+            },
+
+            async calcPreco(){
+                this.valor = 0;
+                
+                let cart = JSON.parse(this.$cookies.get("shopping_cart"));
+                if (cart == null) cart = [];
+            
+                for (let item of cart) {
+                    let response = await fetch(
+                        "http://localhost:3000/products/" + item.id
+                    );
+                    let product = await response.json();
+                    this.totalPrice += item.quantity * product.price;
+                }
+            }
+        }
     }
 </script>
 

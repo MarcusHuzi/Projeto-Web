@@ -99,7 +99,7 @@
 .pedido{
     background-color: #F9F9F9;
     width: 600px;
-    height: 900px;
+    height: 600px;
     border: 1px solid;
     border-radius: 12px;
     padding: 40px 20px 40px 20px;
@@ -117,63 +117,17 @@
 .pedido h3{
     font-size: 22px;
     margin-bottom: 8px;
-    margin-top: 30px;
+    margin-top: 5px;
     font-weight:800;
     color: black;
 }
 
-.itens{
-    width: 580px;
-    height: 300px;
-    border: 1px solid;
-    border-radius: 8px;
-    padding: 20px 4px 10px 4px;
-    overflow: auto;
-    margin: 20px 2px 40px 2px;
-}
 
-.item{
-    display: flex;
-    width: 500px;
-    height: 40px;
-    background-color: #E2E2E2;
-    border: none;
-    border-radius: 16px;
-    padding: 15px 5px 5px 5px;
-    margin-bottom: 15px;
-}
-
-.nome{
-    overflow: auto;
-    font-weight: bolder;
-    font-size: 22px;
-    width: 250px;
-    margin-right: 15px;
-}
-
-.quant{
-    margin-right: 40px;
-    width: 35px;
-    height: 35px;
-    overflow: auto;
-    font-weight: bolder;
-    padding: 5px 5px 5px 30px;
-}
-
-.valor{
-
-    margin-right: 5px;
-    width: 100px;
-    overflow: auto;
-    font-weight: bolder;
-    padding: 5px 5px 5px 30px;
-}
-
-.select-pagamento{
+.select_pagamento{
     width: 500px;
     height: 200px;
     padding: 10px 10px 10px 10px;
-    margin: 20px 5px 10px 5px
+    margin: 20px 5px 1px 5px
 }
 
 .selecionar{
@@ -181,7 +135,7 @@
     width: 260px;
     height: 40px;
     box-sizing: border-box;
-    margin: 20px 5px 10px 5px;
+    margin: 2px 5px 10px 5px;
     font-size: 20px;
     font-weight: 400;
 }
@@ -202,9 +156,9 @@
 
 
 .btn-pagar{
-    width: 60%; 
-    margin: 10px 5px 10px 5px;
-	padding: 12px 10px 10px 10px; 
+    width: 50%; 
+    margin: 1px 5px 10px 5px;
+	padding: 10px 10px 10px 10px; 
 	display: inline-block; 
 	border-radius: 10px; 
 	box-sizing: border-box;

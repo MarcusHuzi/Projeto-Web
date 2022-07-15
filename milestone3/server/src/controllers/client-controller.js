@@ -56,13 +56,10 @@ controller.updateClient = async (req,res)=>{
         await Client.findByIdAndUpdate(req.params.id,{
             $set:{
                 nome: req.body.nome,
-                cpf: req.body.cpf,
-                email: req.body.email,
                 senha: req.body.senha,
                 tel: req.body.tel,
-                nasc: req.body.nasc,
-                cep: req.body.cep,
                 endereco: req.body.endereco,
+                cep: req.body.cep,
             }
         });
         res.status(201).send({

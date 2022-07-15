@@ -44,11 +44,11 @@
 						<br>
 					<p id="v_cep" class="form_erro"></p>
 					
-					<span class="titulo">*Número + Complemento</span>
+					<span class="titulo">*Endereço</span>
 						<br>
-						<input class="secao1" type="number" name="numero" v-model="num" > <input class="secao2" type="number" name="comp" v-model="comp"> <br>
+						<input class="secao" type="text" name="end" v-model="end" ><br>
 						<br>
-					<p id="v_num" class="form_erro"></p>
+					<p id="v_end" class="form_erro"></p>
 
 					<span class="titulo">*Email</span>
 						<br>
@@ -98,8 +98,7 @@
 				conf_password:"",
 				cpf:"",
 				cep:"",
-				num: null,
-				comp: null,
+				end:"",
 				celular:"",
 				nome:"",
 				nasc:"",
@@ -181,12 +180,12 @@
 					this.erro[7] = 0;
 				}
 
-				//verificar se numero do end foi inserido corretamente
-				if(this.num == null){
-					document.getElementById("v_num").innerText = "Número inválido"
+				//verificar se o end foi inserido corretamente
+				if(this.end == ""){
+					document.getElementById("v_end").innerText = "Endereço inválido"
 					this.erro[8] = 1;
 				} else{
-					document.getElementById("v_num").innerText = "";
+					document.getElementById("v_end").innerText = "";
 					this.erro[8] = 0;
 				}
 
@@ -213,7 +212,7 @@
 					
 					try{
 						
-						const req = JSON.stringify({
+						let req = JSON.stringify({
 							nome: this.nome,
 							cpf: this.cpf,
 							email: this.email,
@@ -221,9 +220,7 @@
 							nasc: this.nasc,
 							senha: this.password,
 							cep: this.cep,
-							num: this.num,
-							comp: this.comp,
-							isAdm: false
+							endereco: this.end,
 						});				
 			
 
