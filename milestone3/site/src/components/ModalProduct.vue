@@ -7,7 +7,7 @@
             <div class="modal-prod-description">
                 <h1>{{this.$parent.modalProduct.title}}</h1>
                 <h2>{{this.$parent.modalProduct.description}}</h2>
-                <h3>R$ {{this.$parent.modalProduct.price}}</h3>
+                <h3>R$ {{ (this.$parent.modalProduct.price).toFixed(2) }}</h3>
             </div>
         </div>
     </div>
