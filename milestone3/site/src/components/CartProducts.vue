@@ -149,10 +149,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100px;
+        height: 100px;
+    }
+
+    .prod-imagem-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .prod-imagem {
-        width: 100px;
+        height: 100px;
     }
 
     .prod-details {

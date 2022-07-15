@@ -64,10 +64,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 300px;
+        height: 300px;
     }
 
     .modal-prod-image-box img {
-        width: 300px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .modal-prod-description {

@@ -9,7 +9,7 @@
                 <div class="product-box">
                     <div class="prod-details">
                         <div class="prod-imagem-box">
-                            <img :src="getImgUrl(product.image_src)" :alt="product.image_alt" class="prod-imagem">
+                            <img :src="getImgUrl(product.image_src)" :alt="product.image_alt">
                         </div>
                         <h2>{{ product.title }}</h2>
                     </div>
@@ -270,10 +270,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100px;
+        height: 100px;
     }
 
-    .prod-imagem {
-        width: 100px;
+    .prod-imagem-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     .prod-details {
