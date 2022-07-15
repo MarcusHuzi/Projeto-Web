@@ -121,7 +121,7 @@ O código ainda está numa fase inicial em que não foram implementadas funciona
 <a name="Plano-de-teste"/>
 
 ## 4. Plano de teste
-Os testes estão sendo feitos no próprio navegador a medida que o projeto é desenvolvido. Por não haver muita responsividade implementada, o foco está em manter a integridade de cada página ao longo de diferentes tamanhos de tela e situações.
+Os testes estão sendo feitos no próprio navegador a medida que o projeto é desenvolvido. Por não haver muita responsividade implementada, o foco está em manter a integridade de cada página ao longo de diferentes tamanhos de tela e situações. Ademais, foi utilizada a plataforma Insomnia para testar as requisões do CRUD.
 <br>
 <br>
 
