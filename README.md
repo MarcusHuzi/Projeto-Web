@@ -135,25 +135,19 @@ Neste estado inicial, os testes mostraram-se satisfatórios.
 <a name="Building"/>
 
 ## 6. Building
-É necessário ter o npm e node.js instalados. Todos os comandos abaixo devem ser digitados no escopo da pasta `shop`:
+É necessário ter o npm e node.js instalados.
 
-#### Instalação de Dependências:
+Para abrir o site:
+- `cd site`
+- rodar `npm install`
+- rodar `npm run serve`
+- o programa, no terminal, indicará em qual localhost está sendo executado
+- basta acessá-lo no navegador de sua preferência.
 
-```
-npm install
-```
-
-#### Compilação no Modo de Desenvolvimento:
-
-```
-npm run serve
-```
-
-#### Compilação e Minificação para Produção:
-
-```
-npm run build
-```
+Para rodar o servidor:
+- `cd server`
+- `npm install`
+- 'npx nodemon ./bin/server.js'
 <br>
 <br>
 
