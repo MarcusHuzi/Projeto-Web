@@ -232,13 +232,15 @@
                     let resp = await fetch("http://localhost:3000/products/"+this.id, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: {
-                            "title": this.nome_produto,
-                            "description": this.descricao,
-                            "price": this.preco,
-                            "category": this.categoria,
-                            "in_stock": this.qntEstoque
-                        }
+                        body: JSON.stringify(
+                            {
+                                title: this.nome_produto,
+                                description: this.descricao,
+                                price: this.preco,
+                                category: this.categoria,
+                                in_stock: this.qntEstoque
+                            }
+                        )
                     });
                     let resp_json = await resp.json();
 
