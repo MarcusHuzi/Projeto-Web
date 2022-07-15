@@ -75,6 +75,7 @@ export default {
         },
         logout() {
 			this.$cookies.remove("account_id");
+            this.$cookies.set("shopping_cart", null)
 			window.location.href = "/";
 		},
     }
