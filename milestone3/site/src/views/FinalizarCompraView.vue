@@ -117,7 +117,6 @@
                 tel:"",
                 valor: null,
                 form:"",
-                nasc:"",
                 nome:""
             }
         },
