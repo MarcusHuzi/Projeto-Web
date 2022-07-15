@@ -60,7 +60,7 @@ Nosso Mercadinho consiste eu um supermercado virtual, no qual são vendidos prod
 Considere para o diagrama que o usuário somente pode acessar a página 'Finalizar Compra' e a página 'Listas de Compras' caso esteja logado no sistema. Caso contrário, ele será redirecionado para a página de login.
 <br>
 <br>
-<img src=./nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
+<img src="./nav-diagram.png" alt="Diagrama de Navegação" width="800"/>
 
 Nesse repósitório existe a pasta /mockups onde estãos armazenados as imagens dos mockups do website. As imagens também podem ser acessadas através dos links abaixo:
 - [Home Page](https://github.com/MarcusHuzi/Projeto-Web/blob/main/mockups/home.jpg)
