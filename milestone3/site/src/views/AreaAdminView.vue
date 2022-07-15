@@ -17,25 +17,28 @@
                         <label>Nome do produto</label><input class="title" placeholder="Nome do produto aqui">
                     </div>
                     <div class="field">
-                        <label>Descrição</label><textarea class="description" placeholder="Descrição do produto aqui" rows="4" cols="50"></textarea>
+                        <label>
+                            Descrição
+                            <textarea class="description" placeholder="Descrição do produto aqui" rows="5" cols="50"></textarea>
+                        </label>
                     </div>
                     <div class="field">
                         <label>Preço</label><input class="price" placeholder="Preço do produto aqui">
                     </div>
                     <div class="field">
-                        <label>Categoria</label>
-                    </div>
-                    <div class="field">
+                        <label>
+                        Categoria
                         <select class="category" aria-placeholder="Selecione a categoria">
-                        <option value="bebidas">Bebidas</option>
-                        <option value="hortifruti" selected>Hortifruti</option>
-                        <option value="laticinios">Laticinios</option>
-                        <option value="congelados">Congelados</option>
-                        <option value="enlatados">Enlatados</option>
-                        <option value="cereais">Cereais</option>
-                        <option value="higiene">Higiene</option>
-                        <option value="limpeza">Limpeza</option>
-                    </select>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="hortifruti" selected>Hortifruti</option>
+                            <option value="laticinios">Laticinios</option>
+                            <option value="congelados">Congelados</option>
+                            <option value="enlatados">Enlatados</option>
+                            <option value="cereais">Cereais</option>
+                            <option value="higiene">Higiene</option>
+                            <option value="limpeza">Limpeza</option>
+                        </select>
+                    </label>
                     </div>
                     <div class="field">
                         <label>Quantidade no estoque</label><input class="in_stock" placeholder="Quantidade de itens no estoque aqui">
@@ -51,7 +54,7 @@
                 </div>
                 <div class="response-area users-response-area">
                     <div class="field">
-                        <label>Nome</label><input class="nome" placeholder="Nome d usuário aqui">
+                        <label>Nome</label><input class="nome" placeholder="Nome de usuário aqui">
                     </div>
                     <div class="field">
                         <label>CPF</label><input class="cpf" placeholder="CPF aqui">
@@ -72,10 +75,7 @@
                         <label>Endereço</label><input class="endereco" placeholder="Endereço aqui">
                     </div>
                     <div class="field">
-                        <label>
-                        É administrador
-                        <input class="isAdm" type="checkbox">
-                    </label>
+                        <label>É administrador</label><input class="isAdm" type="checkbox">
                     </div>
                 </div>
                 <div class="save-changes users-save-changes">
